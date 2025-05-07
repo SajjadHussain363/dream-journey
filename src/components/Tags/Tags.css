@@ -1,0 +1,26 @@
+.UAEDestinationsWrapper {
+    padding: 50px 0;
+}
+
+.UAEDestinationsWrapper .paragraph-primary, .paragraph-primary-sm {
+    color: #767e86;
+    font-family: Rubik;
+    font-size: 18px;
+    font-weight: 400;
+    margin: 0;
+}
+.PopularExperiencesTagesWraper a {
+    border-radius: 100px;
+    padding: 6px 16px;
+    background-color: #f5f3f7;
+    color: black;
+    font-size: 14px;
+    margin: 20px 0px 0px 8px;
+    background-clip: padding-box;
+    display: inline-block;
+    position: relative;
+    transition: color .1s linear, background-color .1s linear, border-color .1s linear;
+}
+section.ExplorePopularExperiencesWrapper {
+    margin-top: 80px;
+}

@@ -1,0 +1,139 @@
+.categoryBlg{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    padding: 6px 15px;
+    gap: 8px;
+    color: #fff;
+    font-size: 16px;
+    font-family: 'Rubik';
+    border-radius: 30px;
+    background: #f69d1e4d;
+    backdrop-filter: blur(7.5px);
+    text-align: center;
+    align-items: center;
+} 
+.custom-dropdown-header .sortedBlgDrpdown select{
+    width: 150px;
+}
+.FilterSortybyStyl{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* width: 210px; */
+    
+    position: absolute;
+        margin: 0px 0px 0px 110px;
+}
+.read-moreBlgs{
+    color: var(--secondary-color);
+    font-family: Rubik;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    text-decoration: none;
+}
+.read-moreBlgs svg{
+    font-size: 14px;
+    margin: 0 0 0 6px;
+}
+.BlgCrdWpres{
+    border-radius: 30px;
+    background: #fff;
+}
+.blgPddg{
+ padding: 20px 20px 10px 20px;
+}
+.blgPddg2{
+    border-radius: 30px 30px 0px 0px;
+}
+    
+
+/* Dropdwon Animation code start */
+
+.custom-dropdown {
+    position: relative;
+    width: 160px;
+    -webkit-user-select: none;
+    user-select: none;
+    display: flex
+;
+    border: 1px solid #ced4da;
+    border-radius: 50px;
+    padding: 0 10px 0 10px;
+    background: #fff;
+
+
+  }
+  
+  .custom-dropdown-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    
+    
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .custom-dropdown-header:hover {
+    border-color: #adb5bd;
+  }
+  
+  .custom-dropdown-input {
+    border: none;
+    background: transparent;
+    width: 100%;
+    outline: none;
+    font-size: 14px;
+  }
+  
+  .custom-dropdown-arrow {
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .rotate-180 {
+    transform: rotate(180deg);
+  }
+  
+  .custom-dropdown-content {
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 0;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    z-index: 1000;
+    animation: dropdown-fade 0.3s ease;
+  }
+  
+  @keyframes dropdown-fade {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .custom-dropdown-item {
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .custom-dropdown-item:hover {
+    background-color: #f8f9fa;
+  }
+  /* Dropdwon Animation code end */

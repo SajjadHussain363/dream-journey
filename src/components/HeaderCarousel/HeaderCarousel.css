@@ -1,0 +1,150 @@
+/* Main carousel container */
+.header-carousel {
+  position: relative;
+}
+
+.carousel-wrapper {
+  position: relative;
+  top: 0px;
+}
+
+.carousel-inner {
+  width: 100vw;
+  height: 100vh;
+}
+
+.hero-image {
+  object-fit: cover;
+  height: 100vh;
+}
+
+/* Caption styling */
+.carousel-caption {
+  position: absolute;
+  right: 15%;
+  top: 30%;
+  left: 10% !important;
+  z-index: 2;
+}
+
+.carousel-caption h1 {
+  font-size: 80px;
+  font-style: normal;
+  font-weight: 400;
+  font-family: var(--font-playFair);
+}
+
+.carousel-caption p {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.carousel-item:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0px;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000000ad;
+}
+
+/* Dots */
+.dot {
+  width: 12px;
+  height: 12px;
+  margin: 26px 0px 0px 0px;
+  border-radius: 50%;
+  background-color: #fff;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: #ffc107;
+  opacity: 1;
+}
+
+/* Arrows Container */
+.carousel-side-nav .arrows {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.carousel-side-nav .arrows i {
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0px;
+  border-radius: 50%;
+}
+
+.carousel-side-nav .arrows i:hover {
+  color: orange;
+  transform: scale(1.1);
+  
+}
+
+.carousel-side-nav .arrows i.disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+/* Dots alignment */
+.carousel-side-nav .dots {
+  margin:0;
+}
+
+.carousel-side-nav {
+  position: absolute;
+  top: 50%;
+  right: 40px;
+  transform: translateY(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .carousel-caption {
+    top: 20%;
+    left: 5% !important;
+    right: 5% !important;
+    text-align: center;
+  }
+
+  .carousel-caption h1 {
+    font-size: 50px;
+  }
+
+  .carousel-caption p {
+    font-size: 16px;
+  }
+
+  .carousel-side-nav {
+    position: absolute;
+    bottom: 20px;
+    top: auto;
+    right: 50%;
+    transform: translateX(50%);
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .carousel-side-nav .dots {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin: 0;
+  }
+
+  .carousel-side-nav .dots .dot {
+    margin: 0 !important;
+  }
+}

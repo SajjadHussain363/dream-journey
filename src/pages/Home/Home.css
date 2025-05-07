@@ -1,0 +1,224 @@
+.UAEDestinationsWrapper{
+    padding: 50px 0;
+}
+.UAEDestinationsWrapper .heading-primary {
+    position: relative;
+    display: inline-block;
+    color: #172432;
+    font-family: Playfair Display;
+    font-size: 54px;
+    font-weight: 400;
+    margin-bottom: 12px;
+    padding-bottom: 16px;
+}
+.UAEDestinationsWrapper .heading-primary:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: var(--secondary-color) !important;
+    width: 70% !important;
+    height: 3px;
+}
+.tagsHeadingSettings .headings-primary{
+  position: relative;
+  display: inline-block;
+  color: #172432;
+  font-family: Playfair Display;
+  font-size: 54px;
+  font-weight: 400;
+  margin-bottom: 12px;
+  padding-bottom: 16px;
+}
+.tagsHeadingSettings .headings-primary:after{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: #eef1f4 !important;
+  width: 50% !important;
+  height: 3px;
+}
+.UAEDestinationsWrapper .paragraph-primary, .paragraph-primary-sm {
+    color: #767e86;
+    font-family: Rubik;
+    font-size: 24px;
+    font-weight: 400;
+    margin: 0;
+}
+button.btn.btn-custom {
+    border: 1px solid #18335D;
+    color: #18335D;
+    border-radius: 100px;
+    padding: 12px 35px 12px 35px;
+    transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.35s;
+}
+button.btn.btn-custom:hover{
+  background: orange;
+    color: #fff;
+    border: 1px solid #18335D;
+    transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) ;
+}
+.PopularExperiencesTagesWraper a{
+    border-radius: 100px;
+    padding: 6px 16px;
+    background-color: #f5f3f7;
+    color: black;
+    font-size: 14px;;
+    margin: 20px 0px 0px 8px;
+    background-clip: padding-box;
+    display: inline-block;
+    position: relative;
+    transition: color .1s linear, background-color .1s linear, border-color .1s linear;
+}
+.PopularExperiencesTagesWraper a:hover{
+    background-color:#ff9500;
+    color: #18335D;
+}
+
+/* Button  */
+.click-btn {
+    display: flex;
+    width: 120px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    margin: 0.5rem;
+    line-height: 35px;
+    border: 1px solid;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 16px;
+    color: #000;
+    text-decoration: none;
+    transition: all 0.35s;
+    box-sizing: border-box;
+}
+.btn-style508 {
+    position: relative;
+    border-color: #5e5e5e;
+    color: #5e5e5e;
+    overflow: hidden;
+}
+.btn-style508:hover {
+    color: #fff;
+    border-color: #117831;
+}
+.btn-style508:hover::before {
+    transform: translate(0, 0);
+}
+.btn-style508::before {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 5px;
+    transform: translate(-100%, 0) rotate(50deg);
+    transform-origin: top left;
+    transition: all 0.35s;
+    background-color: #117831;
+    z-index: -1;
+    content: "";
+}
+/* ========== Responsive Design ========== */
+
+/* Tablet View */
+@media (max-width: 991px) {
+    .UAEDestinationsWrapper {
+      padding: 40px 15px;
+    }
+    .PaddingAll {
+      padding-left: 15px !important;
+      padding-right: 15px !important;
+  }
+    .UAEDestinationsWrapper .heading-primary {
+      font-size: 38px;
+      text-align: center;
+    }
+  
+    .UAEDestinationsWrapper .paragraph-primary-sm {
+      font-size: 20px;
+      text-align: center;
+    }
+  
+    .PopularExperiencesTagesWraper {
+      text-align: center;
+    }
+  
+    .PopularExperiencesTagesWraper a {
+      font-size: 13px;
+      margin: 8px 4px;
+    }
+  
+    .btn.btn-custom {
+      padding: 12px 24px;
+      font-size: 16px;
+      display: inline-block;
+      margin-top: 15px;
+    }
+  
+    .heading_border {
+      text-align: center;
+    }
+  }
+  
+  /* Mobile View */
+  @media (max-width: 576px) {
+    .UAEDestinationsWrapper {
+      padding: 30px 10px;
+    }
+    .PaddingAll {
+      padding-left: 15px !important;
+      padding-right: 15px !important;
+  }
+  
+    .UAEDestinationsWrapper .heading-primary {
+      font-size: 28px;
+      text-align: center;
+    }
+  
+    .UAEDestinationsWrapper .paragraph-primary-sm {
+      font-size: 16px;
+      text-align: center;
+      margin-top: 10px;
+    }
+  
+    .PopularExperiencesTagesWraper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  
+    .PopularExperiencesTagesWraper a {
+      padding: 4px 10px;
+      font-size: 12px;
+      margin: 5px 4px;
+    }
+  
+    .btn.btn-custom {
+      padding: 10px 20px;
+      font-size: 14px;
+      display: block;
+      width: 100%;
+      margin-top: 15px;
+    }
+  
+    .heading_border {
+      text-align: center;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .PaddingAll {
+      padding-left: 15px !important;
+      padding-right: 15px !important;
+  }
+  }
+
+  @media (max-width: 480px) {
+    .PaddingAll {
+      padding-left: 15px !important;
+      padding-right: 15px !important;
+  }
+  }

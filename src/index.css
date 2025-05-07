@@ -1,0 +1,159 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Genral css  */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+:root {
+  --primary-color: #18335d;
+  --secondary-color: #f69d1e;
+  --light-yellow: #fcf8f3;
+  --Grayscale-Tertiary: #eef1f4;
+  --Grayscale-Border: #aba7af;
+  --Grayscale-Black: #1a141f;
+  --Grayscale-Spacer_light: #e5e0eb;
+  --font-playFair: "Playfair Display";
+  --font-rubik: Rubik;
+  --Corporate-Orange-Light: #feca0a;
+  --Grayscale-Bg_light_grey: #f5f3f7;
+  --Corporate-Blue-Light: #2f64b5;
+  --Grayscale-Hint_text: #4b3a5a;
+  --white:#fff;
+
+  --danger-color: #ed5555;
+}
+.text-primary {
+  color: var(--primary-color) !important;
+}
+.bg-primary {
+  background-color: var(--primary-color) !important;
+}
+.bg-secondary {
+  background-color: var(--secondary-color) !important;
+}
+.bg-lightYellow {
+  background-color: var(--light-yellow) !important;
+}
+.bg-CorporateOrangeLight {
+  background-color: var(--Corporate-Orange-Light) !important;
+}
+.bg-Grayscale_Bg_light_grey {
+  background-color: var(--Grayscale-Bg_light_grey) !important;
+}
+.bg-Grayscale_Tertiary {
+  background-color: var(--Grayscale-Tertiary) !important;
+}
+.bg-Grayscale-Hint_text {
+  background-color: var(--Grayscale-Hint_text);
+}
+.bg-primary-blue {
+  background-color: var(--Corporate-Blue-Light);
+}
+.text-primary-blue {
+  color: var(--Corporate-Blue-Light);
+}
+.text-Grayscale-Spacer_light {
+  color: var(--Grayscale-Spacer_light);
+}
+/* ---------- scroll bar -------- */
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--secondary-color);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-color);
+}
+
+/* ------------------ */
+.hoverPrimary:hover {
+  background-color: var(--primary-color) !important;
+  color: #fff;
+}
+.hoverBorder:hover {
+  background-color: transparent !important;
+  border: 1px solid var(--Grayscale-Black);
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+.wrapper a {
+  text-decoration: none;
+  color: inherit;
+}
+.iconInput {
+  display: flex;
+  width: 100%;
+  height: 50px;
+  padding: 12px;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  border-radius: 2px;
+  border: 1px solid var(--Grayscale-Spacer_light, #e5e0eb);
+  background: var(--Grayscale-White, #fff);
+  transition: border-color 0.3s;
+}
+.iconInput input {
+  border: 0 !important;
+  font-family: var(--font-rubik);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  width: 100%;
+}
+
+.iconInput:focus-within {
+  border-color: var(
+    --secondary-color
+  ); /* Change this to your desired focus color */
+}
+.iconInput input:focus {
+  outline: none;
+}
+.iconInput input::placeholder {
+  color: #d4d2d5;
+}
+.inputIcon {
+  color: var(--Grayscale-Border);
+  width: 20px;
+  height: 20px;
+}

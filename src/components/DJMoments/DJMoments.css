@@ -1,0 +1,18 @@
+.DJ-Moments-section {
+    background: #fcf8f4;
+    padding: 80px 0;
+}
+.DJHeadingWrper p {
+    color: #767e86;
+    font-family: Rubik;
+    font-size: 20px;
+    font-weight: 400;
+}
+.DJHeadingWrper h1 {
+    color: #000;
+    font-family: Playfair Display;
+    font-size: 54px;
+    font-weight: 400;
+    overflow-wrap: break-word;
+    margin-bottom: 40px;
+}

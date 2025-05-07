@@ -1,0 +1,357 @@
+.Travel_Blog_wrapper .spaceForHeader {
+    padding-top: 50px;
+}
+.Travel_Blog_wrapper .blog-herosection {
+    background-color: var(--Grayscale-Hint_text);
+    height: 360px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Travel_Blog_wrapper .hero-content h1, .xl_body_text {
+    font-size: 80px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    font-family: var(--font-playFair);
+}
+.Travel_Blog_wrapper .blog-herosection p {
+    color: #fff;
+    text-align: center;
+    font-family: Rubik;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 52px;
+}
+
+.Travel_Blog_wrapper .wrapper {
+    padding: 80px 0;
+}
+.Travel_Blog_wrapper .blogSection img {
+    object-fit: cover;
+    border-top-left-radius: 16px;
+    border-bottom-left-radius: 16px;
+}
+.Travel_Blog_wrapper .travel_trip {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex
+;
+    padding: 6px 12px;
+    color: var(--Grayscale-Black, #1a141f);
+    font-family: var(--font-rubik);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+    border-radius: 100px;
+    background: var(--Grayscale-Spacer, #d9d1e0);
+    -webkit-backdrop-filter: blur(7.5px);
+    backdrop-filter: blur(7.5px);
+}
+.Travel_Blog_wrapper .blog-travelTrip {
+    background-color: var(--Grayscale-Bg_light_grey);
+    padding: 40px;
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+}
+.Travel_Blog_wrapper .heading-primary-borderLess {
+    position: relative;
+    display: inline-block;
+    color: #172432;
+    font-family: Playfair Display;
+    font-size: 54px;
+    font-weight: 400;
+    margin-bottom: 12px;
+    padding-bottom: 16px;
+}
+.Travel_Blog_wrapper .homepage-headings p {
+    color: #767e86;
+    font-family: Rubik;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 52px;
+}
+.Travel_Blog_wrapper .hover-text {
+    color: var(--secondary-color);
+    cursor: pointer;
+}
+.Travel_Blog_wrapper .hover-text a {
+    color: var(--secondary-color);
+    cursor: pointer;
+    font-family: Rubik;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 52px;
+}
+/* 2nd section start  */
+.ThreeClms_wrapper {
+    padding: 40px 0;
+}
+.ThreeClms_wrapper .blogTravelTrip {
+    border-radius: 16px;
+    height: 590px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.ThreeClms_wrapper .blogTripContent {
+    background: linear-gradient(180deg, #1a141f00, #1a141f4d 24.48%, #1a141f);
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    align-self: stretch;
+    color: #fff;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+.ThreeClms_wrapper .small-heading {
+    font-family: var(--font-playFair);
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+}
+.ThreeClms_wrapper .hover-text {
+    color: var(--secondary-color);
+    cursor: pointer;
+}
+.ThreeClms_wrapper .hover-text a {
+    color: var(--secondary-color);
+    cursor: pointer;
+    font-family: Rubik;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 52px;
+}
+.ThreeClms_wrapper .travel_trip{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    padding: 6px 12px;
+    color: var(--Grayscale-Black, #1a141f);
+    font-family: var(--font-rubik);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+    border-radius: 100px;
+    background: var(--Grayscale-Spacer, #d9d1e0);
+    -webkit-backdrop-filter: blur(7.5px);
+    backdrop-filter: blur(7.5px);
+}
+.Latest_blog_Section{
+    background-color: #eef1f4;
+    padding: 100px 0px 100px 0;
+}
+.Latest_Heading_wrapper .heading-primary {
+    position: relative;
+    display: inline-block;
+    color: #172432;
+    font-family: Playfair Display;
+    font-size: 54px;
+    font-weight: 400;
+    margin-bottom: 12px;
+    padding-bottom: 16px;
+}
+.Latest_Heading_wrapper .heading-primary:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: #f69d1e;
+    width: 80%;
+    height: 3px;
+}
+/* X-Small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+    .xl_body_text {
+      font-size: 28px;
+    }
+  
+    .Travel_Blog_wrapper .blog-herosection {
+      padding: 30px 15px;
+      height: auto;
+    }
+  
+    .Travel_Blog_wrapper .blog-herosection p {
+      font-size: 16px;
+      line-height: 28px;
+    }
+  
+    .Travel_Blog_wrapper .heading-primary-borderLess {
+      font-size: 24px;
+    }
+  
+    .Travel_Blog_wrapper .homepage-headings p {
+      font-size: 16px;
+      line-height: 26px;
+    }
+  
+    .ThreeClms_wrapper .blogTravelTrip {
+      height: 300px;
+    }
+  
+    .ThreeClms_wrapper .small-heading {
+      font-size: 16px;
+      line-height: 22px;
+    }
+  
+    .ThreeClms_wrapper .hover-text a {
+      font-size: 14px;
+      line-height: 22px;
+    }
+  
+    .ThreeClms_wrapper .travel_trip {
+      font-size: 12px;
+      padding: 3px 8px;
+    }
+  }
+  
+  /* Small devices (landscape phones, less than 768px) */
+  @media (max-width: 767.98px) {
+    .xl_body_text {
+      font-size: 32px;
+    }
+  
+    .Travel_Blog_wrapper .blog-herosection {
+      padding: 40px 20px;
+      height: auto;
+    }
+  
+    .Travel_Blog_wrapper .blog-herosection p {
+      font-size: 18px;
+      line-height: 32px;
+    }
+  
+    .Travel_Blog_wrapper .heading-primary-borderLess {
+      font-size: 28px;
+    }
+  
+    .Travel_Blog_wrapper .homepage-headings p {
+      font-size: 18px;
+      line-height: 30px;
+    }
+  
+    .ThreeClms_wrapper .blogTravelTrip {
+      height: 350px;
+    }
+  
+    .ThreeClms_wrapper .small-heading {
+      font-size: 18px;
+      line-height: 26px;
+    }
+  
+    .ThreeClms_wrapper .hover-text a {
+      font-size: 16px;
+      line-height: 26px;
+    }
+  }
+  
+  /* Medium devices (tablets, less than 992px) */
+  @media (max-width: 991.98px) {
+    .xl_body_text {
+      font-size: 40px;
+    }
+  
+    .Travel_Blog_wrapper .blog-herosection {
+      padding: 50px 30px;
+      height: auto;
+    }
+  
+    .Travel_Blog_wrapper .blog-herosection p {
+      font-size: 20px;
+      line-height: 36px;
+    }
+  
+    .Travel_Blog_wrapper .heading-primary-borderLess {
+      font-size: 34px;
+    }
+  
+    .Travel_Blog_wrapper .homepage-headings p {
+      font-size: 20px;
+      line-height: 38px;
+    }
+  
+    .ThreeClms_wrapper .blogTravelTrip {
+      height: 420px;
+    }
+  
+    .ThreeClms_wrapper .small-heading {
+      font-size: 20px;
+      line-height: 28px;
+    }
+  
+    .ThreeClms_wrapper .hover-text a {
+      font-size: 18px;
+      line-height: 30px;
+    }
+  }
+  
+  /* Large devices (desktops, less than 1200px) */
+  @media (max-width: 1199.98px) {
+    .xl_body_text {
+      font-size: 60px;
+    }
+  
+    .Travel_Blog_wrapper .blog-herosection p {
+      font-size: 22px;
+      line-height: 42px;
+    }
+  
+    .Travel_Blog_wrapper .heading-primary-borderLess {
+      font-size: 48px;
+    }
+  
+    .ThreeClms_wrapper .blogTravelTrip {
+      height: 500px;
+    }
+  
+    .ThreeClms_wrapper .small-heading {
+      font-size: 24px;
+      line-height: 30px;
+    }
+  
+    .ThreeClms_wrapper .hover-text a {
+      font-size: 20px;
+      line-height: 36px;
+    }
+  }
+  
+  /* X-Large devices (large desktops, less than 1400px) */
+  @media (max-width: 1399.98px) {
+    .xl_body_text {
+      font-size: 72px;
+    }
+  
+    .Travel_Blog_wrapper .blog-herosection p {
+      font-size: 24px;
+      line-height: 46px;
+    }
+  
+    .Travel_Blog_wrapper .heading-primary-borderLess {
+      font-size: 54px;
+    }
+  
+    .ThreeClms_wrapper .blogTravelTrip {
+      height: 560px;
+    }
+  
+    .ThreeClms_wrapper .small-heading {
+      font-size: 26px;
+      line-height: 34px;
+    }
+  }
+  

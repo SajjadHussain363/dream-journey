@@ -1,0 +1,112 @@
+.footer-subscribe {
+    position: relative;
+    border-radius: 26px;
+    background: #fff;
+    width: 100%;
+    box-shadow: 0 0 4px #0000004d;
+    padding: 60px 80px;
+    top: 120px;
+    z-index: 1;
+}
+
+.footer-subscribe h1 {
+    color: #767e86;
+    font-family: 'Playfair Display', serif;
+    font-size: 54px;
+    font-weight: 400;
+}
+
+.footer-subscribe p {
+    color: #767e86;
+    font-family: 'Rubik', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.footer-subscribe label {
+    color: #1a141f;
+    font-family: 'Rubik', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+
+.footer-subscribe input {
+    border-radius: 2px;
+    border: 1px solid #e5e0eb;
+    background: #fff;
+    padding: 12px;
+    font-family: 'Rubik', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    box-shadow: none;
+    width: 100%;
+}
+
+.footer-subscribe .btn-submit {
+    border-radius: 4px;
+    background: var(--secondary-color);
+    color: #fff;
+    font-family: 'Rubik', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    padding: 10px 0;
+}
+.OfrSubmitBtn{
+    margin: 23px 0 0 0;
+}
+
+/* === Responsive Styling === */
+
+@media (max-width: 991.98px) {
+    .footer-subscribe {
+        padding: 40px 30px;
+        top: 80px;
+    }
+
+    .footer-subscribe h1 {
+        font-size: 36px;
+        text-align: center;
+    }
+
+    .footer-subscribe p {
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .footer-subscribe form {
+        gap: 15px;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .footer-subscribe .btn-submit {
+        margin-top: 10px;
+        padding: 10px 20px;
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 576px) {
+    .footer-subscribe h1 {
+        font-size: 28px;
+    }
+
+    .footer-subscribe p {
+        font-size: 16px;
+    }
+
+    .footer-subscribe label {
+        font-size: 14px;
+    }
+
+    .footer-subscribe input {
+        font-size: 13px;
+        padding: 10px;
+    }
+
+    .footer-subscribe .btn-submit {
+        font-size: 16px;
+        padding: 10px 16px;
+    }
+}

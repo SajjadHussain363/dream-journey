@@ -1,0 +1,201 @@
+
+.spaceForHeader {
+    padding-top: 150px;
+}
+.cart-wrapper {
+    padding: 40px 0;
+}
+.aboutUsSection {
+    padding: 60px 0;
+}
+.breadcrumb_parent {
+    color: var(--secondary-color);
+    text-align: center;
+    font-family: Rubik;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    border-bottom: 2px solid var(--secondary-color);
+}
+.breadcrumb_child
+ {
+    color: var(--Grayscale-Border);
+    text-align: center;
+    font-family: Rubik;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+}
+.hero-content h1, .xl_body_text {
+    font-size: 80px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    font-family: var(--font-playFair);
+}
+.special-tags {
+    color: var(--Grayscale-Black, #1a141f);
+    font-family: var(--font-rubik);
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.mainWrpr{
+    background-color: #eef1f4;
+}
+.viewItinerary, .body-sm-text {
+    font-family: Rubik;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+}
+.aboutUsImgSection {
+    position: relative;
+}
+.aboutUsImgSection img
+ {
+    width: 443.31px;
+    height: 480.253px;
+    object-fit: cover;
+    border-radius: 16px 80px;
+    z-index: 3;
+}
+.bg-lightYellow {
+    background-color: var(--light-yellow) !important;
+    padding: 80px 0 80px 0;
+}
+.aboutImgBorder {
+    width: 443.31px;
+    height: 480.253px;
+    border-radius: 16px 80px;
+    border-top: .8px solid var(--Corporate-Orange-Main, #f69d1e);
+    border-left: .8px solid var(--Corporate-Orange-Main, #f69d1e);
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    z-index: 1;
+}
+.aboutImgBgColor {
+    width: 443.31px;
+    height: 480.253px;
+    border-radius: 16px 80px;
+    opacity: .98;
+    background: #18335d1a;
+    position: absolute;
+    bottom: -40px;
+    right: -40px;
+    z-index: 1;
+}
+.AboutAwardWinningWrapper {
+    background: #edf1f4;
+    padding: 30px 0px 50px 0px;
+}
+.wrapper .heading-primary {
+    position: relative;
+    display: inline-block;
+    color: #172432;
+    font-family: Playfair Display;
+    font-size: 54px;
+    font-weight: 400;
+    margin-bottom: 12px;
+    padding-bottom: 16px;
+}
+.wrapper .heading-primary:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: var(--secondary-color);
+    width: 80%;
+    height: 3px;
+}
+.wrapper .paragraph-primary, .paragraph-primary-sm {
+    color: #767e86;
+    font-family: Rubik;
+    font-size: 24px;
+    font-weight: 400;
+    margin: 0;
+}
+.reviewsReflect {
+    border-radius: 16px;
+    border: 1px solid rgba(25, 24, 37, .1);
+    background: #fff;
+    box-shadow: 0 4px 16px #1122110d;
+}
+.ratingTags {
+    font-family: var(--font-rubik);
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 52px;
+}
+.whyChooseNumber {
+    position: relative;
+}
+.whyChooseNumber h1 {
+    color: var(--Grayscale-Border);
+    font-family: var(--font-rubik);
+    font-size: 240px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    opacity: .1;
+}
+.whyChooseNumber p {
+    color: var(--secondary-color);
+    font-family: Rubik;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 52px;
+    position: absolute;
+    bottom: 50px;
+    left: 210px;
+}
+.whyChooseNumber p:before {
+    content: "";
+    background-color: var(--secondary-color);
+    position: absolute;
+    top: 24px;
+    left: -110px;
+    height: 2px;
+    width: 72px;
+}
+.heading-primary-sm {
+    font-family: var(--font-playFair);
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 42px;
+}
+.wrapper .paragraph-primary, .paragraph-primary-sm {
+    color: #767e86;
+    font-family: Rubik;
+    font-size: 24px;
+    font-weight: 400;
+    margin: 0;
+}
+.whyChooseImg {
+    height: 620px;
+}
+.whyChooseImg img {
+    margin: 60px 0 0 0;
+}
+.heading-primary-borderLess {
+    position: relative;
+    display: inline-block;
+    color: #172432;
+    font-family: Playfair Display;
+    font-size: 54px;
+    font-weight: 400;
+    margin-bottom: 12px;
+    padding-bottom: 16px;
+}
+
+
+ 
+  

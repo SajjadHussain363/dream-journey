@@ -1,0 +1,168 @@
+.header {
+  width: 100%;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+  transition: background-color 0.3s ease;
+}
+
+.headertops {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 3;
+}
+
+.header.scrolled {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.bgColor {
+  background-color: #1a141f4d !important;
+  border-bottom: 1px solid #d9d1e07c;
+}
+
+.mainWrpperHeader .phoneInnerWrapper {
+  padding-left: 140px !important;
+}
+
+.HeaderPhoneImage {
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+}
+
+.topbar-contact-info ul li a .icon img {
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+}
+
+.HeaderChatIcon {
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+}
+
+.HeaderSearchImage {
+  width: 20px;
+  height: 20px;
+  margin: -2px 0px 3px -3px;
+}
+
+.mainWrpperHeader a {
+  text-decoration: none;
+}
+
+.navLinksTop {
+  padding-right: 140px !important;
+  z-index: 2;
+}
+
+.zindexshow {
+  z-index: 2;
+}
+
+.HeaderLogo {
+  max-height: 30px;
+  padding-left: 140px !important;
+}
+
+.FontBoldNumber {
+  font-weight: 600;
+}
+
+.HeaderLogin {
+  padding-right: 114px !important;
+}
+
+.HeaderLogin a {
+  text-decoration: none;
+}
+
+.HeaderLoginImage {
+  width: 25px;
+  height: 25px;
+  margin-right: 5px;
+  overflow: hidden;
+  border-radius: 100%;
+}
+
+.CounterHeader {
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  display: inline-table;
+}
+
+.navbar {
+  z-index: 2;
+}
+.SearchBtn{
+  background: orange;
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    text-align: center;
+}
+/* Sticky header base style */
+.header {
+  transition: background-color 0.3s ease;
+}
+
+/* Add background on scroll */
+.headertops.scrolled .navbar {
+  background-color:#000000 !important;
+}
+.headertops.scrolled .mainWrpperHeader {
+  background-color:#000000 !important;
+}
+/* ------------------------ Responsive ------------------------ */
+@media (max-width: 991.98px) {
+  .HeaderLogo {
+    padding-left: 0 !important;
+    max-height: 18px;
+    width: 150px;
+  }
+
+  .mainWrpperHeader {
+    flex-direction: column !important;
+    text-align: center;
+  }
+
+  .mainWrpperHeader .phoneInnerWrapper {
+    padding-left: 0 !important;
+  }
+
+  .navLinksTop {
+    padding-right: 0 !important;
+    padding-top: 10px;
+  }
+
+  .HeaderLogin {
+    padding-right: 0 !important;
+    justify-content: center;
+  }
+
+  .navbar-nav {
+    align-items: center !important;
+  }
+
+  .navbar-collapse {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 10px;
+  }
+
+  .nav-item {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .HeaderPhoneImage,
+  .HeaderChatIcon {
+    margin: 0 5px 0 0;
+  }
+}

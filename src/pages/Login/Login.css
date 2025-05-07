@@ -1,0 +1,164 @@
+.spaceForHeader {
+    padding-top: 150px;
+   
+}
+.Login_wrapperst{
+    background-color: #eef1f4;
+}
+.bookTripLoginForm button:hover {
+    background-color: var(--secondary-color);
+    color: #fff;
+    border-color: var(--secondary-color);
+}
+.cs_breadcrub {
+    padding-top: 20px;
+}
+.breadcrumb_parent {
+    color: var(--secondary-color);
+    text-align: center;
+    font-family: Rubik;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    border-bottom: 2px solid var(--secondary-color);
+}
+.breadcrumb_child {
+    color: var(--Grayscale-Border);
+    text-align: center;
+    font-family: Rubik;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+}
+.commonTxt {
+    color: #1a141f;
+    font-family: Rubik;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+}
+.commonTxt a{
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #18335d;
+    text-decoration: none;
+    font-weight: 700;
+}
+hr {
+    margin: 1rem 0;
+    color: inherit;
+    border: 0;
+    border-top: var(--bs-border-width) solid;
+    opacity: .25;
+}
+.CustomshadowCard {
+    border-radius: 12px;
+    background: var(--Neutrals, #fff);
+    box-shadow: 0 4px 16px #1122110d;
+    padding: 24px;
+    gap: 15px;
+    margin-bottom: 150px;
+}
+.bookTripLoginForm {
+    padding: 24px;
+    border-radius: 12px;
+    border: 1px solid var(--Grayscale-Spacer, #d9d1e0);
+    background: var(--Neutrals, #fff);
+}
+.bookTripLoginForm h1 {
+    font-family: var(--font-rubik);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.simpleInput {
+    border-radius: 2px;
+    border: 1px solid var(--Grayscale-Spacer_light, #e5e0eb);
+    background: var(--Grayscale-White, #fff);
+    font-family: Rubik;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    color: var(--Grayscale-Black);
+    padding: 12px;
+    width: 100%;
+    resize: none;
+}
+.bookTripLoginForm button {
+    margin-top: 20px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    background: var(--primary-color);
+    color: #fff;
+    width: 100%;
+    font-family: var(--font-rubik);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    border: 0;
+}
+.or-break, .or-break-short {
+    color: var(--Blackish-Green, #121);
+    font-family: var(--font-rubik);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    position: relative;
+}
+.or-break:before {
+    width: 45%;
+}
+.or-break:before, .or-break-short:before {
+    display: inline-block;
+    content: " ";
+    height: 1px;
+    opacity: .25;
+    background: #aba7af;
+    position: absolute;
+    bottom: 12px;
+    left: 0;
+}
+.or-break:after, .or-break-short:after {
+    display: inline-block;
+    content: " ";
+    height: 1px;
+    opacity: .25;
+    background: #aba7af;
+    position: absolute;
+    bottom: 12px;
+    right: 0;
+}
+.or-break:after {
+    width: 45%;
+}
+.login-social-option, .payment-social-option {
+    border-radius: 4px;
+    border: 1px solid var(--primary-color);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    cursor: pointer;
+}
+.login-social-option img {
+    width: 24px;
+    height: 24px;
+}
+.login-social-option, .payment-social-option {
+    border-radius: 4px;
+    border: 1px solid var(--primary-color);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    cursor: pointer;
+}

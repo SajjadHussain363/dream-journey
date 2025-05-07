@@ -1,0 +1,57 @@
+.MultiUserDropdownWrapper .input-wrapper {
+    width: 100%;
+  }
+  
+  .MultiUserDropdownWrapper .sort-option-btn {
+    padding: 5px 12px;
+    padding-right: 36px; /* space for icon */
+    border-radius: 20px;
+    border: 1px solid #000;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 25px;
+  }
+  
+  .MultiUserDropdownWrapper .customDropdown {
+    position: absolute;
+    z-index: 10;
+    background-color: #fff;
+    border: 1px solid #e5e0eb;
+    border-radius: 16px;
+    box-shadow: 0 14px 42px #080f340f;
+    transition: all 0.2s ease-in-out;
+  }
+  .customDropdownList{
+    transition: all 0.2s ease-in-out;
+    opacity: 1;
+    visibility: visible;
+    
+  }
+  
+  .MultiUserDropdownWrapper .customDropdownList ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .MultiUserDropdownWrapper .customDropdownList ul li {
+    padding: 12px 20px;
+    border-top: 1px solid #e5e0eb;
+    cursor: pointer;
+    transition: background 0.2s;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .MultiUserDropdownWrapper .customDropdownList ul li:hover {
+    background-color: #f4f4f4;
+  }
+  
+  .MultiUserDropdownWrapper .form-control:focus {
+    color: var(--bs-body-color);
+    background-color: var(--bs-body-bg);
+    border-color: #000;
+    outline: 0;
+    box-shadow: none;
+}
+

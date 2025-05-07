@@ -1,0 +1,58 @@
+.help-centre-section{
+    background-color: #edf1f4;
+    padding: 80px 0;
+}
+
+.HelpCentreHeading h1 {
+    position: relative;
+    display: inline-block;
+    color: #1a141f;
+    font-family: Playfair Display;
+    font-size: 54px;
+    font-weight: 400;
+    padding-bottom: 10px;
+    text-align: center;
+}
+.HelpCentreHeading h1:after {
+    content: "";
+    position: absolute;
+    bottom: -14px;
+    left: 0;
+    background: #1a141f;
+    width: 50%;
+    height: 3px;
+    transform: translate(50%);
+}
+.HelpCentresubtitle p {
+    margin-top: 16px;
+    color: #1a141f;
+    text-align: center;
+    font-family: Rubik;
+    font-size: 24px;
+    font-weight: 400;
+}
+/* Tabs */
+._question_p6pr1_31 {
+    width: 100%;
+    border-radius: 12px;
+    border: 1.33px solid #f5f3f7;
+    background: #fff;
+    box-shadow: 0 8px 16px #3e134d12;
+    border: none;
+    padding: 20px;
+    margin-top: 30px;
+    text-align: center;
+    color: #1e1d4c;
+    font-family: Rubik;
+    font-size: 24px;
+    font-weight: 400;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+.helptansinner a {
+    text-decoration: none;
+    color: inherit;
+}
+._question_p6pr1_31:hover {
+    color: #fff;
+    background: var(--secondary-color);
+}

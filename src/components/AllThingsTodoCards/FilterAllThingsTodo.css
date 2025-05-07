@@ -1,0 +1,104 @@
+.AllThingToDoWrapper {
+    border: 1px solid #80808063;
+    padding: 30px 20px;
+    border-radius: 3px;
+  }
+  .accordion-body .form-check-input{
+    width: 1.2em;
+    height: 1.2em;
+  }
+  
+  .FilterResultWrapper__heading h4 {
+    color: #172432;
+    font-family: 'Playfair Display', serif;
+    font-size: 25px;
+    font-weight: 400;
+    margin-bottom: 12px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .FilterResultWrapper__input-group {
+    margin-bottom: 15px;
+  }
+  
+  .FilterResultWrapper__input-group input {
+    padding: 18px;
+    border: none;
+    outline: none !important;
+  }
+  .FilterResultWrapper__input-group input:focus {
+    color: var(--bs-body-color);
+    background-color: #fff;
+    border-color: #fff;
+    outline: 0;
+    box-shadow: 0 0 0 .25rem rgb(255 255 255 / 25%) !important;
+}
+  .FilterResultWrapper__input-group {
+    border: var(--bs-border-width) solid var(--bs-border-color);
+    border-radius: 5px;
+}
+.FilterResultWrapper__search-icon {
+    text-align: center;
+    align-items: center;
+    margin: 16px 20px 0px 0px;
+}
+  .FilterResultWrapper__tags {
+    padding: 25px 0 35px 0 !important;
+    min-height: 48px;
+    background: #ffffff;
+    border-radius: 4px;
+  }
+  
+  .FilterResultWrapper__tag {
+    background-color: #f5f3f7;
+    color: #000000;
+    padding: 6px 12px;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    font-size: 14px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+  }
+  
+  .FilterResultWrapper__remove {
+    cursor: pointer;
+    margin-left: 8px;
+    font-weight: bold;
+  }
+  
+  .accordion-button {
+    font-weight: 500;
+    color: #000;
+  }
+  
+  .form-check {
+    margin-bottom: 10px;
+  }
+  
+  .text-end {
+    text-align: end;
+  }
+  .FilterResultWrapper__reset-btn{
+    border: none;
+    background: transparent;
+    color: #f8b015;
+    font-weight: 600;
+  }
+  button.accordion-button {
+    color: #172432;
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 12px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #ddd;
+}
+           
+.FilterResultWrapper__hr{
+    height: 3px;
+    background-color: orange;
+    width: 100%;
+    margin: 15px 0 0 0;
+}

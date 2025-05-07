@@ -1,0 +1,41 @@
+.TagsBoxesWrapper {
+    margin-bottom: 20px;
+  }
+  
+  .TagsBoxesWrapperCardInner h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  
+  .TagsBoxesWrapperCardInner p {
+    font-size: 0.95rem;
+    color: #666;
+    margin: 0;
+  }
+  
+  
+  @media (max-width: 767.98px) {
+    .TagsBoxesWrapperCardInner h3 {
+      font-size: 1.1rem;
+    }
+  
+    .TagsBoxesWrapperCardInner p {
+      font-size: 0.9rem;
+    }
+  
+    .TagsBoxesWrapper {
+      padding: 0 10px;
+    }
+  }
+  
+  @media (max-width: 575.98px) {
+    .TagsBoxesWrapperCardInner h3 {
+      font-size: 1rem;
+    }
+  
+    .TagsBoxesWrapperCardInner p {
+      font-size: 0.85rem;
+    }
+  }
+  

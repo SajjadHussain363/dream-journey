@@ -1,0 +1,64 @@
+.DJ_Products_Wrapper{
+    position: relative;
+}
+.DJ_Products_Wrapper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(120deg, #0000008f, #0000008f);
+    opacity: .7;
+}
+.DJ_Products_Hero {
+    width: 100%;
+}
+.DJ_Products_Heading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    color: #fff;
+    width: 80%;
+    text-align: start;
+    transform: translate(-50%, -50%);
+}
+.DJ_Products_Heading h1 {
+    font-size: 80px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    font-family: var(--font-playFair);
+}
+.DJ_Products_Heading p {
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 52px;
+    font-family: var(--font-rubik);
+}
+
+.DJ_Products_HeroWrapper {
+    position: relative;
+}
+.AllTours_Heading{
+    position: relative;
+    display: inline-block;
+    color: #172432;
+    font-family: Playfair Display;
+    font-size: 54px;
+    font-weight: 400;
+    margin-bottom: 12px;
+    padding-bottom: 16px;
+    margin-top: 40px;
+}
+.AllTours_Heading:after {
+    content: "";
+    position: absolute;
+    bottom: 11px;
+    left: 0;
+    background: var(--secondary-color);
+    width: 100%;
+    height: 3px;
+}

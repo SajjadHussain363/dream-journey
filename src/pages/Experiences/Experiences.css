@@ -1,0 +1,58 @@
+.HeroSectionExpWrapper{
+    position: relative;
+}
+.HeroSectionExpWrapper .headingANDtextExp{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+}
+.HeroSectionExpWrapper .headingANDtextExp h1{
+    font-size: 80px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    font-family: var(--font-playFair);
+}
+.HeroSectionExpWrapper .headingANDtextExp p {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 52px;
+    font-family: var(--font-rubik);
+}
+.BreadcrumbsExp a {
+    color: var(--secondary-color);
+    text-align: center;
+    font-family: Rubik;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    text-decoration: none;
+    border-bottom: 2px solid var(--secondary-color);
+}
+.BreadcrumbsExp span{
+    color: var(--Grayscale-Border);
+    text-align: center;
+    font-family: Rubik;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+}
+.TagsBoxesWrapper .card{
+    transition: all 0.3s ease-in-out;
+    background-color: #767279 !important;
+}
+.TagsBoxesWrapper .card:hover {
+    background-color: #312c35 !important;
+    transition: all 0.3s ease-in-out;
+}
+.TagsBoxesWrapperCardInner .card-title{
+color: #fff;
+}
+.TagsBoxesWrapperCardInner .card-text{
+color: #fff;
+}

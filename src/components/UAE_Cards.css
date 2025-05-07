@@ -1,0 +1,16 @@
+UAEExplorerCarousel
+
+
+.destination-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.card-image {
+    height: 250px;
+    overflow: hidden;
+}
+
+<div class="card-content"><h3 class="card-title">Abu Dhabi</h3><p class="card-subtitle">Cultural Capital</p></div>

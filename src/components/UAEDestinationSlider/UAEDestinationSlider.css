@@ -1,0 +1,147 @@
+.UAEDestinationSectionWrapper {
+  background-color: #F6F6F6;
+}
+/*Slider Sajjad*/
+.UAEDestinationSliderWrapper {
+  padding: 80px 80px 40px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.uae-slide-card-wrapper {
+  padding: 10px;
+}
+
+.uae-slide-card {
+  position: relative;
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.uae-slide-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.uae-slide-card:hover {
+  transform: translateY(-5px);
+}
+
+.slide-title {
+  background-color: #fff;
+  font-size: 1rem;
+}
+
+.uae-slide-card .slide-title {
+  text-align: start;
+  margin: 10px 0px 10px 30px;
+  color: #172432;
+  font-family: Playfair Display;
+  font-size: 20px;
+}
+
+.custom-arrow {
+  position: absolute;
+  top: -70px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.next-arrow {
+  right:50px;
+}
+
+.prev-arrow {
+  right: 110px;
+}
+
+.UAEleftArrowChrion {
+  background-color: #18335D;
+  font-size: 24px;
+  color: #fff;
+  width: 50px;
+  height: 50px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/*Slider Sajjad*/
+.slick-slide{
+  margin: 0 -3px 0 0 !important;
+}
+
+/* ===== Responsive ===== */
+
+@media (max-width: 992px) {
+  .uae-slide-card img {
+    height: 250px;
+  }
+
+  .prev-arrow {
+    right: 100px;
+  }
+
+  .next-arrow {
+    right: 30px;
+  }
+
+  .UAEleftArrowChrion {
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .UAEDestinationSliderWrapper {
+    padding: 30px 10px;
+  }
+
+  .uae-slide-card img {
+    height: 220px;
+  }
+
+  .prev-arrow,
+  .next-arrow {
+    top: -60px;
+  }
+
+  .prev-arrow {
+    right: 60px;
+  }
+
+  .next-arrow {
+    right: 10px;
+  }
+
+  .UAEleftArrowChrion {
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .uae-slide-card img {
+    height: 200px;
+  }
+
+  .UAEleftArrowChrion {
+    width: 28px;
+    height: 28px;
+    font-size: 16px;
+  }
+
+  .prev-arrow {
+    right: 50px;
+  }
+
+  .next-arrow {
+    right: 5px;
+  }
+}

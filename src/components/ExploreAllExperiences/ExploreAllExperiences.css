@@ -1,0 +1,220 @@
+/* Section styling for Explore All Experiences */
+.Explore_All_Experiencs_Btn_ViewAll Button {
+    width: 173px !important;
+    height: 54px;
+    background: transparent;
+    color: #000;
+    border-radius: 50px;
+  }
+ 
+  
+  .Explore_All_Experiencs_Heading h1 {
+    position: relative;
+    display: inline-block;
+    color: #172432;
+    font-family: Playfair Display;
+    font-size: 54px;
+    font-weight: 400;
+    margin-bottom: 12px;
+    padding-bottom: 16px;
+  }
+  
+  .Explore_All_Experiencs_Heading h1:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: var(--secondary-color);
+    width: 80%;
+    height: 3px;
+  }
+  .Explore_All_Experiencs_Btn_ViewAll button:hover{
+    background: var(--secondary-color);
+  }
+  
+  /* Card Styling */
+  .Explore_All_Experiencs_Card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+  }
+  
+  .Explore_All_Experiencs_Card:hover {
+    transform: translateY(-5px);
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
+  }
+  
+  .Explore_All_Experiencs_Image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+  }
+  
+  .Explore_All_Experiencs_Card_Tip {
+    color: #fff;
+    font-weight: 600;
+  }
+  
+  .Explore_All_Experiencs_CityTour {
+    background: #5d88caa1;
+    padding: 5px 10px;
+    border-radius: 50px;
+    font-size: 13px;
+    position: absolute;
+    right: 20px;
+    top: 10px;
+  }
+  
+  .Explore_All_Experiencs_StarReview {
+    background:#0a0a0a73;
+    padding: 5px 10px;
+    border-radius: 50px;
+    font-size: 13px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 20px;
+    top: 10px;
+  }
+  
+  .Explore_All_Experiencs_Card_Title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a1a1a;
+    line-height: 1.4;
+    flex: 1;
+    margin: 10px 0;
+  }
+  
+  .Explore_All_Experiencs_LocationCity i {
+    color: #ff6200;
+  }
+  
+  .Explore_All_Experiencs_ReviewRating i {
+    color: #f5b301;
+    margin-right: 2px;
+    font-size: 14px;
+  }
+  
+  .Explore_All_Experiencs_ReviewRating span {
+    margin-left: 8px;
+    font-size: 13px;
+    color: #555;
+  }
+  
+  .Explore_All_Experiencs_CuttingPrice {
+    font-size: 14px;
+    color: #888;
+  }
+  
+  .Explore_All_Experiencs_CuttingPrice del {
+    color: #c00;
+    margin-left: 5px;
+  }
+  
+  .Explore_All_Experiencs_OriginalPrice {
+    font-weight: bold;
+    color: #000;
+  }
+  
+  .Explore_All_Experiencs_PersonGroup {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .Explore_All_Experiencs_HeartLike {
+    font-size: 18px;
+    color: #c00;
+    cursor: pointer;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 991px) {
+    .Explore_All_Experiencs_Image {
+      height: 200px;
+    }
+  
+    .Explore_All_Experiencs_Card_Title {
+      font-size: 15px;
+    }
+    .Explore_All_Experiencs_Heading h1:after {
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+    .Explore_All_Experiencs_Btn_ViewAll Button {
+        width: 100% !important;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .Explore_All_Experiencs_Image {
+      height: 180px;
+    }
+  
+    .Explore_All_Experiencs_Card_Title {
+      font-size: 14px;
+    }
+  
+    .Explore_All_Experiencs_ReviewRating span {
+      font-size: 12px;
+    }
+  
+    .Explore_All_Experiencs_CuttingPrice,
+    .Explore_All_Experiencs_OriginalPrice,
+    .Explore_All_Experiencs_PersonGroup {
+      font-size: 13px;
+    }
+    .Explore_All_Experiencs_Heading h1 {
+        font-size: 28px;
+      }
+    .Explore_All_Experiencs_Heading h1:after {
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+    .Explore_All_Experiencs_Btn_ViewAll Button {
+        width: 250px !important;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .Explore_All_Experiencs_Btn_ViewAll Button {
+      width: auto;
+    }
+    .Explore_All_Experiencs_Heading h1 {
+        font-size: 36px;
+      }
+      .Explore_All_Experiencs_Heading h1:after {
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+  }
+
+  .ShowingRecords {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers horizontally */
+    justify-content: center; /* Centers vertically if height is set */
+    text-align: center; /* Optional: ensures the text is centered */
+    height: 100%; /* Optional: makes sure content is vertically centered */
+  }
+  
+  .Explore_All_Experiencs_Btn_ViewAll Button {
+    width: 100%; /* Button takes full width on mobile */
+  }
+  
+  @media (min-width: 768px) {
+    .Explore_All_Experiencs_Btn_ViewAll Button {
+      width: auto; /* Button returns to auto width on tablet/desktop */
+    }
+  }
+  

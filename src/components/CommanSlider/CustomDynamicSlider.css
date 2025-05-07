@@ -1,0 +1,139 @@
+/* Slider container */
+.CDSslider-container {
+    position: relative;
+    max-width: 100%;
+    padding: 20px 0 60px;
+    overflow: hidden;
+  }
+  
+  /* Arrow wrapper (top-right) */
+  .CDSslider-container .CDSarrow-wrapper {
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    display: flex;
+    gap: 35px;
+    z-index: 2;
+  }
+  
+  /* Custom arrow styles */
+  .CDSslider-container .CDScustom-arrow {
+    width: 50px;
+    height: 50px;
+    background: #18335D;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 24px;
+  }
+  
+  /* Slick slide styling */
+  .slick-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  
+  /* Slide content */
+  .CDSslider-container .slick-slide h3 {
+    margin: 0;
+    display: flex;
+  }
+  
+  /* Slick track fix */
+  .CDSslider-container .slick-track {
+    display: flex !important;
+  }
+  
+  /* Dot spacing */
+  .CDSslider-container .slick-dots {
+    bottom: -30px;
+  }
+  
+  /* Hide horizontal overflow */
+  body {
+    overflow-x: hidden;
+  }
+.CDS_Headings{
+    position: relative;
+    display: inline-block;
+    color: #172432;
+    font-family: Playfair Display;
+    font-size: 54px;
+    font-weight: 400;
+    margin-bottom: 12px;
+    padding-bottom: 16px;
+}
+.CDS_Headings::after {
+    content: "";
+    position: absolute;
+    right: 0px;
+    bottom: 8px;
+    width: 180px;
+    height: 2px;
+    background: #f69d1f;
+}
+.CDScustom-arrow i{
+    font-size: 24px;
+}
+
+.CDSslider-container .slick-slide {
+    margin: 0 0px 0 0 !important;
+}
+.comman-postsssss{
+    background-color: gray;
+}
+.CDS_Wrapper{
+    
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.CDS_post-content {
+    padding: 20px 10px 0px 10px;
+}
+.CDS_post-content .CDS_post_title {
+    color: #172432;
+    font-family: Playfair Display;
+    font-size: 22px;
+    font-weight: 400;
+}
+.CDS_LocationCity {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+}
+.CDS_ReviewRatingCardWpr i {
+    color: #fbb513;
+    margin: 0 6px 0 0px;
+}
+.CDSslider-container .commanTipwper{
+    position: absolute;
+    top: 0;
+}
+
+.CDS_CityTur {
+    position: absolute;
+    top: 20px;
+    right: 34px;
+    background: #5d88ca;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 50px;
+    font-size: 14px;
+    width: 76px;
+}
+.CDS_starReview {
+    position: absolute;
+    top: 20px;
+    left: 13px;
+    background: #173f8a;
+    color: white;
+    padding: 6px 5px 7px 14px;
+    border-radius: 50px;
+    font-size: 14px;
+    width: 70px;
+}
