@@ -80,6 +80,7 @@ const BlogDetail = () => {
 
   // Error state UI
   const renderErrorState = () => {
+    // zaroori comment add kiey
     return (
       <Container>
         <Row className="mt-5">
