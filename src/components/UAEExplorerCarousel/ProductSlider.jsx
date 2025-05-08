@@ -47,7 +47,7 @@ function SimpleSlider() {
 
     fetchData();
   }, []);
-  
+
 
   const settings = {
     dots: false,
@@ -79,7 +79,7 @@ function SimpleSlider() {
       },
     ],
   };
-  
+
 
   return (
     <section className="OurTopPics">
@@ -112,8 +112,9 @@ function SimpleSlider() {
             {!loading && !error && products.length > 0 && (
               <div className="slider-container ProductCarousel position-relative">
                 <Slider {...settings}>
-                  {products.map((product, index) => (
-                    <div key={index} className="px-2">
+                  {products.map((product, index) => {
+                    return <div key={index} className="px-2">
+
                       <div className="product-card text-center">
                         <img
                           src={product.product_image}
@@ -130,33 +131,40 @@ function SimpleSlider() {
                             <div className="CategoryToursInner">{product.category}</div>
                           )}
 
-                         <div className="d-flex align-items-center justify-content-between">
-                         <Link to="#" className="Products_card_title">
-                            <h3 className="card-title fw-bold mt-2">{product.name}</h3>
-                          </Link>
-                          <button class="btn wishlist-icon ">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
-                            <path d="M14.7233 24.2784C14.3266 24.4184 13.6733 24.4184 13.2766 24.2784C9.89325 23.1234 2.33325 18.305 2.33325 10.1384C2.33325 6.53337 5.23825 3.6167 8.81992 3.6167C10.9433 3.6167 12.8216 4.64337 13.9999 6.23003C15.1783 4.64337 17.0683 3.6167 19.1799 3.6167C22.7616 3.6167 25.6666 6.53337 25.6666 10.1384C25.6666 18.305 18.1066 23.1234 14.7233 24.2784Z" stroke="#1A141F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                            </svg>
-                          </button>
-                         </div>
+                          <div className="d-flex align-items-center justify-content-between">
+                            <Link to={`/top-pick-details/${product.uid}`} className="Products_card_title">
+                              <h3 className="card-title fw-bold mt-2">{product.name}</h3>
+                            </Link>
+                            <button class="btn wishlist-icon ">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
+                                <path d="M14.7233 24.2784C14.3266 24.4184 13.6733 24.4184 13.2766 24.2784C9.89325 23.1234 2.33325 18.305 2.33325 10.1384C2.33325 6.53337 5.23825 3.6167 8.81992 3.6167C10.9433 3.6167 12.8216 4.64337 13.9999 6.23003C15.1783 4.64337 17.0683 3.6167 19.1799 3.6167C22.7616 3.6167 25.6666 6.53337 25.6666 10.1384C25.6666 18.305 18.1066 23.1234 14.7233 24.2784Z" stroke="#1A141F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                              </svg>
+                            </button>
+                          </div>
 
                           <div className="CityFeatch text-start d-flex">
-                          
-                          <Link><i class="bi bi-geo-alt"></i> Dubai</Link>
-                          <Link className="NatureWildLife bulltes"><i class="bi bi-circle-fill"></i> Nature & Wildlife</Link>
-                           
+
+                            <div><i class="bi bi-geo-alt"></i> Dubai</div>
+                            <div className="NatureWildLife bulltes"><i class="bi bi-circle-fill"></i> {product.theme.join(", ")}</div>
+
                           </div>
                           <div className="ReviewRatingWrapper text-start">
-                            
-                            <Link className="ms-2 RtingNew"><span>★</span> New</Link> &nbsp;
-                            <Link className="TimeShow"><span><i class="bi bi-clock"></i></span> 4 Hours</Link>
+
+                            <div className="ms-2 RtingNew d-flex">
+                              {product.is_new_product ? (
+                                <span>★ New</span>
+                              ) : (
+                                <span>{"★".repeat(Math.round(product.average_rating))}</span>
+                              )}
+                               <div className="TimeShow"><span><i class="bi bi-clock"></i></span>  {product.duration}</div>
+                            </div>
+                           
                           </div>
                           <div className="CityFeatch text-start d-flex">
-                          
-                          <Link><i class="bi bi-check-circle"></i> Free Cancellation</Link>
-                          <Link className="NatureWildLife bulltes"><i class="bi bi-ticket-perforated"></i> Tour</Link>
-                           
+
+                            <div><i class="bi bi-check-circle"></i> Free Cancellation : {product.free_cancellation ? "Yes" : "No"}</div>
+                            <div className="TourTypes bulltes"><i class="bi bi-ticket-perforated"></i>&nbsp; {product.type}</div>
+
                           </div>
 
                           <div className="text-start mt-3">
@@ -173,7 +181,7 @@ function SimpleSlider() {
                         </div>
                       </div>
                     </div>
-                  ))}
+                  })}
                 </Slider>
               </div>
             )}

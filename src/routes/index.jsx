@@ -16,6 +16,7 @@ import TermsConditions from '../pages/TermsConditions/TermsConditions';
 import Legal from '../pages/Legal/Legal';
 import Contact from '../pages/Contact/Contact';
 import ScrollToTop from '../components/ScrollToTop/ScrollToTop';
+import TopPickDetails from '../pages/TopPickDetails/TopPickDetails';
 
 const Index = () => {
   return (
@@ -38,7 +39,7 @@ const Index = () => {
       <Route path="/terms-conditions" Component={TermsConditions} />
       <Route path="/legal" Component={Legal} />
       <Route path="/contact-us" Component={Contact} />
-     
+      <Route path="/top-pick-details/:slug" Component={TopPickDetails} />
 
       
     

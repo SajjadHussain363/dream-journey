@@ -39,6 +39,15 @@
 .OurTopPics .product-card-content-wrapper {
   padding: 20px 16px 16px 16px;
 }
+.OurTopPics .Products_card_title .card-title:hover
+ {
+    color: #f69d1d;
+}
+
+.TourTypes i {
+  font-size: 25px;
+}
+
 
 /* ---- Custom Arrow ---- */
 .OurTopPics .custom-arrow {
