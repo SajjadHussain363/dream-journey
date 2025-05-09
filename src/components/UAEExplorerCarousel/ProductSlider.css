@@ -13,6 +13,8 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding-bottom: 15px;
   position: relative;
+  max-height: 570px;
+  height: 560px;
 }
 .OurTopPics .Products_card_title{
   text-decoration: none;
@@ -43,12 +45,12 @@
  {
     color: #f69d1d;
 }
-
 .TourTypes i {
   font-size: 25px;
 }
-
-
+.TourTypes {
+  margin: 0 0 0 20px;
+}
 /* ---- Custom Arrow ---- */
 .OurTopPics .custom-arrow {
   position: absolute;
@@ -99,6 +101,9 @@
     width: 35px;
     height: 35px;
   }
+  .OurTopPics .product-card {
+    height: auto;
+}
 }
 
 @media (max-width: 576px) {
@@ -121,6 +126,9 @@
   .OurTopPics .product-card-content-wrapper {
     padding: 0 10px;
   }
+  .OurTopPics .product-card {
+    height: auto;
+}
 }
 
 /* ---- Product Card Content ---- */
@@ -170,9 +178,15 @@
 }
 .TimeShow{
   color: #9d9d9d;
-    font-size: 16px;
-    text-decoration: none;
-    margin: 0 0 0 22px;
+  font-size: 16px;
+  font-weight: 400;
+  text-decoration: none;
+  margin: 0 0 0 22px;
+}
+.OptionsSingle{
+  font-size: 16px;
+  font-weight: 500;
+  font-family: 'Rubik';
 }
 
 .bulltes i{

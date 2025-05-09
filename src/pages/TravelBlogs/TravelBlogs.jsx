@@ -13,7 +13,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import { GET } from '../../apicController/apiController';
 // fallback image
 import Blog3 from '../../assets/images/blog/dxb1.webp';
-import Skeleton from 'react-loading-skeleton';
+import SkeletonComponent from '../../components/Skeleton/Skeleton';
 
 const Blog = () => {
     const [featuredBlog, setFeaturedBlog] = useState(null);
@@ -47,24 +47,7 @@ const Blog = () => {
     return (
         <>
             <Header />
-            {loading ? <>
-            <div className='mt-5' style={{marginTop:"100px"}}>
-                    <Skeleton height={50} width="100%" className="mb-3" />
-                    <Skeleton height={50} width="100%" className="mb-3" />
-                    <Skeleton height={50} width="100%" className="mb-3" />
-                    <Skeleton height={50} width="100%" className="mb-3" />
-                    <Skeleton height={50} width="100%" className="mb-3" />
-                    <Skeleton height={50} width="100%" className="mb-3" />
-                    <Skeleton height={50} width="100%" className="mb-3" />
-                    <Skeleton height={50} width="100%" className="mb-3" />
-                    <Skeleton height={50} width="100%" className="mb-3" />
-                    <Skeleton height={50} width="100%" className="mb-3" />
-                    <Skeleton height={50} width="100%" className="mb-3" />
-                    <Skeleton height={50} width="100%" className="mb-3" />
-                    
-                    </div>
-                
-            </> : <>
+            {loading ? <> <div className='mt-5' style={{marginTop:"100px"}}><SkeletonComponent/> </div></> : <>
                 <section className='Travel_Blog_wrapper'>
                 <div className="spaceForHeader bg-Grayscale-Hint_text">
                     <Container>

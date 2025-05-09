@@ -9,8 +9,7 @@ import Blog1 from "../../assets/images/blog.png"; // fallback image
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 import { useParams } from "react-router-dom";
-import Skeleton from 'react-loading-skeleton';
-import 'react-loading-skeleton/dist/skeleton.css';
+import SkeletonComponent from "../Skeleton/Skeleton";
 
 const BlogDetail = () => {
   const { slug } = useParams();
@@ -60,20 +59,7 @@ const BlogDetail = () => {
   const renderLoadingState = () => {
     return (
       <>
-        <Container>
-          <Row className="mt-5">
-            <Col lg={12} className="text-center mb-4">
-              <Skeleton height={50} width="60%" className="mb-3" />
-              <Skeleton height={20} width="30%" className="mb-3" />
-            </Col>
-            <Col lg={12} className="mb-4">
-              <Skeleton height={400} className="mb-3" />
-            </Col>
-            <Col lg={12}>
-              <Skeleton count={5} height={20} className="mb-2" />
-            </Col>
-          </Row>
-        </Container>
+       <SkeletonComponent/>
       </>
     );
   };

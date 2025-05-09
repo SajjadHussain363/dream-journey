@@ -6,6 +6,8 @@ import "./ProductSlider.css";
 import { Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { GET } from "../../apicController/apiController";
+import Ticket from "../../assets/images/ticket.png";
+import Skeleton from 'react-loading-skeleton';
 
 // Custom Arrow components
 const NextArrow = ({ onClick }) => (
@@ -97,6 +99,7 @@ function SimpleSlider() {
               <div className="text-center my-5">
                 <div className="spinner-border text-warning" role="status">
                   <span className="sr-only">Loading...</span>
+                  
                 </div>
               </div>
             )}
@@ -160,15 +163,13 @@ function SimpleSlider() {
                             </div>
                            
                           </div>
-                          <div className="CityFeatch text-start d-flex">
-
-                            <div><i class="bi bi-check-circle"></i> Free Cancellation : {product.free_cancellation ? "Yes" : "No"}</div>
-                            <div className="TourTypes bulltes"><i class="bi bi-ticket-perforated"></i>&nbsp; {product.type}</div>
-
+                          <div className="CityFeatch text-start d-flex align-items-center">
+                              
+                            <div><i class="bi bi-check-circle"></i> Free Cancellation : {product.free_cancellation ? "Yes" : "No"}</div> &nbsp;
+                            <div className="TourTypes d-flex align-items-center"><img src={Ticket} alt="Ticket" />&nbsp; {product.type}</div>
                           </div>
-
                           <div className="text-start mt-3">
-                            <span className="cutPrice">From <del>AED 150</del></span>
+                            <span className="cutPrice"> From <del>AED {parseFloat(product.price) + 50}</del></span>
                           </div>
 
                           <div className="PriceListingWrapper d-flex justify-content-between">
@@ -176,7 +177,7 @@ function SimpleSlider() {
                               AED {product.price}
                               <span className="perPerson">/Person</span>
                             </div>
-                            <p className="m-0">{product.listing_highlight_display}</p>
+                            <p className="OptionsSingle m-0">{product.listing_highlight_display}</p>
                           </div>
                         </div>
                       </div>

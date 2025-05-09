@@ -1,0 +1,27 @@
+.TopPickDetails-section {
+    padding: 80px 0;
+}
+.PriceHedings h1{
+    font-family: var(--font-playFair);
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+}
+.PriceHedings .cutPrice span{
+    color: #000;
+    font-family: var(--font-rubik);
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 52px;
+}
+.persns{
+    color: #000;
+    font-family: var(--font-rubik);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+}
+    
