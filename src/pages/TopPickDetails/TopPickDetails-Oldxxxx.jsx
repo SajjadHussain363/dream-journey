@@ -17,16 +17,12 @@ const TopPickDetails = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState();
     const [product, setProducts] = useState();
-    const [images, setImages] = useState([]);
     console.log(slug);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const result = await GET(`products/details?product_uid=${slug}`);
-                const imagesResponse = await GET(`products/images?product_uid=${slug}`);
-                // /products/images?product_uid=15cbc9d6-d88b-11ef-b41b-6ed2ba5aa858
-                setImages(imagesResponse.data);
 
                 if (result && Array.isArray(result.data)) {
                     setProducts(result.data[0]);
@@ -55,7 +51,7 @@ const TopPickDetails = () => {
                 <Container>
                     <Row className='mt-5'>
                     <div class="container cs_breadcrub">
-                        <Link class="breadcrumb_parent" to="/">Home</Link> - <span class="breadcrumb_parent">Experiences</span> - <span class="breadcrumb_parent">Sand &amp; Desert </span>- <span class="breadcrumb_child">{product.name}</span>
+                        <a class="breadcrumb_parent" href="/">Home</a> - <span class="breadcrumb_parent">Experiences</span> - <span class="breadcrumb_parent">Sand &amp; Desert </span>- <span class="breadcrumb_child">{product.name}</span>
                         </div>
                     </Row>
                     <Row>
@@ -99,13 +95,6 @@ const TopPickDetails = () => {
                                 </div>
                             </div>
                         </Col>
-
-                            {images.map((item, index)=>{
-                                return <div key={index}>
-                                    <img src={item.image} alt="" width={"100%"} className='img-fluid mt-5' />
-                                </div>
-                            })}
-
                     </Row>
                     <Row>
                         
