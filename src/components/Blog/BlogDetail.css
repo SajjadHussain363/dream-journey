@@ -1,0 +1,33 @@
+.blogArticleImg {
+    height: 500px;
+}
+.blogArticleImg img {
+    object-fit: cover;
+}
+.BakcBlogkeywords{
+    background:#f69d1d;
+    border-radius: 50px;
+    border: solid 1px #f69d1d;
+    padding: 12px 30px;
+    text-decoration: none;
+    color: #fff;
+}
+.BlogTagsKeywords{
+    border-radius: 100px;
+    padding: 6px 16px;
+    background-color: #f5f3f7 !important;
+    color: black;
+    font-size: 14px;
+    margin: 20px 0px 0px 8px;
+    background-clip: padding-box;
+    display: inline-block;
+    position: relative;
+    transition: color .1s linear, background-color .1s linear, border-color .1s linear;
+}
+.BlogDetailsWrapper .bg-primary {
+    border-radius: 100px;
+    padding: 12px 24px;
+    color: #000;
+    font-weight: 500;
+    background-color: #f5f3f7 !important;
+}

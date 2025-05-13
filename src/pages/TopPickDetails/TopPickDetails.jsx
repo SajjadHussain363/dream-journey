@@ -1,124 +1,463 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { GET } from '../../apicController/apiController';
+import React, { useEffect, useState, useCallback, useMemo } from 'react';
+import { useParams, Link } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import Skeleton from 'react-loading-skeleton';
-import 'react-loading-skeleton/dist/skeleton.css';
+import Lightbox from 'react-image-lightbox';
+import 'react-image-lightbox/style.css';
+import { GET } from '../../apicController/apiController';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
-import GetOffersDeals from '../../components/GetOffersDeals/GetOffersDeals';
-
-import './TopPickDetails.css';
 import SkeletonComponent from '../../components/Skeleton/Skeleton';
+import GetOffersDeals from '../../components/GetOffersDeals/GetOffersDeals';
+import TripAdvisorLogo from '../../assets/images/TripAdvisor_Logo 1.png';
+import './TopPickDetails.css';
+import Accordion from 'react-bootstrap/Accordion';
+import SocialShareIcons from '../../components/SocialShareIcons/SocialShareIcons';
+
+// Custom hook for image preloading
+const useImagePreloader = (imageUrls) => {
+    const [imagesLoaded, setImagesLoaded] = useState(false);
+    const [loadingProgress, setLoadingProgress] = useState(0);
+
+    useEffect(() => {
+        if (!imageUrls || imageUrls.length === 0) {
+            setImagesLoaded(true);
+            return;
+        }
+
+        let loadedCount = 0;
+        const totalImages = imageUrls.length;
+
+        const preloadImages = imageUrls.map((url) => {
+            return new Promise((resolve) => {
+                const img = new Image();
+                img.src = url;
+                img.onload = () => {
+                    loadedCount++;
+                    setLoadingProgress(Math.round((loadedCount / totalImages) * 100));
+                    resolve(url);
+                };
+                img.onerror = () => {
+                    loadedCount++;
+                    setLoadingProgress(Math.round((loadedCount / totalImages) * 100));
+                    resolve(null);
+                };
+            });
+        });
+
+        Promise.all(preloadImages)
+            .then(() => {
+                setImagesLoaded(true);
+            })
+            .catch(() => {
+                // In case of errors, still consider images as loaded
+                setImagesLoaded(true);
+            });
+    }, [imageUrls]);
+
+    return { imagesLoaded, loadingProgress };
+};
 
 const TopPickDetails = () => {
     const { slug } = useParams();
+
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState();
-    const [product, setProducts] = useState();
+    const [product, setProduct] = useState({});
     const [images, setImages] = useState([]);
-    console.log(slug);
+    const [lightboxOpen, setLightboxOpen] = useState(false);
+    const [photoIndex, setPhotoIndex] = useState(0);
+
+    // Extract image URLs with useMemo to prevent unnecessary recalculations
+    const imageUrls = useMemo(() => images.map(item => item.image), [images]);
+
+    // Use the custom preloader hook
+    const { imagesLoaded, loadingProgress } = useImagePreloader(imageUrls);
 
     useEffect(() => {
-        const fetchData = async () => {
+        const loadData = async () => {
             try {
-                const result = await GET(`products/details?product_uid=${slug}`);
-                const imagesResponse = await GET(`products/images?product_uid=${slug}`);
-                // /products/images?product_uid=15cbc9d6-d88b-11ef-b41b-6ed2ba5aa858
-                setImages(imagesResponse.data);
+                // Fetch product details and images in parallel for better performance
+                const [productRes, imagesRes] = await Promise.all([
+                    GET(`products/details?product_uid=${slug}`),
+                    GET(`products/images?product_uid=${slug}`)
+                ]);
 
-                if (result && Array.isArray(result.data)) {
-                    setProducts(result.data[0]);
-                } else {
-                    setError("No product data found.");
+                if (productRes?.data?.length > 0) {
+                    setProduct(productRes.data[0]);
+                }
+
+                if (Array.isArray(imagesRes.data)) {
+                    setImages(imagesRes.data);
                 }
             } catch (err) {
-                setError("Failed to load products.");
+                console.error('Error loading product:', err);
             } finally {
                 setLoading(false);
             }
         };
 
-        fetchData();
-    }, []);
+        loadData();
+    }, [slug]);
 
+    // Handle opening the lightbox with proper checks
+    const openLightbox = useCallback((index) => {
+        if (imagesLoaded) {
+            setPhotoIndex(index);
+            setLightboxOpen(true);
+        }
+    }, [imagesLoaded]);
 
-    return <div>
-        <Header />
+    // Function to format highlights with bullet points
+    const renderHighlights = (highlightsText) => {
+        if (!highlightsText) return null;
 
-        <div className="TopPickDetails-section">
-            {loading ?
-                <>
+        // Split by asterisks or any common delimiter in your data
+        const highlightItems = highlightsText.split('*').filter(item => item.trim().length > 0);
+
+        if (highlightItems.length <= 1) {
+            return <p>{highlightsText}</p>;
+        }
+
+        return (
+            <div className="highlights-section">
+                <ul className="highlights-list">
+                    {highlightItems.map((item, index) => (
+                        <li key={index}>{item.trim()}</li>
+                    ))}
+                </ul>
+            </div>
+        );
+    };
+
+    return (
+        <div>
+            <Header />
+
+            <div className="TopPickDetails-section">
+                {loading ? (
                     <SkeletonComponent />
-                </> :
-                <Container>
-                    <Row className='mt-5'>
-                    <div class="container cs_breadcrub">
-                        <Link class="breadcrumb_parent" to="/">Home</Link> - <span class="breadcrumb_parent">Experiences</span> - <span class="breadcrumb_parent">Sand &amp; Desert </span>- <span class="breadcrumb_child">{product.name}</span>
-                        </div>
-                    </Row>
-                    <Row>
-                        <Col lg={12}>
-                            <div className="blog-herosection">
-                                <div>
-                                    <div className='d-flex align-items-center justify-content-between mt-5 PriceHedings'>
-                                    <h1>{product.name}</h1>
-                                        <span className="cutPrice align-items-center d-flex "> <span>AED {product.price} &nbsp; </span> <del>AED {parseFloat(product.price) + 50} </del> / <small className='persns'>person</small> </span>
-                                    </div>
-                                    <div className='col-lg-4 col-12 blackBtn d-flex gap-sm-3 gap-1 justify-content-sm-start justify-content-center align-items-center order-lg-4 order-5'>
-                                    <div><i class="bi bi-check-circle"></i> Free Cancellation : {product.free_cancellation ? "Yes" : "No"}</div> &nbsp;
-                                    </div>
-                                    <div className='col-xl-8 d-lg-flex gap-3 align-items-center justify-content-xl-end order-6 d-none'>
-                                    <p>{product.average_rating} Reviews</p> &nbsp;
-                                    <p>Reserve Now : {product.is_allow_pay_later ? "Pay Later" : "No"}</p> &nbsp;
-                                    <button>Book Now</button>
-                                    </div>
-                                    <img src={product.product_image} alt="" width={"100%"} className='img-fluid mt-5' />
-                                    
-                                    <p>meta_tags = {product.meta_tags}</p>
-                                    <p>{product.description}</p>
-                                    <p>highlights = {product.highlights}</p>
-                                    <p>short_description = {product.short_description}</p>
-                                    <p>inclusions = {product.inclusions}</p>
-                                    <p>exclusions = {product.exclusions}</p>
-                                    <p>pickup_details = {product.pickup_details}</p>
-                                   
-                                    <p>duration = {product.duration}</p>
-                                    <p>category = {product.category}</p>
-                                    <p>theme = {product.theme}</p>
-                                    <p>type = {product.type}</p>
-                                   
-                                    <p>is_new_product = {product.is_new_product}</p>
-                                   
-                                    <p>listing_highlight_display = {product.listing_highlight_display}</p>
-                                    
-                                    
-                                    <p>availability = {product.availability}</p>
-                                    
-                                </div>
+                ) : (
+                    <Container>
+                        {/* Breadcrumb */}
+                        <Row className="mt-5">
+                            <div className="container cs_breadcrub">
+                                <Link to="/" className="breadcrumb_parent">Home</Link> -{" "}
+                                <span className="breadcrumb_parent">Experiences</span> -{" "}
+                                <span className="breadcrumb_parent">Sand & Desert</span> -{" "}
+                                <span className="breadcrumb_child">{product.name}</span>
                             </div>
-                        </Col>
+                        </Row>
 
-                            {images.map((item, index)=>{
-                                return <div key={index}>
-                                    <img src={item.image} alt="" width={"100%"} className='img-fluid mt-5' />
+                        {/* Product Info */}
+                        <Row>
+                            <Col lg={12}>
+                                <div className="blog-herosection mt-5">
+                                    <div className="d-flex justify-content-between align-items-center PriceHedings">
+                                        <h1>{product.name}</h1>
+                                        <span className="cutPrice d-flex align-items-center">
+                                            <span>AED {product.price}&nbsp;</span>
+                                            <del>AED {parseFloat(product.price) + 50}</del> / <small className="persns">person</small>
+                                        </span>
+                                    </div>
+
+                                    {/* Reviews and Cancellation */}
+                                    <div className="reviewsTrip my-3">
+                                        <div className="d-flex align-items-center gap-2 userReview">
+                                            <img src={TripAdvisorLogo} alt="TripAdvisor" style={{ width: "140px" }} className="d-none d-sm-block" />
+                                            <p>{product.reviews_count} Reviews</p>
+                                        </div>
+
+                                    </div>
+
+                                    {/* Reserve Now  and Free Cancellation */}
+                                    <div className="d-flex align-items-center justify-content-between gap-2">
+                                        <div className='col-lg-4 col-12 blackBtn d-flex gap-sm-3 gap-1 justify-content-sm-start justify-content-center align-items-center '>
+                                            <div className='TDS_ResurveNowbtn'>Reserve Now: {product.is_allow_pay_later ? "Pay Later" : "No"}</div>
+                                            <div className='TDS_ResurveNowbtn d-flex align-items-center gap-2'><i className="bi bi-check-circle"></i> Free Cancellation: {product.free_cancellation ? "Yes" : "No"}</div>
+                                        </div>
+                                        <div className='col-xl-8 d-lg-flex gap-3 align-items-center justify-content-xl-end order-6 d-none'>
+                                            <button className="TPD_BookNowbtn">Book Now</button>
+                                        </div>
+                                    </div>
+
+                                    {/* Image Gallery - Optimized Version */}
+                                    {imageUrls.length > 0 && (
+                                        <div className="tourLandGrid rounded-4 overflow-hidden mt-4  position-relative ">
+                                            {/* Loading Indicator */}
+                                            {!imagesLoaded && (
+                                                <div className="image-loading-indicator">
+                                                    <div className="progress mb-3">
+                                                        <div
+                                                            className="progress-bar"
+                                                            role="progressbar"
+                                                            style={{ width: `${loadingProgress}%` }}
+                                                            aria-valuenow={loadingProgress}
+                                                            aria-valuemin="0"
+                                                            aria-valuemax="100"
+                                                        >
+                                                            {loadingProgress}%
+                                                        </div>
+                                                    </div>
+                                                    <p className="text-center">Loading images...</p>
+                                                </div>
+                                            )}
+
+                                            <div className="d-flex flex-lg-row flex-column gap-3">
+                                                <div className="col-lg-6">
+                                                    {imageUrls[0] && (
+                                                        <div className="main-image-container position-relative">
+                                                            <img
+                                                                src={imageUrls[0]}
+                                                                alt="Main"
+                                                                className="_main_image_4xybo_1"
+                                                                width="100%"
+                                                                onClick={() => openLightbox(0)}
+                                                                style={{
+                                                                    cursor: imagesLoaded ? 'pointer' : 'wait',
+                                                                    opacity: imagesLoaded ? 1 : 0.7,
+                                                                    transition: 'opacity 0.3s ease'
+                                                                }}
+                                                            />
+                                                            {!imagesLoaded && (
+                                                                <div className="position-absolute top-50 start-50 translate-middle">
+                                                                    <div className="spinner-border text-primary" role="status">
+                                                                        <span className="visually-hidden">Loading...</span>
+                                                                    </div>
+                                                                </div>
+                                                            )}
+                                                        </div>
+                                                    )}
+                                                </div>
+                                                <div className="col-lg-6">
+                                                    <div className="row gy-2">
+                                                        {imageUrls.slice(1, 5).map((img, idx) => (
+                                                            <div className="col-6" key={idx}>
+                                                                <div className="thumbnail-container position-relative">
+                                                                    <img
+                                                                        src={img}
+                                                                        alt={`Sub ${idx + 1}`}
+                                                                        className="_sub_image_4xybo_8"
+                                                                        style={{
+                                                                            width: '100%',
+                                                                            cursor: imagesLoaded ? 'pointer' : 'wait',
+                                                                            opacity: imagesLoaded ? 1 : 0.7,
+                                                                            transition: 'opacity 0.3s ease'
+                                                                        }}
+                                                                        onClick={() => openLightbox(idx + 1)}
+                                                                    />
+                                                                    {!imagesLoaded && (
+                                                                        <div className="position-absolute top-50 start-50 translate-middle">
+                                                                            <div className="spinner-border spinner-border-sm text-primary" role="status">
+                                                                                <span className="visually-hidden">Loading...</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    )}
+                                                                </div>
+                                                            </div>
+                                                        ))}
+                                                    </div>
+                                                </div>
+                                                <div className="TPD_VAllPhotos_wrpper">
+                                                    <button onClick={() => openLightbox(0)} disabled={!imagesLoaded}>
+                                                        {imagesLoaded ? 'View all photos' : 'Loading photos...'}
+                                                    </button>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                    )}
+                                    <Row>
+                                        <div className='wishlistAndShareBtn d-flex align-items-end flex-column  mt-3'>
+                                            <div className="shareButtons d-flex align-items-center  gap-3">
+                                                <div className="shareButtonsItem">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" className="iconItem" height="20" viewBox="0 0 28 28" fill="none"><path d="M14.7233 24.2784C14.3266 24.4184 13.6733 24.4184 13.2766 24.2784C9.89325 23.1234 2.33325 18.305 2.33325 10.1384C2.33325 6.53337 5.23825 3.6167 8.81992 3.6167C10.9433 3.6167 12.8216 4.64337 13.9999 6.23003C15.1783 4.64337 17.0683 3.6167 19.1799 3.6167C22.7616 3.6167 25.6666 6.53337 25.6666 10.1384C25.6666 18.305 18.1066 23.1234 14.7233 24.2784Z" stroke="black" className="iconItem" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                                                </div>
+                                                <div>
+                                                    <div className="shareButtonsItem">
+                                                        <SocialShareIcons />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </Row>
+
+                                    {/* Lightbox Modal - Only render when needed and images are loaded */}
+                                    {lightboxOpen && imagesLoaded && imageUrls.length > 0 && (
+                                        <Lightbox
+                                            mainSrc={imageUrls[photoIndex]}
+                                            nextSrc={imageUrls[(photoIndex + 1) % imageUrls.length]}
+                                            prevSrc={imageUrls[(photoIndex + imageUrls.length - 1) % imageUrls.length]}
+                                            onCloseRequest={() => setLightboxOpen(false)}
+                                            onMovePrevRequest={() => setPhotoIndex((photoIndex + imageUrls.length - 1) % imageUrls.length)}
+                                            onMoveNextRequest={() => setPhotoIndex((photoIndex + 1) % imageUrls.length)}
+                                            imageTitle={`Image ${photoIndex + 1} of ${imageUrls.length}`}
+                                            enableZoom={true}
+                                        />
+                                    )}
+
+                                    {/* Product Details */}
+                                    <Row className='mt-5'>
+                                        <Col lg={7}>
+                                            <div className="mt-4">
+                                                <p><strong>Meta Tags:</strong> {product.meta_tags}</p>
+
+                                                {/* Modified Highlights section that parses highlights from API */}
+                                                <div>
+                                                    <h1 class="heading-primary-sm">Highlights</h1>
+                                                    {product.highlights && product.highlights.length > 0 ? (
+                                                        <ul className="highlights-list">
+                                                            {(() => {
+                                                                try {
+                                                                    const highlightsArray = Array.isArray(product.highlights)
+                                                                        ? product.highlights
+                                                                        : JSON.parse(product.highlights);
+
+                                                                    return highlightsArray.map((item, index) => (
+                                                                        <li key={index}>{item}</li>
+                                                                    ));
+                                                                } catch (error) {
+                                                                    return <li>{product.highlights}</li>;
+                                                                }
+                                                            })()}
+                                                        </ul>
+                                                    ) : (
+                                                        <p>No highlights available</p>
+                                                    )}
+
+                                                </div>
+                                                <h1 class="heading-primary-sm mt-5 mb-5">Tour Details</h1>
+
+                                                <Accordion defaultActiveKey="0">
+                                                    <Accordion.Item eventKey="0">
+                                                        <Accordion.Header><strong>Overview:</strong></Accordion.Header>
+                                                        <Accordion.Body>
+                                                            {product.short_description}
+                                                        </Accordion.Body>
+                                                    </Accordion.Item>
+
+                                                    {product.what_you_can_expect && (
+                                                        <Accordion.Item eventKey="1">
+                                                            <Accordion.Header><strong>What You Can Expect:</strong></Accordion.Header>
+                                                            <Accordion.Body>
+                                                                <div dangerouslySetInnerHTML={{ __html: product.what_you_can_expect }} />
+                                                            </Accordion.Body>
+                                                        </Accordion.Item>
+                                                    )}
+
+                                                    {product.exclusions?.length > 0 && (
+                                                        <Accordion.Item eventKey="2">
+                                                            <Accordion.Header><strong>What’s not included:</strong></Accordion.Header>
+                                                            <Accordion.Body>
+                                                                <ul>
+                                                                    {product.exclusions.map((item, index) => (
+                                                                        <li key={index}>{item}</li>
+                                                                    ))}
+                                                                </ul>
+                                                            </Accordion.Body>
+                                                        </Accordion.Item>
+                                                    )}
+
+                                                    {product.inclusions?.length > 0 && (
+                                                        <Accordion.Item eventKey="3">
+                                                            <Accordion.Header><strong>What’s is included:</strong></Accordion.Header>
+                                                            <Accordion.Body>
+                                                                <ul>
+                                                                    {product.inclusions.map((item, index) => (
+                                                                        <li key={index}>{item}</li>
+                                                                    ))}
+                                                                </ul>
+                                                            </Accordion.Body>
+                                                        </Accordion.Item>
+                                                    )}
+
+                                                    <Accordion.Item eventKey="4">
+                                                        <Accordion.Header><strong>Duration:</strong></Accordion.Header>
+                                                        <Accordion.Body>
+                                                            {product.duration}
+                                                        </Accordion.Body>
+                                                    </Accordion.Item>
+
+                                                    {/* Meeting Point Accordion */}
+                                                    <Accordion.Item eventKey="5">
+                                                        <Accordion.Header><strong>Meeting Point</strong></Accordion.Header>
+                                                        <Accordion.Body>
+                                                            {product.meeting_point_lat && product.meeting_point_long ? (
+                                                                <div style={{ height: '300px', width: '100%' }}>
+                                                                    <iframe
+                                                                        width="100%"
+                                                                        height="100%"
+                                                                        frameBorder="0"
+                                                                        style={{ border: 0 }}
+                                                                        src={`https://www.google.com/maps?q=${product.meeting_point_lat},${product.meeting_point_long}&hl=en&z=14&output=embed`}
+                                                                        allowFullScreen
+                                                                        title="Meeting Point Map"
+                                                                    ></iframe>
+                                                                </div>
+                                                            ) : (
+                                                                <p>No meeting point location available.</p>
+                                                            )}
+                                                        </Accordion.Body>
+                                                    </Accordion.Item>
+
+                                                    <Accordion.Item eventKey="6">
+                                                        <Accordion.Header><strong>Know before you book:</strong></Accordion.Header>
+                                                        <Accordion.Body>
+                                                            {product.additional_information ? (
+                                                                <div dangerouslySetInnerHTML={{ __html: product.additional_information }} />
+                                                            ) : (
+                                                                <p>No additional information available.</p>
+                                                            )}
+                                                        </Accordion.Body>
+                                                    </Accordion.Item>
+
+                                                    {product.not_suitable_for?.length > 0 ? (
+                                                        <Accordion.Item eventKey="7">
+                                                            <Accordion.Header><strong>Not Suitable For:</strong></Accordion.Header>
+                                                            <Accordion.Body>
+                                                                <ul>
+                                                                    {product.not_suitable_for.map((item, index) => (
+                                                                        <li key={index}>{item}</li>
+                                                                    ))}
+                                                                </ul>
+                                                            </Accordion.Body>
+                                                        </Accordion.Item>
+                                                    ) : (
+                                                        <Accordion.Item eventKey="8">
+                                                            <Accordion.Header><strong>Not Suitable For:</strong></Accordion.Header>
+                                                            <Accordion.Body>
+                                                                <p>No specific exclusions provided.</p>
+                                                            </Accordion.Body>
+                                                        </Accordion.Item>
+                                                    )}
+
+                                                    {product.custom_cancellation_policy_details && (
+                                                        <Accordion.Item eventKey="9">
+                                                            <Accordion.Header><strong>Custom Cancellation Policy Details:</strong></Accordion.Header>
+                                                            <Accordion.Body>
+                                                                {product.custom_cancellation_policy_details.replace(/<[^>]+>/g, '')}
+                                                            </Accordion.Body>
+                                                        </Accordion.Item>
+                                                    )}
+                                                </Accordion>
+
+
+                                            </div>
+                                        </Col>
+
+                                        <Col lg={5}>
+                                        </Col>
+                                    </Row>
                                 </div>
-                            })}
+                            </Col>
+                        </Row>
+                    </Container>
+                )}
+            </div>
 
-                    </Row>
-                    <Row>
-                        
-                    </Row>
-                </Container>
-            }
+            <GetOffersDeals />
+            <Footer />
         </div>
-        <GetOffersDeals />
-        <Footer />
-
-
-    </div>;
-}
-
+    );
+};
 
 export default TopPickDetails;

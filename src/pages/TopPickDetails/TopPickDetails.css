@@ -24,4 +24,76 @@
     font-weight: 500;
     line-height: 24px;
 }
-    
+.TPD_BookNowbtn {
+    display: flex;
+    padding:8px 45px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border: solid 1px #f69d1e;
+    border-radius: 1000px;
+    background: #f69d1e;
+    color: #fff;
+    text-align: center;
+    font-family: rubik;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 38px;
+}
+.TPD_BookNowbtn:hover {
+    background: var(--primary-color);
+    color: #fff;
+}
+.TDS_ResurveNowbtn{
+    display: flex;
+    height: 28px;
+    justify-content: center;
+    align-items: center;
+    color: rgb(255, 255, 255);
+    padding: 8px 12px;
+    border-radius: 6px;
+    background: var(--Grayscale-Black, #1A141F);
+    gap: 4px;
+}
+.TDS_ResurveNowbtn:hover {
+    color: rgb(255, 255, 255);
+    background:  #f69d1e;
+}
+.TPD_VAllPhotos_wrpper{
+    position: absolute;
+    right: 10px;
+    bottom: 20px;
+}
+.TPD_VAllPhotos_wrpper button{
+    background: #e5e0eb;
+    color: #000;
+    border: none;
+    font-size: 14px;
+    padding: 10px 18px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 100px;
+    text-align: center;
+    font-family: rubik;
+    font-style: normal;
+    font-weight: 400;   
+}
+.shareButtonsItem{
+    border: 1px solid var(--Grayscale-Black);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+.shareButtonsItem:hover {
+    border: 1px solid var(--secondary-color);
+}
+.shareButtonsItem:hover .iconItem {
+    fill: var(--secondary-color);
+    stroke: var(--secondary-color);
+}

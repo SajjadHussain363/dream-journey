@@ -72,8 +72,12 @@ button.btn.btn-custom:hover{
     transition: color .1s linear, background-color .1s linear, border-color .1s linear;
 }
 .PopularExperiencesTagesWraper a:hover{
-    background-color:#ff9500;
+    /* background-color:#ff9500; */
     color: #18335D;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.75);
+  background-color: rgba(0, 0, 0, 0.04);
+  color: rgba(0, 0, 0, 0.9);
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.35s;
 }
 
 /* Button  */

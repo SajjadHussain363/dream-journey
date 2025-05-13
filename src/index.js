@@ -10,10 +10,10 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 
 
 
-import { library } from '@fortawesome/fontawesome-svg-core';
+// import { library } from '@fortawesome/fontawesome-svg-core';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
-library.add(faChevronLeft, faChevronRight);
+// library.add(faChevronLeft, faChevronRight);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

@@ -1,0 +1,50 @@
+._socialDropdownHeader_5kjip_57 {
+    color: #121826;
+    font-family: var(--font-playFair);
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    display: flex
+;
+    padding: 16px 24px;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+}
+._socialDropdownCloseBtn_5kjip_28 {
+    cursor: pointer;
+}
+._socialDropdownCloseBtn_5kjip_28 {
+    padding: 10px 24px;
+    display: flex
+;
+    flex-direction: column;
+}
+._facebookIcon_5kjip_70, ._twiiter_5kjip_75, ._whatsapp_5kjip_80, ._instagram_5kjip_85, ._email_5kjip_90 {
+    background: #e5e5eb;
+    color: #000;
+}
+._socialDropDownItem_5kjip_31 {
+    display: flex
+;
+    height: 46px;
+    padding: 12px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    align-self: stretch;
+    color: var(--Grayscale-White, var(--White, #FFF));
+    text-align: center;
+    font-family: Rubik;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+}
+._facebookIcon_5kjip_70, ._twiiter_5kjip_75, ._whatsapp_5kjip_80, ._instagram_5kjip_85, ._email_5kjip_90 {
+    background: #e5e5eb;
+    color: #000;
+}

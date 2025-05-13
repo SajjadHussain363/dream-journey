@@ -3,25 +3,25 @@ import { Card, Row, Col } from 'react-bootstrap';
 import './TagCards.css';
 
 const TagCard = ({ image, title, description }) => {
-  return (
-    <div className="TagsBoxesWrapper">
-      <div className="TagsBoxes">
-        <Card className="p-3 shadow-sm border-0">
-          <Row className="g-0 align-items-center flex-column flex-sm-row">
-            <Col xs={12} sm={4} className="mb-3 mb-sm-0">
-              <img src={image} className="img-fluid rounded-start w-100 h-100 object-fit-cover" alt={title} />
-            </Col>
-            <Col xs={12} sm={8} className="TagsBoxesWrapperCardInner">
-              <Card.Body>
-                <h3 className="card-title">{title}</h3>
-                <p className="card-text">{description}</p>
-              </Card.Body>
-            </Col>
-          </Row>
-        </Card>
-      </div>
-    </div>
-  );
+    return (
+        <div className="TagsBoxesWrapper">``
+            <div className="TagsBoxes">
+                <Card className="p-3 shadow-sm border-0">
+                    <Row className="g-0 align-items-center flex-column flex-sm-row">
+                        <Col xs={12} sm={4} className="mb-3 mb-sm-0">
+                            <img src={image} className="img-fluid rounded-start w-100 h-100 object-fit-cover" alt={title} />
+                        </Col>
+                        <Col xs={12} sm={8} className="TagsBoxesWrapperCardInner">
+                            <Card.Body>
+                                <h3 className="card-title">{title}</h3>
+                                <p className="card-text">{description}</p>
+                            </Card.Body>
+                        </Col>
+                    </Row>
+                </Card>
+            </div>
+        </div>
+    );
 };
 {/* <Col md={4}>
                         <div className="TagsBoxesWrapper">
