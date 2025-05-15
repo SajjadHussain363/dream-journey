@@ -1,0 +1,270 @@
+/* TourDatePicker.css */
+
+.TPDCalendarWrapper {
+    position: relative;
+    width: 100%;
+    max-width: 24rem;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+}
+  
+  .TPDCalendarWrapper input {
+    width: 100%;
+    padding: 0.75rem;
+    padding-right: 2.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    font-size: 0.875rem;
+  }
+  
+  .TPDCalendarWrapper .icon-container {
+    position: absolute;
+    right: 23px;
+    top: 40%;
+    transform: translateY(-50%);
+    color: #6b7280;
+    align-items: center;
+  }
+  
+  .TPDCalendarWrapper .calendar-dropdown {
+    position: absolute;
+    margin-top: 0.25rem;
+    width: 100%;
+    z-index: 1;
+    background-color: white;
+    border-radius: 0.375rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e5e7eb;
+  }
+  
+  .TPDCalendarWrapper .calendar-header {
+    padding: 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  
+  .TPDCalendarWrapper .nav-button {
+    padding: 0.25rem;
+    border-radius: 9999px;
+  }
+  
+  .TPDCalendarWrapper .nav-button:hover {
+    background-color: #f3f4f6;
+  }
+  
+  .TPDCalendarWrapper .month-year-display {
+    display: flex;
+    gap: 0.25rem;
+  }
+  
+  .TPDCalendarWrapper .month-year-button {
+    font-weight: 600;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+  }
+  
+  .TPDCalendarWrapper .month-year-button:hover {
+    background-color: #f3f4f6;
+  }
+  
+  .TPDCalendarWrapper .weekdays-row {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #6b7280;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  
+  .TPDCalendarWrapper .weekday {
+    padding: 0.5rem 0;
+  }
+  
+  .TPDCalendarWrapper .calendar-body {
+    padding: 0.5rem;
+  }
+  
+  .TPDCalendarWrapper .days-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.25rem;
+  }
+  
+  .TPDCalendarWrapper .day-button {
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 100px;
+    display: flex;
+    border: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.875rem;
+  }
+  
+  .TPDCalendarWrapper .day-button.current-month:hover {
+    background-color: #dbeafe;
+  }
+  
+  .TPDCalendarWrapper .day-button.other-month {
+    color: #9ca3af;
+  }
+  
+  .TPDCalendarWrapper .day-button.other-month:hover {
+    background-color: #f3f4f6;
+  }
+  
+  .TPDCalendarWrapper .day-button.selected {
+    background-color: #3b82f6;
+    color: white;
+  }
+  
+  .TPDCalendarWrapper .day-button.selected:hover {
+    background-color: #2563eb;
+  }
+  
+  .TPDCalendarWrapper .day-button.today {
+    border: 1px solid #3b82f6;
+  }
+  
+  .TPDCalendarWrapper .day-button.tomorrow {
+    border: 1px solid #10b981;
+  }
+  
+  .TPDCalendarWrapper .months-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+  }
+  
+  .TPDCalendarWrapper .month-button {
+    padding: 0.75rem 0;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+  
+  .TPDCalendarWrapper .month-button.current-month {
+    background-color: #f3f4f6;
+  }
+  
+  .TPDCalendarWrapper .month-button.selected-month {
+    background-color: #dbeafe;
+    color: #1d4ed8;
+  }
+  
+  .TPDCalendarWrapper .month-button:hover {
+    background-color: #f3f4f6;
+  }
+  
+  .TPDCalendarWrapper .years-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+  }
+  
+  .TPDCalendarWrapper .year-button {
+    padding: 0.5rem 0;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+  
+  .TPDCalendarWrapper .year-button.current-year {
+    background-color: #f3f4f6;
+  }
+  
+  .TPDCalendarWrapper .year-button.selected-year {
+    background-color: #dbeafe;
+    color: #1d4ed8;
+  }
+  
+  .TPDCalendarWrapper .year-button:hover {
+    background-color: #f3f4f6;
+  }
+  
+  .TPDCalendarWrapper .footer {
+    padding: 0.75rem;
+    border-top: 1px solid #e5e7eb;
+    background-color: #ffffff;
+  }
+  
+  .TPDCalendarWrapper .quick-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+  }
+  
+  .TPDCalendarWrapper .quick-link {
+    font-size: 0.875rem;
+    color: #000000;
+    font-weight: 500;
+    border: none;
+    background: transparent;
+  }
+  
+  .TPDCalendarWrapper .quick-link:hover {
+    color: #1d4ed8;
+  }
+  
+  .TPDCalendarWrapper .confirm-button {
+    width: 100%;
+    padding: 0.5rem 0;
+    background-color: #3b82f6;
+    color: white;
+    border-radius: 0.375rem;
+    transition: background-color 0.2s;
+  }
+  
+  .TPDCalendarWrapper .confirm-button:hover {
+    background-color: #2563eb;
+  }
+  
+  .TPDCalendarWrapper .confirm-button:disabled {
+    border: none;
+    background-color: #f19a1c;
+    cursor: not-allowed;
+  }
+  .TPDCalendarWrapper .nav-button {
+    border: none;
+    background: transparent;
+}
+.TPDCalendarWrapper .month-year-button {
+    border: none;
+    background: transparent;
+}
+  
+  /* Animations */
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideUp {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+  }
+  
+  .TPDCalendarWrapper .animate-slideDown {
+    animation: slideDown 0.3s ease forwards;
+  }
+  
+  .TPDCalendarWrapper .animate-slideUp {
+    animation: slideUp 0.2s ease forwards;
+  }

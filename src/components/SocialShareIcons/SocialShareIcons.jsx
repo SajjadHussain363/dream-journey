@@ -47,7 +47,7 @@ const ShareDropdown = () => {
             borderRadius: '8px',
             padding: '10px 24px',
             zIndex: 9999,
-            width: '450px',
+            width: '350px',
             boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
           }}
         >

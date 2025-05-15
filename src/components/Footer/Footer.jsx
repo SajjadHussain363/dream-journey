@@ -41,6 +41,7 @@ const Footer = () => {
               <li><NavLink to="/about">About Us</NavLink></li>
               <li><NavLink to="/blog">Travel Blog</NavLink></li>
               <li><NavLink to="/mice360">MICE360</NavLink></li>
+              <li><NavLink to="/customers">Customers</NavLink></li>
             </ul>
           </div>
           <div className="Wrapper-footer-list">

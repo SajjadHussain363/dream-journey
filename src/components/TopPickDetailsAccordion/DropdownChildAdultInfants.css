@@ -1,0 +1,196 @@
+.NumbrOfTravelersDropdown {
+    width: 450px;
+    border-radius: 10px;
+    border: 1px solid var(--Grayscale-Spacer_light, #E5E0EB);
+}
+
+.NumbrOfTravelersDropdown h2 {
+    padding: 0px 0px 20px;
+    font-family: var(--font-playFair);
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border-bottom: 1px solid var(--Grayscale-Spacer_light, #E5E0EB);
+}
+.NumbrOfTravelersDropdown .Numbr_Of_Trvlrs_Drpdown_Inner .adltBtns{
+    width: 40px;
+    height: 40px;
+    border: navajowhite;
+    background: transparent;
+    color: var(--secondary-color);
+    font-size: 25px;
+}
+.NumbrOfTravelersDropdown .Numbr_Of_Trvlrs_Drpdown_Inner .countrInners{
+    border-radius: 2px;
+    border: 1px solid var(--Corporate-Orange-Main, #f69d1e);
+    background: var(--Grayscale-White, #fff);
+    box-shadow: 0 4px 5px #21012608 inset;
+    display: flex;
+    width: 146px;
+    justify-content: center;
+    align-items: center;
+    gap: 26px;
+    border-bottom: 1px solid var(--Grayscale-Spacer_light, #E5E0EB);
+}
+.TPD_ConfirmBtnDrpdown {
+    display: flex;
+    padding: 8px 28px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 1000px;
+    background: var(--secondary-color);
+    color: #fff;
+    text-align: center;
+    font-family: var(--font-rubik);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 38px;
+    width: 80%;
+    margin: auto;
+    border: navajowhite;
+}
+.widthAdjusts{
+    min-width: 250px;
+    width: 250px;
+}
+.inputFont{
+    font-size: 14px;
+}
+
+
+
+
+
+
+
+
+/* Updated Animations */
+@keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideUp {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+  }
+  
+  /* Main Container */
+  .NumbrOfTravelersDropdown {
+    width: 450px;
+    border-radius: 10px;
+    border: 1px solid var(--Grayscale-Spacer_light, #E5E0EB);
+    overflow: hidden;
+    z-index: 1;
+    position: absolute;
+  }
+  
+  /* Dropdown Inner Content */
+  .Numbr_Of_Trvlrs_Drpdown_Inner {
+    animation: slideDown 0.3s ease forwards;
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  
+  .Numbr_Of_Trvlrs_Drpdown_Inner.animate-slideDown {
+    animation: slideDown 0.3s ease forwards;
+  }
+  
+  .Numbr_Of_Trvlrs_Drpdown_Inner.animate-slideUp {
+    animation: slideUp 0.2s ease forwards;
+  }
+  
+  /* Header Styles */
+  .NumbrOfTravelersDropdown h2 {
+    padding: 0px 0px 20px;
+    font-family: var(--font-playFair);
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border-bottom: 1px solid var(--Grayscale-Spacer_light, #E5E0EB);
+  }
+  
+  /* Quantity Selector Buttons */
+  .NumbrOfTravelersDropdown .adltBtns {
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: transparent;
+    color: var(--secondary-color);
+    font-size: 25px;
+    transition: transform 0.2s ease;
+  }
+  
+  .NumbrOfTravelersDropdown .adltBtns:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Counters Container */
+  .countrInners {
+    border-radius: 2px;
+    border: 1px solid var(--Corporate-Orange-Main, #f69d1e);
+    background: var(--Grayscale-White, #fff);
+    box-shadow: 0 4px 5px #21012608 inset;
+    display: flex;
+    width: 146px;
+    justify-content: center;
+    align-items: center;
+    gap: 26px;
+    border-bottom: 1px solid var(--Grayscale-Spacer_light, #E5E0EB);
+    transition: all 0.3s ease;
+  }
+  
+  /* Confirm Button */
+  .TPD_ConfirmBtnDrpdown {
+    display: flex;
+    padding: 8px 28px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 1000px;
+    background: var(--secondary-color);
+    color: #fff;
+    font-family: var(--font-rubik);
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 38px;
+    width: 80%;
+    margin: auto;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  
+  .TPD_ConfirmBtnDrpdown:hover {
+    transform: translateY(-2px);
+  }
+  
+  /* Responsive Adjustments */
+  .widthAdjusts {
+    min-width: 250px;
+    width: 250px;
+    height: 50px;
+    align-items: center;
+    border-radius: 5px;
+  }
+  
+  .inputFont {
+    font-size: 14px;
+    color: var(--Grayscale-Text_light);
+  }

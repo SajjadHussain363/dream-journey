@@ -1,0 +1,194 @@
+.customers-wrappers{
+    background-color: #eff1f4;
+}
+.cs_breadcrub {
+    padding-top: 120px;
+}
+.Customer_headings .heading-primary{
+    font-family: var(--font-playFair);
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 42px;
+}
+.customers-wrappers .tab-contentInnerOne {
+    border-radius: 12px;
+    background: var(--Neutrals, #fff);
+    box-shadow: 0 4px 16px #1122110d;
+    padding: 24px;
+    gap: 15px;
+}
+.customers-wrappers .nav {
+    padding: 20px 16px 20px !important;
+    border-radius: 4px 4px 0 0 !important;
+    background: var(--Grayscale-Spacer_light, #e5e0eb);
+    display: flex;
+    gap: 16px;
+    width: 100%;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+/* li {
+    color: #21272a;
+    font-family: var(--font-rubik);
+    font-size: 18px;
+    margin-top: 5px;
+} */
+/* .customTabs .nav-link.active {
+    border-bottom: 4px solid var(--secondary-color) !important;
+    background-color: transparent !important;
+    font-family: var(--font-rubik) !important;
+    font-size: 16px !important;
+    font-style: normal !important;
+    font-weight: 500 !important;
+    line-height: normal !important;
+} */
+.customers-wrappers .nav-tabs .nav-item.show .nav-link, .customers-wrappers .nav-tabs .nav-link.active {
+    color: var(--bs-nav-tabs-link-active-color);
+    background-color: transparent !important;
+    border-bottom: solid var(--secondary-color) 4px !important;
+    font-family: var(--font-rubik) !important;
+    font-size: 16px !important;
+    font-style: normal !important;
+    font-weight: 500 !important;
+    line-height: normal !important;
+}
+
+.customers-wrappers .nav-link {
+    color: #282929;
+}
+.customers-wrappers .nav-link:focus, .customers-wrappers .nav-link:hover {
+    color: var(--secondary-color);
+}
+.special-tags {
+    color: var(--Grayscale-Black, #1a141f);
+    font-family: var(--font-rubik);
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.medium-text-normal {
+    color: var(--Grayscale-Black, #1a141f);
+    font-family: Rubik;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.customers-wrappers {
+    background-color: #f8f9fa;
+    min-height: 100vh;
+}
+
+.cs_breadcrub {
+    font-size: 14px;
+    color: #555;
+}
+
+.breadcrumb_parent {
+    color: #2F64B5;
+    text-decoration: none;
+}
+
+.breadcrumb_child {
+    font-weight: 500;
+}
+
+.Customer_headings h6.heading-primary {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.body-text-XS {
+    font-size: 14px;
+    color: #666;
+}
+
+.medium-text-normal {
+    font-size: 16px;
+    color: #333;
+}
+
+.tab-contentInnerOne {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.editBtn {
+    color: #2F64B5;
+    font-weight: 500;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.edit-form input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+.edit-form .btn {
+    min-width: 100px;
+}
+
+.special-tags {
+    font-weight: 600;
+    font-size: 16px;
+    color: #333;
+}
+
+.customCheckbox {
+    margin-right: 8px;
+    cursor: pointer;
+}
+.cancel-btn {
+    padding: 8px 12px;
+    border-radius: 4px;
+    background: var(--danger-color);
+    color: #fff;
+    width: 100%;
+    font-family: var(--font-rubik);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    border: 0;
+}
+.update-btn {
+    padding: 8px 12px;
+    border-radius: 4px;
+    background: var(--primary-color);
+    color: #fff;
+    width: 100%;
+    font-family: var(--font-rubik);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    border: 0;
+}
+.update-btn:hover {
+    background-color: #f69d1e;
+    color: #fff;
+    border-color: #f69d1e;
+}
