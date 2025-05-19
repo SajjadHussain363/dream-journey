@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { Calendar } from 'lucide-react';
 import './ClanderDropdown.css';
 
-export default function TourDatePicker() {
+export default function TourDatePicker({onDateChnage}) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedDate, setSelectedDate] = useState(null);
   const [viewMode, setViewMode] = useState('days'); // 'days', 'months', 'years'
@@ -11,6 +11,10 @@ export default function TourDatePicker() {
   const [yearRange, setYearRange] = useState([currentYear - 8, currentYear + 3]);
   const [animation, setAnimation] = useState('');
   const calendarRef = useRef(null);
+
+  useEffect(()=>{
+    onDateChnage(selectedDate);
+  },[selectedDate]);
 
   // Close calendar when clicking outside
   useEffect(() => {

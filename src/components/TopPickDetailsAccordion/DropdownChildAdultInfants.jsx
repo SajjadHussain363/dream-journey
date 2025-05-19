@@ -2,15 +2,19 @@ import React, { useState, useEffect, useRef } from 'react';
 import './DropdownChildAdultInfants.css';
 import { Container, Row, Col } from 'react-bootstrap';
 
-const DropdownChildAdultInfants = () => {
+const DropdownChildAdultInfants = ({selectedTravelers}) => {
     // Data from Dropdown Child Adult and Infants start
     const [isOpen, setIsOpen] = useState(false);
     const [travelers, setTravelers] = useState({
-        adults: 1,
+        adults: 0,
         children: 0,
         infants: 0
     });
     const dropdownRef = useRef(null);
+
+    useEffect(()=>{
+        selectedTravelers(travelers);
+    },[travelers]);
 
     // Calculate total travelers
     const totalTravelers = travelers.adults + travelers.children + travelers.infants;

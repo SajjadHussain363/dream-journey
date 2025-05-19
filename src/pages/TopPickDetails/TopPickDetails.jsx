@@ -75,6 +75,11 @@ const TopPickDetails = ({ apiData }) => {
     const [images, setImages] = useState([]);
     const [lightboxOpen, setLightboxOpen] = useState(false);
     const [photoIndex, setPhotoIndex] = useState(0);
+    const [selectedTravelers, setSelectedTravelers] = useState();
+    const [selectedDate, setSelectedDate] = useState();
+    const [callingApi, setCallingApi] = useState(false);
+    const [showError, setShowError] = useState(false);
+    const [optionsData, setOptionsData] = useState([]);
 
 
     // Extract image URLs with useMemo to prevent unnecessary recalculations
@@ -139,7 +144,31 @@ const TopPickDetails = ({ apiData }) => {
         );
     };
 
-   
+    const handleCheckAvailability = async () => {
+        setShowError(null);
+        if (selectedDate === null) {
+            setShowError("Please select a date");
+        }
+        else if (selectedTravelers.adults === 0 && selectedTravelers.children === 0 && selectedTravelers.infants === 0) {
+            setShowError("Please select a traveler");
+        }
+        else {
+            setCallingApi(true);
+            const formattedDate = new Date(selectedDate).toLocaleDateString('en-GB', {
+                day: '2-digit',
+                month: '2-digit',
+                year: 'numeric'
+            }).split('/').join('-');
+            var resopnse = await GET(`products/options?productId=${slug}&date=${formattedDate}&adults=${selectedTravelers.adults}&children=${selectedTravelers.children}&infants=${selectedTravelers.infants}`);
+            setOptionsData(resopnse.options);
+            setCallingApi(false);
+
+        }
+    }
+
+
+
+
     return (
         <div>
             <Header />
@@ -285,9 +314,9 @@ const TopPickDetails = ({ apiData }) => {
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" className="iconItem" height="20" viewBox="0 0 28 28" fill="none"><path d="M14.7233 24.2784C14.3266 24.4184 13.6733 24.4184 13.2766 24.2784C9.89325 23.1234 2.33325 18.305 2.33325 10.1384C2.33325 6.53337 5.23825 3.6167 8.81992 3.6167C10.9433 3.6167 12.8216 4.64337 13.9999 6.23003C15.1783 4.64337 17.0683 3.6167 19.1799 3.6167C22.7616 3.6167 25.6666 6.53337 25.6666 10.1384C25.6666 18.305 18.1066 23.1234 14.7233 24.2784Z" stroke="black" className="iconItem" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
                                                 </div>
                                                 <div>
-                                                    
+
                                                     <div className="shareButtonsItem">
-                                                    {/* <p><strong>Meta Tags:</strong> {product.meta_tags}</p> */}
+                                                        {/* <p><strong>Meta Tags:</strong> {product.meta_tags}</p> */}
                                                         <SocialShareIcons />
                                                     </div>
                                                 </div>
@@ -457,48 +486,70 @@ const TopPickDetails = ({ apiData }) => {
                                         </Col>
 
                                         <Col lg={5}>
-                                        <div className="AvailibilityTourPackagesWrapprs">
-                                            <h1 className='Check_AvailibilityHeadings mb-3'>Availibility & Tour Packages</h1>
-                                            <div className='d-flex flex-xl-row flex-lg-column flex-md-row flex-column gap-3 py-3 '>
-                                                <DropdownChildAdultInfants />
-                                                <ClanderDropdownTourDatePicker />
-                                            </div>
-                                            <div className="pb-3 tourPackages_avaliable_btn">
-                                                {/* <button className="btn btn-rounded-secondary w-100">Check Availability</button> */}
-                                                <AvailabilityAccordion />
-                                            </div>
-                                            <div className="pt-md-5 pt-sm-3">
-                                                <div className="_needHelpBox_g43kk_1">
-                                                    <div className="text_26 font-playfair">Do you need help?</div>
-                                                    <div className="text_18 font-rubik py-2 text-Grayscale-Border">Our customer service is available every day to answer your questions.</div>
-                                                    <div className="border-top pt-md-5 mt-md-5 mt-3 pt-4"><button className="btn btn-transparent w-100" style={{borderRadius: "1000px"}}>Chat with Us</button></div>
+                                            <div className="AvailibilityTourPackagesWrapprs">
+                                                <h1 className='Check_AvailibilityHeadings mb-3'>Availibility & Tour Packages</h1>
+                                                <div className='d-flex flex-xl-row flex-lg-column flex-md-row flex-column gap-3 py-3 '>
+                                                    <DropdownChildAdultInfants selectedTravelers={setSelectedTravelers} />
+                                                    <ClanderDropdownTourDatePicker onDateChnage={setSelectedDate} />
+                                                </div>
+                                                <div className="pb-3 tourPackages_avaliable_btn">
+                                                    {/* Check Availability Button */}
+                                                    <div className="pb-3">
+                                                        <button
+                                                            className="btn btn-rounded-secondary w-100"
+                                                            onClick={() => handleCheckAvailability()}
+                                                        >
+                                                            Check Availability
+                                                        </button>
+                                                        {showError && <p className="text-danger">{showError}</p>}
+                                                        {callingApi && <div className="loading-spinner">Calling API</div>}
+                                                    </div>
+                                                    {optionsData.length > 0 ?
+                                                        optionsData?.map((option, index) => {
+                                                            return (<div>
+                                                                <AvailabilityAccordion key={index} option={option} />
+                                                            </div>);
+                                                        })
+
+                                                        :
+                                                        <>No options available</>
+
+                                                    }
+
+
+                                                </div>
+                                                <div className="pt-md-5 pt-sm-3">
+                                                    <div className="_needHelpBox_g43kk_1">
+                                                        <div className="text_26 font-playfair">Do you need help?</div>
+                                                        <div className="text_18 font-rubik py-2 text-Grayscale-Border">Our customer service is available every day to answer your questions.</div>
+                                                        <div className="border-top pt-md-5 mt-md-5 mt-3 pt-4"><button className="btn btn-transparent w-100" style={{ borderRadius: "1000px" }}>Chat with Us</button></div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
                                         </Col> {/* Column 5 End */}
                                     </Row>
-                                    
+
                                 </div>
                             </Col>
                         </Row>
                     </Container>
-                   
+
                 )}
                 <Container className='overflow-hidden'>
-                <Row>
-                    <Col>
-                        <SimpleSlider />
-                    </Col>
-                </Row>
-                
+                    <Row>
+                        <Col>
+                            <SimpleSlider />
+                        </Col>
+                    </Row>
+
                 </Container>
                 <section className='Revies_Wrapper'>
                     <Container>
                         <Row>
                             <Col>
                                 <div className="reviewsHeader">
-                                <h1 className="heading-primary text-light">Traveler's Experiences</h1>
-                                <p className="paragraph-primary-sm ">Here some awesome feedback from our travelers</p>
+                                    <h1 className="heading-primary text-light">Traveler's Experiences</h1>
+                                    <p className="paragraph-primary-sm ">Here some awesome feedback from our travelers</p>
                                 </div>
                                 <Reviews />
                             </Col>

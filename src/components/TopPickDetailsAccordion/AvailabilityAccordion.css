@@ -1,0 +1,65 @@
+.time-tag {
+    border-radius: 12px;
+    background: var(--Grayscale-Bg_light_grey, #f5f3f7);
+    color: var(--Grayscale-Black, #1a141f);
+    padding: 8px 12px;
+    font-family: var(--font-rubik);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    cursor: pointer;
+}
+.time-tag-active {
+    background-color: var(--primary-color);
+    color: #fff;
+    background: var(--Informing-Approval, #00b998);
+    border-radius: 12px;
+    padding: 8px 12px;
+    font-family: var(--font-rubik);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    cursor: pointer;
+}
+.tourPakages-accordian-padding {
+    padding: 20px 36px;
+}
+.border-top {
+    border-top: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
+}
+.tourPackageDetail .price {
+    font-family: var(--font-rubik);
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.aDDtOCrt{
+    color: #aba7af;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+}
+.BkkNuw {
+    border-radius: 100px;
+    background: #f69d1e;
+    color: #fff;
+    text-align: center;
+    font-family: Rubik;
+    font-size: 16px;
+    font-weight: 400;
+    padding:6px 15px 6px 15px;
+}
+.cancel24Hrs {
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.time-tag:hover {
+    background-color: #18335d;
+    color: #fff;
+}

@@ -1,143 +1,156 @@
 import React, { useState } from 'react';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
+import { Link } from 'react-router-dom';
+import CartImageDummy from "../../assets/images/tourLand4.png";
 import './Cart.css';
 
 const Cart = () => {
-  const initialProducts = [
+  const initialCartItems = [
     {
       id: 1,
-      name: 'Wireless Headphones',
+      name: 'Child',
       description: 'Black | Premium Series',
       price: 129.99,
-      discount: 0.2,
       quantity: 1,
-      image: 'https://via.placeholder.com/100',
-    },
-    {
-      id: 2,
-      name: 'Smart Watch',
-      description: 'Silver | Series 7',
-      price: 299.99,
-      discount: 0,
-      quantity: 1,
-      image: 'https://via.placeholder.com/100',
-    },
-    {
-      id: 3,
-      name: 'Wireless Charger',
-      description: 'White | 15W Fast Charge',
-      price: 49.99,
-      discount: 0,
-      quantity: 1,
-      image: 'https://via.placeholder.com/100',
-    },
+      image: CartImageDummy,
+    }
   ];
 
-  const [products, setProducts] = useState(initialProducts);
+  const [cartItems, setCartItems] = useState(initialCartItems);
 
   const updateQuantity = (id, delta) => {
-    setProducts(prev =>
-      prev.map(p =>
-        p.id === id ? { ...p, quantity: Math.max(1, p.quantity + delta) } : p
+    setCartItems(prev =>
+      prev.map(item =>
+        item.id === id
+          ? { ...item, quantity: Math.max(1, item.quantity + delta) }
+          : item
       )
     );
   };
 
   const removeItem = id => {
-    setProducts(prev => prev.filter(p => p.id !== id));
+    setCartItems(prev => prev.filter(item => item.id !== id));
   };
 
-  const subtotal = products.reduce((sum, p) => sum + p.price * p.quantity, 0);
-  const discount = products.reduce((sum, p) => sum + p.price * p.discount * p.quantity, 0);
+  const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const shipping = 5.0;
-  const total = subtotal - discount + shipping;
+  const total = subtotal + shipping;
+  const totalItems = cartItems.reduce((count, item) => count + item.quantity, 0);
 
   return (
     <>
-        <div className="cart-wrapper bg-light min-vh-100 mt-5 py-5">
-        <Header />
+      <Header />
+      <div className="cart-wrapper bg-light min-vh-100 py-4">
         <div className="container">
-            <div className="row g-4">
-            <div className="col-lg-8">
-                <div className="d-flex justify-content-between align-items-center mb-4">
-                <h4 className="mb-0">Shopping Cart</h4>
-                <span className="text-muted">{products.length} items</span>
-                </div>
+          <div className="mb-3 mt-3">
+            <Link className="breadcrumb_parent" to="/">Home</Link> - <span className="breadcrumb_child">Cart</span>
+          </div>
 
-                <div className="d-flex flex-column gap-3">
-                {products.map(p => (
-                    <div key={p.id} className="product-card p-3 shadow-sm rounded bg-white">
+          <div className="alert alert-light align-items-center gap-2 mt-5 " role="alert">
+           <center>
+             <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 256 256" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M208,128a79.85,79.85,0,0,0-27.95-60.68L173,28.43A20,20,0,0,0,153.32,12H102.68A20,20,0,0,0,83,28.43L76,67.32a79.84,79.84,0,0,0,0,121.36l7,38.89A20,20,0,0,0,102.68,244h50.64A20,20,0,0,0,173,227.57l7.05-38.89A79.85,79.85,0,0,0,208,128ZM106,36h44l2.9,16a79.76,79.76,0,0,0-49.76,0Zm44,184H106l-2.9-16a79.76,79.76,0,0,0,49.76,0Zm-22-36a56,56,0,1,1,56-56A56.06,56.06,0,0,1,128,184Zm40-56a12,12,0,0,1-12,12H128a12,12,0,0,1-12-12V100a12,12,0,0,1,24,0v16h16A12,12,0,0,1,168,128Z"></path></svg>
+           <span> We guarantee your booking for the next 30:00 min</span>
+           </center>
+          </div>
+
+          <div className="d-flex justify-content-end mb-3">
+            <button className="btn btn-danger position-relative">
+              Cart Items
+              <span className="badge bg-white text-danger ms-2">{totalItems}</span>
+            </button>
+          </div>
+
+          <div className="row g-4">
+            {/* Cart Items Section */}
+            <div className="col-lg-8">
+              <div className="d-flex flex-column flex-sm-row justify-content-between align-items-sm-center mb-4">
+                <h4 className="mb-2 mb-sm-0 align-items-center d-flex">
+                  <span><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"><path d="M8.40002 6.5H15.6C19 6.5 19.34 8.09 19.57 10.03L20.47 17.53C20.76 19.99 20 22 16.5 22H7.51003C4.00003 22 3.24002 19.99 3.54002 17.53L4.44003 10.03C4.66003 8.09 5.00002 6.5 8.40002 6.5Z" stroke="#1A141F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M8 8V4.5C8 3 9 2 10.5 2H13.5C15 2 16 3 16 4.5V8" stroke="#1A141F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M20.41 17.0298H8" stroke="#1A141F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+                  <span> &nbsp; Cart( Items )</span>
+                </h4>
+                <span className="text-muted">{cartItems.length} items</span>
+              </div>
+
+              <div className="d-flex flex-column gap-3">
+                {cartItems.map(item => (
+                  <div key={item.id} className="product-card p-3 shadow-sm rounded bg-white">
                     <div className="row align-items-center">
-                        <div className="col-md-2">
-                        <img src={p.image} alt="Product" className="product-image" />
-                        </div>
-                        <div className="col-md-4">
-                        <h6 className="mb-1">{p.name}</h6>
-                        <p className="text-muted mb-0">{p.description}</p>
-                        {p.discount > 0 && <span className="discount-badge mt-2 d-inline-block">{p.discount * 100}% OFF</span>}
-                        </div>
-                        <div className="col-md-3">
-                        <div className="d-flex align-items-center gap-2">
-                            <button className="quantity-btn" onClick={() => updateQuantity(p.id, -1)}>-</button>
-                            <input type="number" className="quantity-input" value={p.quantity} readOnly />
-                            <button className="quantity-btn" onClick={() => updateQuantity(p.id, 1)}>+</button>
-                        </div>
-                        </div>
-                        <div className="col-md-2">
-                        <span className="fw-bold">${(p.price * p.quantity).toFixed(2)}</span>
-                        </div>
-                        <div className="col-md-1">
-                        <i className="bi bi-trash remove-btn" onClick={() => removeItem(p.id)}></i>
-                        </div>
+                      <div className="col-4 col-md-2">
+                        <img src={item.image} alt={item.name} className="img-fluid rounded" />
+                      </div>
+                      <div className="col-8 col-md-4">
+                        <h6 className="mb-1">{item.name}</h6>
+                        <p className="text-muted small mb-1">{item.description}</p>
+                      </div>
+                      <div className="col-12 col-md-3 mt-2 mt-md-0">
+                     <Link to="/edit-cart" className='text-decoration-none'>
+                     <i class="bi bi-pencil-square"></i>
+                     <span>  Edit</span>
+                     </Link>
+                      </div>
+                      <div className="col-6 col-md-2  mt-md-0">
+                        
+                      </div>
+                      <div className="col-6 col-md-1 text-end">
+                        <button className="btn btn-link text-danger p-0" onClick={() => removeItem(item.id)}>
+                          <i className="bi bi-trash fs-5"></i>
+                        </button>
+                      </div>
                     </div>
+                    <hr />
+                    <div>
+                      <p><i class="bi bi-people"></i> &nbsp; Booked for: 1 Adults, 1 Children, 1 Infant</p><hr />
+                      <p><i class="bi bi-calendar3"></i> &nbsp; Travel date: Friday, May 23, 2025</p><hr />
+                      <p className='StartingTime'><i class="bi bi-watch"></i> &nbsp; Starting time: <strong>10:00 AM</strong></p><hr />
+                      <p><i class="bi bi-clock"></i> &nbsp; Duration: <strong>2 hours</strong></p><hr />
+                      <p><i class="bi bi-check-circle-fill text-success"></i> &nbsp; <strong>Free cancelation:</strong>Before 06:00 am, Friday, May 23, 2025</p><hr />
+                     <div className="d-flex justify-content-between gap-2 text_16 font-rubik py-2 cart-product-subtotal">
+                     <p>Sub Total: </p>
+                     <p className="text-end text-md-end mt-2"> <strong>${(item.price * item.quantity).toFixed(2)}</strong></p>
+                     </div>
                     </div>
+                  </div>
                 ))}
-                </div>
+              </div>
             </div>
 
+            {/* Summary Section */}
             <div className="col-lg-4">
-                <div className="summary-card p-4 shadow-sm rounded bg-white sticky-top">
+              <div className="summary-card p-4 shadow-sm rounded bg-white ">
                 <h5 className="mb-4">Order Summary</h5>
 
-                <div className="d-flex justify-content-between mb-3">
-                    <span className="text-muted">Subtotal</span>
-                    <span>${subtotal.toFixed(2)}</span>
+                <div className="d-flex justify-content-between mb-2">
+                  <span className="text-muted">Subtotal</span>
+                  <span>${subtotal.toFixed(2)}</span>
                 </div>
-                <div className="d-flex justify-content-between mb-3">
-                    <span className="text-muted">Discount</span>
-                    <span className="text-success">-${discount.toFixed(2)}</span>
-                </div>
-                <div className="d-flex justify-content-between mb-3">
-                    <span className="text-muted">Shipping</span>
-                    <span>${shipping.toFixed(2)}</span>
+                <div className="d-flex justify-content-between mb-2">
+                  <span className="text-muted">Shipping</span>
+                  <span>${shipping.toFixed(2)}</span>
                 </div>
                 <hr />
                 <div className="d-flex justify-content-between mb-4">
-                    <span className="fw-bold">Total</span>
-                    <span className="fw-bold">${total.toFixed(2)}</span>
+                  <strong>Total</strong>
+                  <strong>${total.toFixed(2)}</strong>
                 </div>
 
-                <div className="mb-4">
-                    <div className="input-group">
-                    <input type="text" className="form-control" placeholder="Promo code" />
-                    <button className="btn btn-outline-secondary">Apply</button>
-                    </div>
+                <div className="input-group mb-3">
+                  <input type="text" className="form-control" placeholder="Promo code" />
+                  <button className="btn btn-outline-secondary">Apply</button>
                 </div>
 
-                <button className="btn btn-primary checkout-btn w-100 mb-3">
-                    Proceed to Checkout
-                </button>
-                <div className="d-flex justify-content-center gap-2">
-                    <i className="bi bi-shield-check text-success"></i>
-                    <small className="text-muted">Secure checkout</small>
+                <button className="btn btn-primary w-100 mb-2">Proceed to Checkout</button>
+                <div className="text-center">
+                  <small className="text-muted">
+                    <i className="bi bi-shield-check text-success me-1"></i>Secure checkout
+                  </small>
                 </div>
-                </div>
+              </div>
             </div>
-            </div>
+          </div>
         </div>
-        <Footer />
-        </div>
+      </div>
+      <Footer />
     </>
   );
 };
