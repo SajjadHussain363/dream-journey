@@ -1,4 +1,5 @@
-import React, { useEffect, useState, useCallback, useMemo, useRef } from 'react';
+import React, { useEffect, useState, useCallback, useMemo, useRef} from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useParams, Link } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
 import Lightbox from 'react-image-lightbox';
@@ -69,6 +70,7 @@ const useImagePreloader = (imageUrls) => {
 
 const TopPickDetails = ({ apiData }) => {
     const { slug } = useParams();
+    const navigate = useNavigate();
 
     const [loading, setLoading] = useState(true);
     const [product, setProduct] = useState({});
@@ -80,6 +82,7 @@ const TopPickDetails = ({ apiData }) => {
     const [callingApi, setCallingApi] = useState(false);
     const [showError, setShowError] = useState(false);
     const [optionsData, setOptionsData] = useState([]);
+    const [selectedTime, onTimeChange] = useState();
 
 
     // Extract image URLs with useMemo to prevent unnecessary recalculations
@@ -165,6 +168,32 @@ const TopPickDetails = ({ apiData }) => {
 
         }
     }
+
+    const bookNow = ()=>{
+
+            var allTitle = "";
+
+            optionsData.forEach((item) => {
+                allTitle += item.title + ", ";
+            });
+            const obj = {
+                img: imageUrls[0],
+                slug: slug,
+                title: allTitle,
+                travelers: selectedTravelers,
+                date: selectedDate,
+                time: selectedTime,
+                duration: optionsData[0].duration,
+                totalAmount: optionsData[0].total_cost, 
+            };
+            const oldItems = localStorage.getItem("cartItems") || "[]";
+            const parsedItems = JSON.parse(oldItems);
+            parsedItems.push(obj);
+            localStorage.setItem("cartItems", JSON.stringify(parsedItems));
+            navigate("/cart");
+            
+
+    };
 
 
 
@@ -507,13 +536,11 @@ const TopPickDetails = ({ apiData }) => {
                                                     {optionsData.length > 0 ?
                                                         optionsData?.map((option, index) => {
                                                             return (<div>
-                                                                <AvailabilityAccordion key={index} option={option} />
+                                                                <AvailabilityAccordion key={index} option={option} bookNow={bookNow} onTimeChange={onTimeChange}/>
                                                             </div>);
                                                         })
-
                                                         :
                                                         <>No options available</>
-
                                                     }
 
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import { Link } from 'react-router-dom';
@@ -6,18 +6,9 @@ import CartImageDummy from "../../assets/images/tourLand4.png";
 import './Cart.css';
 
 const Cart = () => {
-  const initialCartItems = [
-    {
-      id: 1,
-      name: 'Child',
-      description: 'Black | Premium Series',
-      price: 129.99,
-      quantity: 1,
-      image: CartImageDummy,
-    }
-  ];
 
-  const [cartItems, setCartItems] = useState(initialCartItems);
+
+  const [cartItems, setCartItems] = useState([]);
 
   const updateQuantity = (id, delta) => {
     setCartItems(prev =>
@@ -37,6 +28,14 @@ const Cart = () => {
   const shipping = 5.0;
   const total = subtotal + shipping;
   const totalItems = cartItems.reduce((count, item) => count + item.quantity, 0);
+
+
+  useEffect(()=>{
+
+    const oldItems = localStorage.getItem("cartItems") || "[]";
+    const parsedItems = JSON.parse(oldItems);
+    setCartItems(parsedItems);
+  },[]);
 
   return (
     <>
@@ -77,7 +76,7 @@ const Cart = () => {
                   <div key={item.id} className="product-card p-3 shadow-sm rounded bg-white">
                     <div className="row align-items-center">
                       <div className="col-4 col-md-2">
-                        <img src={item.image} alt={item.name} className="img-fluid rounded" />
+                        <img src={item.img} alt={item.name} className="img-fluid rounded" />
                       </div>
                       <div className="col-8 col-md-4">
                         <h6 className="mb-1">{item.name}</h6>

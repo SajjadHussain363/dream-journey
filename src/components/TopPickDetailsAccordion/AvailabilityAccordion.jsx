@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Accordion from 'react-bootstrap/Accordion';
 import './AvailabilityAccordion.css';
 
-const AvailabilityAccordion = ({ key ,option }) => {
+const AvailabilityAccordion = ({ key ,option, bookNow, onTimeChange}) => {
   
   return (
     <div className="availability-container" key={key}>
@@ -24,7 +24,9 @@ const AvailabilityAccordion = ({ key ,option }) => {
                     <div>
                       <div className="d-flex gap-2 flex-wrap align-items-center">
                         {option.slots.map((slot, index) => (
-                          <div className="time-tag" key={index}>{slot.time}</div>
+                          <div 
+                          onClick={()=>onTimeChange(slot.time)}
+                          className="time-tag" key={index}>{slot.time}</div>
                         ))}
                       </div>
                       <hr />
@@ -42,7 +44,7 @@ const AvailabilityAccordion = ({ key ,option }) => {
                           </div>
                           <div class="d-flex align-items-center flex-sm-row flex-column-reverse gap-2 gap-sm-4">
                             <div class=" text_16 font-rubik text-Grayscale-Border aDDtOCrt cursor-pointer">Add to Cart</div>
-                            <div class="BkkNuw">Book Now</div>
+                            <div class="BkkNuw" onClick={()=>{bookNow()}}>Book Now</div>
                           </div>
                         </div>
                         <div class="text_12 font-rubik cancel24Hrs d-flex gap-1 align-items-center py-2">
@@ -56,7 +58,7 @@ const AvailabilityAccordion = ({ key ,option }) => {
             </Accordion.Item>
 
             {/* Children */}
-            <Accordion.Item eventKey="1">
+            {/* <Accordion.Item eventKey="1">
               <Accordion.Header>{option?.title}</Accordion.Header>
               <Accordion.Body>
                 <p>{option?.description}</p>
@@ -85,7 +87,10 @@ const AvailabilityAccordion = ({ key ,option }) => {
                           </div>
                           <div className="d-flex align-items-center flex-sm-row flex-column-reverse gap-2 gap-sm-4">
                             <div className=" text_16 font-rubik text-Grayscale-Border aDDtOCrt cursor-pointer">Add to Cart</div>
-                            <div className="BkkNuw">Book Now</div>
+                            <div className="BkkNuw" onClick={()=>{
+                              alert("Iam here here");
+                              // bookNow();
+                              }}>Book Now</div>
                           </div>
                         </div>
                         <div className="text_12 font-rubik cancel24Hrs d-flex gap-1 align-items-center py-2">
@@ -96,7 +101,7 @@ const AvailabilityAccordion = ({ key ,option }) => {
                   </div>
                 </div>
               </Accordion.Body>
-            </Accordion.Item>
+            </Accordion.Item> */}
           </Accordion>
 
 
