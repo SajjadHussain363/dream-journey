@@ -18,7 +18,7 @@ import DropdownChildAdultInfants from '../../components/TopPickDetailsAccordion/
 import AvailabilityAccordion from '../../components/TopPickDetailsAccordion/AvailabilityAccordion';
 import SimpleSlider from '../../components/UAEExplorerCarousel/ProductSlider';
 import Reviews from '../../components/Reviews/Reviews';
-
+import {LocalStorageProvider, useLocalStorageContext } from '../../hooks/LocalStorageContext';
 
 
 
@@ -28,6 +28,8 @@ import Reviews from '../../components/Reviews/Reviews';
 const useImagePreloader = (imageUrls) => {
     const [imagesLoaded, setImagesLoaded] = useState(false);
     const [loadingProgress, setLoadingProgress] = useState(0);
+
+    
 
     useEffect(() => {
         if (!imageUrls || imageUrls.length === 0) {
@@ -90,6 +92,7 @@ const TopPickDetails = ({ apiData }) => {
 
     // Use the custom preloader hook
     const { imagesLoaded, loadingProgress } = useImagePreloader(imageUrls);
+    const { storedValue, setValue, getCount } = useLocalStorageContext();
 
     useEffect(() => {
         const loadData = async () => {
@@ -150,10 +153,10 @@ const TopPickDetails = ({ apiData }) => {
     const handleCheckAvailability = async () => {
         setShowError(null);
         if (selectedDate === null) {
-            setShowError("Please select a date");
+            setShowError("Please select a Date");
         }
         else if (selectedTravelers.adults === 0 && selectedTravelers.children === 0 && selectedTravelers.infants === 0) {
-            setShowError("Please select a traveler");
+            setShowError("Please select a Traveler");
         }
         else {
             setCallingApi(true);
@@ -162,17 +165,16 @@ const TopPickDetails = ({ apiData }) => {
                 month: '2-digit',
                 year: 'numeric'
             }).split('/').join('-');
-            var resopnse = await GET(`products/options?productId=${slug}&date=${formattedDate}&adults=${selectedTravelers.adults}&children=${selectedTravelers.children}&infants=${selectedTravelers.infants}`);
+            var resopnse = await GET(`products/options?productId=15b9bb88-d8a5-11ef-8004-6ed2ba5aa858&date=${formattedDate}&adults=${selectedTravelers.adults}&children=${selectedTravelers.children}&infants=${selectedTravelers.infants}`);
             setOptionsData(resopnse.options);
+            console.log(resopnse.options);
             setCallingApi(false);
 
         }
     }
 
     const bookNow = ()=>{
-
             var allTitle = "";
-
             optionsData.forEach((item) => {
                 allTitle += item.title + ", ";
             });
@@ -185,14 +187,10 @@ const TopPickDetails = ({ apiData }) => {
                 time: selectedTime,
                 duration: optionsData[0].duration,
                 totalAmount: optionsData[0].total_cost, 
+                
             };
-            const oldItems = localStorage.getItem("cartItems") || "[]";
-            const parsedItems = JSON.parse(oldItems);
-            parsedItems.push(obj);
-            localStorage.setItem("cartItems", JSON.stringify(parsedItems));
-            navigate("/cart");
-            
-
+            setValue(obj);
+            navigate("/cart")
     };
 
 
@@ -530,8 +528,17 @@ const TopPickDetails = ({ apiData }) => {
                                                         >
                                                             Check Availability
                                                         </button>
-                                                        {showError && <p className="text-danger">{showError}</p>}
-                                                        {callingApi && <div className="loading-spinner">Calling API</div>}
+                                                        <div className="mt-3 mb-3">
+                                                        {showError && <p className="SelectDate">{showError}</p>}
+                                                        {callingApi && <div className="loading-spinner">
+                                                           <center>
+                                                           <span>Checking Availability...</span>
+                                                            <div className="spinner-border text-warning" role="status">
+                                                                <span className="sr-only"></span>
+                                                            </div>
+                                                           </center>
+                                                        </div>}
+                                                        </div>
                                                     </div>
                                                     {optionsData.length > 0 ?
                                                         optionsData?.map((option, index) => {
@@ -540,7 +547,7 @@ const TopPickDetails = ({ apiData }) => {
                                                             </div>);
                                                         })
                                                         :
-                                                        <>No options available</>
+                                                        <div className="text-center NoOptionsAvailbl">No options available</div>
                                                     }
 
 

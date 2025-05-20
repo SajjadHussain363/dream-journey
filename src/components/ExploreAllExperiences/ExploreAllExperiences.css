@@ -94,7 +94,7 @@
   }
   
   .Explore_All_Experiencs_LocationCity i {
-    color: #ff6200;
+    color: #9d9d9d;
   }
   
   .Explore_All_Experiencs_ReviewRating i {
@@ -115,7 +115,7 @@
   }
   
   .Explore_All_Experiencs_CuttingPrice del {
-    color: #c00;
+    color: #9d9d9d;
     margin-left: 5px;
   }
   
@@ -131,8 +131,39 @@
   
   .Explore_All_Experiencs_HeartLike {
     font-size: 18px;
-    color: #c00;
+    color: #9d9d9d;
     cursor: pointer;
+  }
+  
+  .CategoryToursInner {
+    font-weight: 600;
+    color: #4a4a4a;
+    font-size: 14px;
+  }
+  
+  .NatureWildLife.bulltes {
+    font-size: 14px;
+    color: #555;
+    margin: 0 0 0 20px;
+  }
+  
+  .RtingNew span {
+    font-size: 14px;
+    font-weight: bold;
+    color: #f39c12;
+  }
+  
+  .TimeShow {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .TimeShow i {
+    color: #999;
+  }
+  
+  .bi-check-circle {
+    color: green;
   }
   
   /* Responsive Adjustments */

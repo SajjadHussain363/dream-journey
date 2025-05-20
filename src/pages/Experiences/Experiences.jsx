@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 import { Container, Row, Col } from "react-bootstrap";
@@ -13,6 +13,10 @@ import TagCard from "../../components/Tags/TagCards";
 import Tag1Pic from "../../assets/images/tags1.png"
 import Tag2Pic from "../../assets/images/tags2.png"
 import Tag3Pic from "../../assets/images/tags3.png"
+
+import { GET } from "../../apicController/apiController";
+
+
 // Custom Slider coming from CSD Custom Dynamic Slider page 1 
 import CustomDynamicSlider from "../../components/CommanSlider/CustomDynamicSlider";
 import slideImage from "../../assets/images/commanslider.png";
@@ -68,6 +72,34 @@ const ExperiencesPage = () => {
             
         },
     ];
+
+    const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState("");
+    useEffect(() => {
+        const fetchData = async () => {
+          try {
+            const result = await GET("products", {}, {
+              Authorization: "Bearer 4|kmudIKPRt4bXIg3B4Vw9d58yipL5gECSv2k1NujOf516758f",
+              Accept: "application/json",
+            });
+    
+            if (result && Array.isArray(result.data)) {
+              setProducts(result.data);
+            } else {
+              setError("No product data found.");
+            }
+          } catch (err) {
+            setError("Failed to load products.");
+          } finally {
+            setLoading(false);
+          }
+        };
+    
+        fetchData();
+      }, []);
+    
+    
     return (
         <>
             <Header />

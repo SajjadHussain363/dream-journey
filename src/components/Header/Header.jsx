@@ -7,6 +7,7 @@ import logo from "../../assets/images/logo.png";
 import loginIcon from "../../assets/images/login.jpg";
 import "../Header/Header.css";
 import { Link } from 'react-router-dom';
+import { useLocalStorageContext } from '../../hooks/LocalStorageContext';
 
 
 const Header = () => {
@@ -35,6 +36,8 @@ const Header = () => {
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
+
+  const { storedValue, setValue, getCount } = useLocalStorageContext();
 
   return (
     <div className={`headertops ${scrolled ? 'scrolled' : ''}`}>
@@ -87,7 +90,7 @@ const Header = () => {
             </li>
             <li className="nav-item position-relative me-lg-3">
               <Link to="/cart">
-                <span className="CounterHeader position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+                <span className="CounterHeader position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">{getCount()}</span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none">
                   <path d="M8.40002 6.5H15.6C19 6.5 19.34 8.09 19.57 10.03L20.47 17.53C20.76 19.99 20 22 16.5 22H7.51003C4.00003 22 3.24002 19.99 3.54002 17.53L4.44003 10.03C4.66003 8.09 5.00002 6.5 8.40002 6.5Z" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                   <path d="M8 8V4.5C8 3 9 2 10.5 2H13.5C15 2 16 3 16 4.5V8" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />

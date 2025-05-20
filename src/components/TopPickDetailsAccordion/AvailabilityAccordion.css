@@ -51,6 +51,7 @@
     font-family: Rubik;
     font-size: 16px;
     font-weight: 400;
+    cursor: pointer;
     padding:6px 15px 6px 15px;
 }
 .cancel24Hrs {
@@ -62,4 +63,17 @@
 .time-tag:hover {
     background-color: #18335d;
     color: #fff;
+}
+.time-tag-active {
+    background-color: var(--primary-color);
+    color: #fff;
+    background: var(--Informing-Approval, #00b998);
+    border-radius: 12px;
+    padding: 8px 12px;
+    font-family: var(--font-rubik);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    cursor: pointer;
 }

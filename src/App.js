@@ -2,13 +2,14 @@ import './App.css';
 import React from 'react';
 import Index from './routes/index';
 
-import Blog from "./pages/TravelBlogs/TravelBlogs"
+import { LocalStorageProvider } from '../src/hooks/LocalStorageContext';
 function App() {
   return (
+    <LocalStorageProvider storageKey="myAppData" initialValue={[]}>
     <div className="App">
       <Index/>
-      {/* <Blog /> */}
     </div>
+    </LocalStorageProvider>
   );
 }
 

@@ -4,12 +4,15 @@ import Footer from '../../components/Footer/Footer';
 import { Link } from 'react-router-dom';
 import CartImageDummy from "../../assets/images/tourLand4.png";
 import './Cart.css';
+import {useLocalStorageContext} from '../../hooks/LocalStorageContext';
+import { formatDuration as formatDurationFn, intervalToDuration } from 'date-fns';
 
 const Cart = () => {
 
 
   const [cartItems, setCartItems] = useState([]);
 
+  const {storedValue, setValue, getCount, removeItem} = useLocalStorageContext();
   const updateQuantity = (id, delta) => {
     setCartItems(prev =>
       prev.map(item =>
@@ -20,9 +23,7 @@ const Cart = () => {
     );
   };
 
-  const removeItem = id => {
-    setCartItems(prev => prev.filter(item => item.id !== id));
-  };
+
 
   const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const shipping = 5.0;
@@ -31,11 +32,54 @@ const Cart = () => {
 
 
   useEffect(()=>{
+    setCartItems(storedValue);
+  },[storedValue]);
 
-    const oldItems = localStorage.getItem("cartItems") || "[]";
-    const parsedItems = JSON.parse(oldItems);
-    setCartItems(parsedItems);
-  },[]);
+
+  function formatDate(isoDate) {
+    const date = new Date(isoDate);
+    return date.toLocaleDateString('en-US', {
+      weekday: 'long', // e.g., "Friday"
+      month: 'long',   // e.g., "May"
+      day: 'numeric',  // e.g., "23"
+      year: 'numeric'  // e.g., "2025"
+    });
+  }
+
+  function formatTimeToAmPm(time24) {
+    try {
+      const [hours, minutes] = time24.split(':').map(Number);
+      
+      const date = new Date();
+      date.setHours(hours, minutes, 0, 0);
+      
+      return date.toLocaleTimeString('en-US', {
+        hour: 'numeric',
+        minute: '2-digit',
+        hour12: true
+      });
+    } catch (error) {
+      console.error('Error formatting time:', error);
+      return 'Invalid time';
+    }
+  }
+
+  function formatDuration(timeStr) {
+    try {
+      const [hours, minutes, seconds] = timeStr.split(':').map(Number);
+      if (isNaN(hours) || isNaN(minutes) || isNaN(seconds) || hours < 0 || minutes < 0 || minutes > 59 || seconds < 0 || seconds > 59) {
+        return 'Invalid duration';
+      }
+      const duration = { hours, minutes, seconds };
+      return formatDurationFn(duration, {
+        format: ['hours', 'minutes', 'seconds'],
+        delimiter: ' and '
+      }) || '0 minutes';
+    } catch (error) {
+      console.error('Error formatting duration:', error);
+      return 'Invalid duration';
+    }
+  }
 
   return (
     <>
@@ -72,8 +116,9 @@ const Cart = () => {
               </div>
 
               <div className="d-flex flex-column gap-3">
-                {cartItems.map(item => (
-                  <div key={item.id} className="product-card p-3 shadow-sm rounded bg-white">
+                {cartItems.map((item, index) => (
+                  <div key={index} className="product-card p-3 shadow-sm rounded bg-white">
+                    
                     <div className="row align-items-center">
                       <div className="col-4 col-md-2">
                         <img src={item.img} alt={item.name} className="img-fluid rounded" />
@@ -92,17 +137,17 @@ const Cart = () => {
                         
                       </div>
                       <div className="col-6 col-md-1 text-end">
-                        <button className="btn btn-link text-danger p-0" onClick={() => removeItem(item.id)}>
+                        <button className="btn btn-link text-danger p-0" onClick={() => removeItem(index)}>
                           <i className="bi bi-trash fs-5"></i>
                         </button>
                       </div>
                     </div>
                     <hr />
                     <div>
-                      <p><i class="bi bi-people"></i> &nbsp; Booked for: 1 Adults, 1 Children, 1 Infant</p><hr />
-                      <p><i class="bi bi-calendar3"></i> &nbsp; Travel date: Friday, May 23, 2025</p><hr />
-                      <p className='StartingTime'><i class="bi bi-watch"></i> &nbsp; Starting time: <strong>10:00 AM</strong></p><hr />
-                      <p><i class="bi bi-clock"></i> &nbsp; Duration: <strong>2 hours</strong></p><hr />
+                      <p><i class="bi bi-people"></i> &nbsp; Booked for: {item.travelers.adults} Adults, {item.travelers.children} Children, {item.travelers.infants} Infant</p><hr />
+                      <p><i class="bi bi-calendar3"></i> &nbsp; Travel date: {formatDate(item.date)} </p><hr />
+                      <p className='StartingTime'><i class="bi bi-watch"></i> &nbsp; Starting time: <strong>{formatTimeToAmPm(item.time)}</strong></p><hr />
+                      <p><i class="bi bi-clock"></i> &nbsp; Duration: <strong> {formatDuration(item.duration)}</strong></p><hr />
                       <p><i class="bi bi-check-circle-fill text-success"></i> &nbsp; <strong>Free cancelation:</strong>Before 06:00 am, Friday, May 23, 2025</p><hr />
                      <div className="d-flex justify-content-between gap-2 text_16 font-rubik py-2 cart-product-subtotal">
                      <p>Sub Total: </p>

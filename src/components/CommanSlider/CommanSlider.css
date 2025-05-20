@@ -218,6 +218,22 @@
     color: #666;
     line-height: 1.5;
   }
+  .Products_card_title .card-title{
+    color: #0c111f;
+    font-family: Playfair Display;
+    font-size: 18px;
+    font-weight: 400;
+    text-align: start;
+  }
+  .product-card-content-wrapper {
+    padding: 5px 10px 20px 10px;
+    border: none !important;
+    border-radius: 8px !important;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 8px !important;
+}
+.cancelFreeClr{
+  color: #9d9d9d !important;
+}
   /* Responsive */
   @media (max-width: 992px) {
     .CommanSlider-wrapper {
