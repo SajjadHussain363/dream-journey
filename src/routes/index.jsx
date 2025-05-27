@@ -19,6 +19,8 @@ import ScrollToTop from '../components/ScrollToTop/ScrollToTop';
 import TopPickDetails from '../pages/TopPickDetails/TopPickDetails';
 import Customers from '../pages/Customers/Customer';
 import Cart from '../pages/Cart/Cart';
+import CheckoutLogin from '../pages/checkout-login/checkoutLogin';
+import Checkout from '../pages/checkout/checkout';
 
 const Index = () => {
   return (
@@ -44,6 +46,8 @@ const Index = () => {
       <Route path="/top-pick-details/:slug" Component={TopPickDetails} />
       <Route path="/customers" Component={Customers} />
       <Route path="/cart" Component={Cart} />
+      <Route path="/checkout-login" Component={CheckoutLogin} />
+      <Route path="/checkout" Component={Checkout} />
 
       
     

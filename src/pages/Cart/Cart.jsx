@@ -6,10 +6,12 @@ import CartImageDummy from "../../assets/images/tourLand4.png";
 import './Cart.css';
 import {useLocalStorageContext} from '../../hooks/LocalStorageContext';
 import { formatDuration as formatDurationFn, intervalToDuration } from 'date-fns';
+import GetOffersDeals from '../../components/GetOffersDeals/GetOffersDeals';
+import { useNavigate } from 'react-router-dom';
 
 const Cart = () => {
 
-
+  const navigate = useNavigate();
   const [cartItems, setCartItems] = useState([]);
 
   const {storedValue, setValue, getCount, removeItem} = useLocalStorageContext();
@@ -97,12 +99,12 @@ const Cart = () => {
            </center>
           </div>
 
-          <div className="d-flex justify-content-end mb-3">
+          {/* <div className="d-flex justify-content-end mb-3">
             <button className="btn btn-danger position-relative">
               Cart Items
               <span className="badge bg-white text-danger ms-2">{totalItems}</span>
             </button>
-          </div>
+          </div> */}
 
           <div className="row g-4">
             {/* Cart Items Section */}
@@ -148,7 +150,7 @@ const Cart = () => {
                       <p><i class="bi bi-calendar3"></i> &nbsp; Travel date: {formatDate(item.date)} </p><hr />
                       <p className='StartingTime'><i class="bi bi-watch"></i> &nbsp; Starting time: <strong>{formatTimeToAmPm(item.time)}</strong></p><hr />
                       <p><i class="bi bi-clock"></i> &nbsp; Duration: <strong> {formatDuration(item.duration)}</strong></p><hr />
-                      <p><i class="bi bi-check-circle-fill text-success"></i> &nbsp; <strong>Free cancelation:</strong>Before 06:00 am, Friday, May 23, 2025</p><hr />
+                      <p><i class="bi bi-check-circle-fill text-success"></i> &nbsp; <strong>Free cancelation:</strong> With in 24 Hours</p><hr />
                      <div className="d-flex justify-content-between gap-2 text_16 font-rubik py-2 cart-product-subtotal">
                      <p>Sub Total: </p>
                      <p className="text-end text-md-end mt-2"> <strong>${(item.price * item.quantity).toFixed(2)}</strong></p>
@@ -183,7 +185,7 @@ const Cart = () => {
                   <button className="btn btn-outline-secondary">Apply</button>
                 </div>
 
-                <button className="btn btn-primary w-100 mb-2">Proceed to Checkout</button>
+                <button onClick={() => navigate("/checkout")} className="btn btn-primary w-100 mb-2">Proceed to Checkout</button>
                 <div className="text-center">
                   <small className="text-muted">
                     <i className="bi bi-shield-check text-success me-1"></i>Secure checkout
@@ -193,7 +195,8 @@ const Cart = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> 
+      <GetOffersDeals />
       <Footer />
     </>
   );

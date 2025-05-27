@@ -1,21 +1,43 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import { Link } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
+import { GET } from '../../apicController/apiController';
 
 import './Customers.css';
 
 function Customers() {
-    const [isEditing, setIsEditing] = useState(false);
-    const [formData, setFormData] = useState({
-        firstName: 'Sajjad',
-        lastName: 'Hussain',
-        phone: '03334988386',
-        email: 'hussainsajjad363@gmail.com'
-    });
+
+    const [fethingData, setFetchingData] =  useState();
+    const [isEditing, setIsEditing] = useState(true);
+    const [formData, setFormData] = useState();
+
+
+    useEffect(()=>{
+        fetchProfileData();
+    },[]);
+    
+
+
+    const fetchProfileData = async ()=>{
+        try {
+            setFetchingData(true);
+            var response = await GET("profile");   
+            setFormData(response);
+            setFetchingData(false);
+        } catch (error) {
+            console.log(error);
+            setFetchingData(false);
+        } finally {
+            setFetchingData(false);
+        }
+    };
+
+
+    
 
     const [originalData, setOriginalData] = useState(formData);
 
@@ -42,7 +64,7 @@ function Customers() {
         <div className='customers-wrappers'>
             <Header />
             <Container>
-                <Row>
+            <Row>
                     <Col md={12}>
                         <div className="cs_breadcrub mt-5">
                             <Link className="breadcrumb_parent" to="/">Home</Link> - <span className="breadcrumb_child">Account</span>
@@ -74,7 +96,7 @@ function Customers() {
                                                             type="text"
                                                             name="firstName"
                                                             className="form-control"
-                                                            value={formData.firstName}
+                                                            value={formData.first_name}
                                                             onChange={handleChange}
                                                             placeholder="First Name"
                                                         />
@@ -84,7 +106,7 @@ function Customers() {
                                                             type="text"
                                                             name="lastName"
                                                             className="form-control"
-                                                            value={formData.lastName}
+                                                            value={formData.last_name}
                                                             onChange={handleChange}
                                                             placeholder="Last Name"
                                                         />
@@ -117,11 +139,15 @@ function Customers() {
                                             </div>
                                         ) : (
                                             <>
-                                                <h4>{formData.firstName} {formData.lastName}</h4>
+                                            {fethingData ? <>Loader aithy laaao...</> : <>
+                                            <h4>{formData?.first_name} {formData?.last_name}</h4>
                                                 <div className="row gy-2 pt-2">
-                                                    <div className="col-md-6 medium-text-normal">Phone: {formData.phone}</div>
-                                                    <div className="col-md-6 medium-text-normal">Email: {formData.email}</div>
+                                                    <div className="col-md-6 medium-text-normal">Phone: {formData?.phone}</div>
+                                                    <div className="col-md-6 medium-text-normal">Email: {formData?.email}</div>
                                                 </div>
+                                            
+                                            </>}
+                                                
                                             </>
                                         )}
                                     </div>
@@ -172,6 +198,7 @@ function Customers() {
                         </div>
                     </Col>
                 </Row>
+                
             </Container>
             <Footer />
         </div>

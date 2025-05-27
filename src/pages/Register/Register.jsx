@@ -208,7 +208,7 @@ const Register = () => {
 
                                             <div className="col-lg-12"><div
                                                 onClick={() => registerUser()}
-                                                className="btn primary-btn mt-3 w-100">Register</div></div>
+                                                className="btn primary-btn mt-3 w-100 RegisterBtn">Register</div></div>
 
 
                                             {errors.length > 0 && (

@@ -1,0 +1,49 @@
+.pickup-container {
+  font-family: "Arial", sans-serif;
+  margin: 30px auto;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.pickup-note {
+  color: #6b5c7d;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.info-icon {
+  margin-right: 8px;
+  font-size: 18px;
+}
+
+.pickup-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #e5e0eb;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+}
+
+.pickup-input:disabled {
+  background-color: #f5f5f5;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+  font-size: 16px;
+}
+
+.checkbox-container input {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}

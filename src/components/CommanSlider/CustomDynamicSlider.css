@@ -5,6 +5,11 @@
     padding: 20px 0 60px;
     overflow: hidden;
   }
+  .CDS_SliderImage {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+  }
   
   /* Arrow wrapper (top-right) */
   .CDSslider-container .CDSarrow-wrapper {
@@ -89,18 +94,27 @@
     background-color: gray;
 }
 .CDS_Wrapper{
-    
+    position: relative;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 .CDS_post-content {
     padding: 20px 10px 0px 10px;
 }
 .CDS_post-content .CDS_post_title {
-    color: #172432;
-    font-family: Playfair Display;
-    font-size: 22px;
-    font-weight: 400;
+  font-size: 22px;
+  font-weight: 400;
+  color: #1a1a1a;
+  line-height: 1.4;
+  flex: 1 1;
+  margin: 10px 0;
+  font-family: Playfair Display;
+  cursor: pointer;
 }
+.CDS_post-content .CDS_post_title:hover{
+  color: #f69d1f;
+  cursor: pointer;
+}
+
 .CDS_LocationCity {
     font-size: 14px;
     color: #666;
@@ -110,21 +124,17 @@
     color: #fbb513;
     margin: 0 6px 0 0px;
 }
-.CDSslider-container .commanTipwper{
-    position: absolute;
-    top: 0;
-}
+
 
 .CDS_CityTur {
-    position: absolute;
-    top: 20px;
-    right: 34px;
-    background: #5d88ca;
-    color: white;
-    padding: 4px 8px;
-    border-radius: 50px;
-    font-size: 14px;
-    width: 76px;
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  color: white;
+  background: #5d88caa1;
+  padding: 5px 10px;
+  border-radius: 50px;
+  font-size: 13px;
 }
 .CDS_starReview {
     position: absolute;

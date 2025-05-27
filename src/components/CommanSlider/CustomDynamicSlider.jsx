@@ -1,11 +1,39 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Slider from "react-slick";
+import { GET } from "../../apicController/apiController";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./CustomDynamicSlider.css";
+import { Link } from "react-router-dom";
 
-const CustomDynamicSlider = ({ title = "Slider Title", slides = [] }) => {
+const CustomDynamicSlider = ({ title = "Slider Title" }) => {
   const sliderRef = useRef(null);
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const result = await GET("products", {}, {
+          Authorization: "Bearer 4|kmudIKPRt4bXIg3B4Vw9d58yipL5gECSv2k1NujOf516758f",
+          Accept: "application/json",
+        });
+
+        if (result && Array.isArray(result.data)) {
+          setProducts(result.data);
+        } else {
+          setError("No product data found.");
+        }
+      } catch (err) {
+        setError("Failed to load products.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const settings = {
     dots: false,
@@ -63,49 +91,95 @@ const CustomDynamicSlider = ({ title = "Slider Title", slides = [] }) => {
           </div>
         </div>
 
-        <Slider ref={sliderRef} {...settings}>
-          {slides.map((item, index) => (
-            <div key={index}>
-              <div className="CDS_Wrapper">
-                <img src={item.image} alt={item.title} />
-                <div className="commanTipwper d-flex align-items-center justify-content-between">
-                    <div className="CDS_CityTur">City Tour</div>
+        {loading ? (
+          <div className="text-center my-5">
+            <small>Api Data Loading...</small><br />
+            <div className="spinner-border text-warning mt-3" role="status"></div>
+          </div>
+        ) : error ? (
+          <div className="text-danger text-center my-3">{error}</div>
+        ) : products.length === 0 ? (
+          <div className="text-center my-3">No products available.</div>
+        ) : (
+          <Slider ref={sliderRef} {...settings}>
+            {products.map((item, index) => (
+              <div key={index}>
+                <div className="CDS_Wrapper">
+                  <img
+                    src={item.product_image}
+                    alt={item.name}
+                    className="CDS_SliderImage"
+                  />
+                  <div className="commanTipwper d-flex align-items-center justify-content-between">
+                    {item.category && (
+                      <div className="CDS_CityTur">{item.category}</div>
+                    )}
                     <div className="CDS_starReview">
-                        <i className="bi bi-star-fill"></i> &nbsp;<span>1.5</span>
+                      <i className="bi bi-star-fill"></i> &nbsp;
+                      <span>{item.average_rating}</span>
                     </div>
-                </div>
-                <div className="CDS_post-content">
-                  <div className="d-flex justify-content-between">
-                    <h3 className="CDS_post_title">{item.title}</h3>
-                    <span>
-                      <i className="bi bi-heart WishHeartLike"></i>
-                    </span>
                   </div>
-                  <div className="d-flex CDS_LocationCity">
-                    <i className="bi bi-geo-alt"></i>&nbsp;
-                    <span>{item.location}</span>
-                  </div>
-                  <div className="CDS_ReviewRatingCardWpr d-flex">
-                    {[...Array(item.rating)].map((_, i) => (
-                      <i className="bi bi-star-fill" key={i}></i>
-                    ))}
-                    <span>({item.reviews} reviews)</span>
-                  </div>
-                  <div className="CardCuttingPrice mt-5">
-                    <span>From</span> <del>{item.originalPrice}</del>
-                  </div>
-                  <div className="comnCardPricewpr d-flex justify-content-between">
-                    <div>
-                      <span className="OrignalPrice">{item.discountedPrice} /</span>
-                      <span className="PersonRgroup">Person</span>
+                  <div className="CDS_post-content px-3 pb-3">
+                    <div className="d-flex justify-content-between">
+                      <Link to={`/top-pick-details/${item.uid}`} className="Products_card_title text-decoration-none">
+                        <h3 className="CDS_post_title">{item.name}</h3>
+                      </Link>
+                      <span>
+                        <i className="bi bi-heart WishHeartLike"></i>
+                      </span>
                     </div>
-                    <div>{item.options} option available</div>
+                    <div className="d-flex CDS_LocationCity mt-3 mb-3">
+                      <i className="bi bi-geo-alt"></i>&nbsp;
+                      <span>Dubai</span>
+
+
+                      {item.theme && item.theme.length > 0 && (
+                        <div className="NatureWildLife bulltes">
+                          <i className="bi bi-circle-fill"></i> {item.theme.join(", ")}
+                        </div>
+                      )}
+                    </div>
+                    <div className="d-flex">
+
+                      <div className="ReviewRatingWrapper text-start">
+                        <div className="ms-2 RtingNew d-flex">
+                          {item.is_new_product ? (
+                            <span>★ New</span>
+                          ) : (
+                            <span>{"★".repeat(Math.round(item.average_rating))}</span>
+                          )}
+                          <div className="TimeShow"><span><i className="bi bi-clock"></i></span> {item.duration}</div>
+                        </div>
+                      </div>
+                     
+                    </div>
+
+
+
+                    <div className="CityFeatch text-start d-flex align-items-center">
+                      <div className="cancelFreeClr">
+                        <i className="bi bi-check-circle"></i> Free Cancellation : {item.free_cancellation ? "Yes" : "No"}
+                      </div>
+                    </div>
+
+
+
+                    <div className="CardCuttingPrice mt-5">
+                      <span>From</span> <del>AED {parseFloat(item.price) + 50}</del>
+                    </div>
+                    <div className="comnCardPricewpr d-flex justify-content-between">
+                      <div>
+                        <span className="OrignalPrice">AED {item.price} /</span>
+                        <span className="PersonRgroup">Person</span>
+                      </div>
+                      <div>{item.listing_highlight_display}</div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </Slider>
+            ))}
+          </Slider>
+        )}
       </div>
     </section>
   );

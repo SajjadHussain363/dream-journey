@@ -10,7 +10,7 @@
   border-radius: 15px;
   overflow: hidden;
   transition: transform 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
   padding-bottom: 15px;
   position: relative;
   max-height: 570px;
@@ -147,18 +147,18 @@
 }
 
 .CategoryToursInner {
-  background-color: #7378879e;
+  background-color: #5d88caa1;
   padding: 5px 12px;
   border-radius: 50px;
   font-size: 14px;
   font-weight: 600;
-  width: 110px;
   position: absolute;
   top: 10px;
   right: 7px;
+  color: #ffffff !important;
 }
 .CityFeatch a {
-  color: #9d9d9d;
+  color: #ffffff;
   text-decoration: none;
 }
 .CityFeatch {

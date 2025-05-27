@@ -40,6 +40,7 @@ const PrevArrow = (props) => {
     <div className="custom-arrow prev-arrow" onClick={onClick}>
       <i className="bi bi-chevron-left UAEleftArrowChrion"></i>
     </div>
+    
   );
 };
 

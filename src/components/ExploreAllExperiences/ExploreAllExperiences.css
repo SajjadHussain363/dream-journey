@@ -72,8 +72,8 @@
   }
   
   .Explore_All_Experiencs_StarReview {
-    background:#0a0a0a73;
-    padding: 5px 10px;
+    background: #0a0a0a73;
+    padding: 5px 10px !important;
     border-radius: 50px;
     font-size: 13px;
     color: #fff;
@@ -82,15 +82,22 @@
     position: absolute;
     left: 20px;
     top: 10px;
+    gap: 6px;
+
   }
   
   .Explore_All_Experiencs_Card_Title {
-    font-size: 16px;
-    font-weight: 600;
+    font-size: 22px;
+    font-weight: 400;
     color: #1a1a1a;
     line-height: 1.4;
-    flex: 1;
+    flex: 1 1;
     margin: 10px 0;
+    font-family: Playfair Display;
+    cursor: pointer;
+    text-align: start;
+    
+    
   }
   
   .Explore_All_Experiencs_LocationCity i {

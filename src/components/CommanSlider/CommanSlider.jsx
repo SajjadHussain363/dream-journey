@@ -136,7 +136,7 @@ const CommanSlider = () => {
                                             <div className="product-card-content-wrapper">
                                                 <div className="d-flex align-items-center justify-content-between">
                                                     <Link to={`/top-pick-details/${product.uid}`} className="Products_card_title text-decoration-none">
-                                                        <h3 className="card-title fw-bold mt-2">{product.name}</h3>
+                                                        <h3 className="card-title mt-2">{product.name}</h3>
                                                     </Link>
                                                     <button className="btn wishlist-icon">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">

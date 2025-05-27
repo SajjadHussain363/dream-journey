@@ -8,8 +8,11 @@
   padding-bottom: 1.5rem;
 }
 .footer a{
-  color: #fff;
   text-decoration: none;
+  color: #fff;
+  font-family: Rubik;
+  font-size: 18px;
+  font-weight: 400;
 }
 .footer a:hover{
   text-decoration: none;
@@ -19,10 +22,13 @@
 }
 .footer-title {
   border-bottom: 2px solid orange;
-  padding-bottom: 5px;
-  margin-bottom: 15px;
-  font-family: 'Georgia', serif;
-  font-size: 1.2rem;
+  color: #fff;
+  font-family: Playfair Display;
+  font-size: 26px;
+  font-weight: 400;
+  position: relative;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
 }
 .footer-sub-box{
   margin: -70px auto;

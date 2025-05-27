@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback, useMemo, useRef} from 'react';
+import React, { useEffect, useState, useCallback, useMemo, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useParams, Link } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
@@ -18,7 +18,7 @@ import DropdownChildAdultInfants from '../../components/TopPickDetailsAccordion/
 import AvailabilityAccordion from '../../components/TopPickDetailsAccordion/AvailabilityAccordion';
 import SimpleSlider from '../../components/UAEExplorerCarousel/ProductSlider';
 import Reviews from '../../components/Reviews/Reviews';
-import {LocalStorageProvider, useLocalStorageContext } from '../../hooks/LocalStorageContext';
+import { LocalStorageProvider, useLocalStorageContext } from '../../hooks/LocalStorageContext';
 
 
 
@@ -29,7 +29,7 @@ const useImagePreloader = (imageUrls) => {
     const [imagesLoaded, setImagesLoaded] = useState(false);
     const [loadingProgress, setLoadingProgress] = useState(0);
 
-    
+
 
     useEffect(() => {
         if (!imageUrls || imageUrls.length === 0) {
@@ -173,24 +173,24 @@ const TopPickDetails = ({ apiData }) => {
         }
     }
 
-    const bookNow = ()=>{
-            var allTitle = "";
-            optionsData.forEach((item) => {
-                allTitle += item.title + ", ";
-            });
-            const obj = {
-                img: imageUrls[0],
-                slug: slug,
-                title: allTitle,
-                travelers: selectedTravelers,
-                date: selectedDate,
-                time: selectedTime,
-                duration: optionsData[0].duration,
-                totalAmount: optionsData[0].total_cost, 
-                
-            };
-            setValue(obj);
-            navigate("/cart")
+    const bookNow = () => {
+        var allTitle = "";
+        optionsData.forEach((item) => {
+            allTitle += item.title + ", ";
+        });
+        const obj = {
+            img: imageUrls[0],
+            slug: slug,
+            title: allTitle,
+            travelers: selectedTravelers,
+            date: selectedDate,
+            time: selectedTime,
+            duration: optionsData[0].duration,
+            totalAmount: optionsData[0].total_cost,
+
+        };
+        setValue(obj);
+        navigate("/cart")
     };
 
 
@@ -335,20 +335,132 @@ const TopPickDetails = ({ apiData }) => {
                                         </div>
                                     )}
                                     <Row>
-                                        <div className='wishlistAndShareBtn d-flex align-items-end flex-column  mt-3'>
-                                            <div className="shareButtons d-flex align-items-center  gap-3">
-                                                <div className="shareButtonsItem">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" className="iconItem" height="20" viewBox="0 0 28 28" fill="none"><path d="M14.7233 24.2784C14.3266 24.4184 13.6733 24.4184 13.2766 24.2784C9.89325 23.1234 2.33325 18.305 2.33325 10.1384C2.33325 6.53337 5.23825 3.6167 8.81992 3.6167C10.9433 3.6167 12.8216 4.64337 13.9999 6.23003C15.1783 4.64337 17.0683 3.6167 19.1799 3.6167C22.7616 3.6167 25.6666 6.53337 25.6666 10.1384C25.6666 18.305 18.1066 23.1234 14.7233 24.2784Z" stroke="black" className="iconItem" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                                        <Col lg={8}>
+                                            <div className="TPD_Produc_Extra_DetailsWrapper mt-3">
+                                                <div className="d-flex justify-content-md-start justify-content-between align-items-center flex-wrap gap-md-5 gap-">
+                                                    <div className="tourLandStaticItem text-center">
+                                                        <svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            width={32}
+                                                            height={32}
+                                                            viewBox="0 0 32 32"
+                                                            fill="none"
+                                                        >
+                                                            <path
+                                                                d="M15.9998 29.8334C8.36931 29.8334 2.1665 23.6305 2.1665 16C2.1665 8.3695 8.36931 2.16669 15.9998 2.16669C23.6304 2.16669 29.8332 8.3695 29.8332 16C29.8332 23.6305 23.6304 29.8334 15.9998 29.8334ZM15.9998 3.16669C8.9237 3.16669 3.1665 8.92388 3.1665 16C3.1665 23.0762 8.9237 28.8334 15.9998 28.8334C23.076 28.8334 28.8332 23.0762 28.8332 16C28.8332 8.92388 23.076 3.16669 15.9998 3.16669Z"
+                                                                fill="#ABA7AF"
+                                                                stroke="#ABA7AF"
+                                                            />
+                                                            <path
+                                                                d="M20.7174 20.6773L20.707 20.6704L20.6962 20.6639L16.5631 18.1974C16.563 18.1974 16.563 18.1973 16.5629 18.1973C15.6878 17.6743 15.02 16.491 15.02 15.48V10.0133C15.02 9.74278 15.2495 9.51331 15.52 9.51331C15.7905 9.51331 16.02 9.74278 16.02 10.0133V15.48C16.02 15.8383 16.1615 16.2219 16.3371 16.5305C16.5117 16.8375 16.7686 17.1558 17.0794 17.3374L21.2105 19.8027L21.2104 19.8027L21.2148 19.8052C21.443 19.9383 21.5275 20.2366 21.3852 20.4881C21.276 20.6582 21.1049 20.74 20.9467 20.74C20.8531 20.74 20.7808 20.7195 20.7174 20.6773Z"
+                                                                fill="#ABA7AF"
+                                                                stroke="#ABA7AF"
+                                                            />
+                                                        </svg>
+                                                        <p className="mb-0">Durations</p>
+                                                        <h6>{product.duration} </h6>
+                                                    </div>
+                                                    <div className="tourLandStaticItem text-center">
+                                                        <svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            width={32}
+                                                            height={32}
+                                                            viewBox="0 0 32 32"
+                                                            fill="none"
+                                                        >
+                                                            <path
+                                                                d="M30.037 15.0049C30.3693 15.7445 30.2428 16.5757 29.7042 17.19C29.7041 17.1901 29.704 17.1902 29.7039 17.1903L19.6113 28.6562C19.6112 28.6562 19.6112 28.6563 19.6111 28.6563C19.2161 29.1046 18.6613 29.34 18.0931 29.34C17.8452 29.34 17.5971 29.297 17.3593 29.2108C16.5583 28.9109 16.0465 28.1664 16.0465 27.3067V18.7067V18.2067H15.5465H12.4265C11.6108 18.2067 10.9089 17.7496 10.5759 17.0084C10.2436 16.2688 10.3701 15.4375 10.9088 14.8233C10.9089 14.8232 10.9089 14.8231 10.909 14.8231L21.0012 3.35769C21.0013 3.35757 21.0014 3.35744 21.0015 3.35732C21.5728 2.71083 22.4458 2.49022 23.2461 2.79969L23.2461 2.79972L23.2516 2.80176C24.0537 3.10122 24.5664 3.84617 24.5664 4.70667V13.3067V13.8067H25.0664H28.1865C29.0021 13.8067 29.704 14.2637 30.037 15.0049ZM17.7176 28.2948L17.8931 27.8267L17.7176 28.2948C17.884 28.3572 18.4339 28.5058 18.8584 28.0066L28.9468 16.5322C28.9471 16.5318 28.9475 16.5315 28.9478 16.5311C29.3556 16.0713 29.1924 15.5846 29.126 15.4297C29.0537 15.2609 28.7892 14.8067 28.1731 14.8067H24.0531C23.7826 14.8067 23.5531 14.5772 23.5531 14.3067V4.70667C23.5531 4.1093 23.1341 3.84011 22.9243 3.74898C22.8423 3.70662 22.7636 3.6881 22.715 3.67884C22.644 3.6653 22.572 3.66 22.5065 3.66C22.27 3.66 21.9715 3.74353 21.7393 4.02222L11.6527 15.4945C11.6524 15.4949 11.6521 15.4953 11.6517 15.4956C11.244 15.9555 11.4072 16.4421 11.4736 16.597C11.5459 16.7658 11.8104 17.22 12.4265 17.22H16.5465C16.817 17.22 17.0465 17.4495 17.0465 17.72V27.32C17.0465 27.9609 17.5288 28.224 17.7176 28.2948Z"
+                                                                fill="#ABA7AF"
+                                                                stroke="#ABA7AF"
+                                                            />
+                                                            <path
+                                                                d="M11.3333 5.83331H2C1.72948 5.83331 1.5 5.60384 1.5 5.33331C1.5 5.06279 1.72948 4.83331 2 4.83331H11.3333C11.6039 4.83331 11.8333 5.06279 11.8333 5.33331C11.8333 5.60384 11.6039 5.83331 11.3333 5.83331Z"
+                                                                fill="#ABA7AF"
+                                                                stroke="#ABA7AF"
+                                                            />
+                                                            <path
+                                                                d="M10 27.6667H2C1.45333 27.6667 1 27.2134 1 26.6667C1 26.12 1.45333 25.6667 2 25.6667H10C10.5467 25.6667 11 26.12 11 26.6667C11 27.2134 10.5467 27.6667 10 27.6667Z"
+                                                                fill="#ABA7AF"
+                                                            />
+                                                            <path
+                                                                d="M6 17H2C1.45333 17 1 16.5467 1 16C1 15.4533 1.45333 15 2 15H6C6.54667 15 7 15.4533 7 16C7 16.5467 6.54667 17 6 17Z"
+                                                                fill="#ABA7AF"
+                                                            />
+                                                        </svg>
+                                                        <p className="mb-0">Confirmation</p>
+                                                        <h6> {product.is_instant_confirmation ? 'Instant' : 'Not Instant'}</h6>
+                                                    </div>
+                                                    <div className="tourLandStaticItem text-center">
+                                                        <svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            width={32}
+                                                            height={32}
+                                                            viewBox="0 0 32 32"
+                                                            fill="none"
+                                                        >
+                                                            <path
+                                                                d="M22.6528 12.4466H9.34619C9.07567 12.4466 8.84619 12.2171 8.84619 11.9466C8.84619 11.6761 9.07567 11.4466 9.34619 11.4466H22.6528C22.9234 11.4466 23.1528 11.6761 23.1528 11.9466C23.1528 12.2171 22.9234 12.4466 22.6528 12.4466Z"
+                                                                fill="#ABA7AF"
+                                                                stroke="#ABA7AF"
+                                                            />
+                                                            <path
+                                                                d="M16 12.4467C15.7295 12.4467 15.5 12.2172 15.5 11.9467V9.70673C15.5 9.4362 15.7295 9.20673 16 9.20673C16.2705 9.20673 16.5 9.4362 16.5 9.70673V11.9467C16.5 12.2172 16.2705 12.4467 16 12.4467Z"
+                                                                fill="#ABA7AF"
+                                                                stroke="#ABA7AF"
+                                                            />
+                                                            <path
+                                                                d="M9.3335 23.2932C8.78683 23.2932 8.3335 22.8399 8.3335 22.2932C8.3335 21.7465 8.78683 21.2932 9.3335 21.2932C14.2935 21.2932 18.3335 17.0933 18.3335 11.9199C18.3335 11.3733 18.7868 10.9199 19.3335 10.9199C19.8802 10.9199 20.3335 11.3733 20.3335 11.9199C20.3335 18.1999 15.4002 23.2932 9.3335 23.2932Z"
+                                                                fill="#ABA7AF"
+                                                            />
+                                                            <path
+                                                                d="M22.667 23.2933C20.0403 23.2933 17.6003 21.9867 15.8136 19.6001C15.4803 19.1601 15.5737 18.5334 16.0137 18.2001C16.4537 17.8667 17.0803 17.96 17.4136 18.4C18.827 20.2667 20.6937 21.2933 22.6803 21.2933C23.227 21.2933 23.6803 21.7467 23.6803 22.2933C23.6803 22.84 23.2137 23.2933 22.667 23.2933Z"
+                                                                fill="#ABA7AF"
+                                                            />
+                                                            <path
+                                                                d="M19.9998 30.3334H11.9998C4.75984 30.3334 1.6665 27.24 1.6665 20V12C1.6665 4.76002 4.75984 1.66669 11.9998 1.66669H19.9998C27.2398 1.66669 30.3332 4.76002 30.3332 12V20C30.3332 27.24 27.2398 30.3334 19.9998 30.3334ZM11.9998 3.66669C5.85317 3.66669 3.6665 5.85335 3.6665 12V20C3.6665 26.1467 5.85317 28.3334 11.9998 28.3334H19.9998C26.1465 28.3334 28.3332 26.1467 28.3332 20V12C28.3332 5.85335 26.1465 3.66669 19.9998 3.66669H11.9998Z"
+                                                                fill="#ABA7AF"
+                                                            />
+                                                        </svg>
+                                                        <p className="mb-0">Languages</p>
+                                                        <h6 className="text-nowrap">{product.languages.join(' / ')}</h6>
+                                                    </div>
+                                                    <div className="tourLandStaticItem text-center">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#ABA7AF" class="bi bi-calendar4" viewBox="0 0 16 16">
+                                                            <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M2 2a1 1 0 0 0-1 1v1h14V3a1 1 0 0 0-1-1zm13 3H1v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z" />
+                                                        </svg>
+                                                        <p className="mb-0">Availability</p>
+                                                        <h6 className="text-nowrap">{product.availability}</h6>
+                                                    </div>
+                                                    <div className="tourLandStaticItem text-center">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#ABA7AF" class="bi bi-car-front" viewBox="0 0 16 16">
+                                                            <path d="M4 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0m10 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0M6 8a1 1 0 0 0 0 2h4a1 1 0 1 0 0-2zM4.862 4.276 3.906 6.19a.51.51 0 0 0 .497.731c.91-.073 2.35-.17 3.597-.17s2.688.097 3.597.17a.51.51 0 0 0 .497-.731l-.956-1.913A.5.5 0 0 0 10.691 4H5.309a.5.5 0 0 0-.447.276" />
+                                                            <path d="M2.52 3.515A2.5 2.5 0 0 1 4.82 2h6.362c1 0 1.904.596 2.298 1.515l.792 1.848c.075.175.21.319.38.404.5.25.855.715.965 1.262l.335 1.679q.05.242.049.49v.413c0 .814-.39 1.543-1 1.997V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.338c-1.292.048-2.745.088-4 .088s-2.708-.04-4-.088V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.892c-.61-.454-1-1.183-1-1.997v-.413a2.5 2.5 0 0 1 .049-.49l.335-1.68c.11-.546.465-1.012.964-1.261a.8.8 0 0 0 .381-.404l.792-1.848ZM4.82 3a1.5 1.5 0 0 0-1.379.91l-.792 1.847a1.8 1.8 0 0 1-.853.904.8.8 0 0 0-.43.564L1.03 8.904a1.5 1.5 0 0 0-.03.294v.413c0 .796.62 1.448 1.408 1.484 1.555.07 3.786.155 5.592.155s4.037-.084 5.592-.155A1.48 1.48 0 0 0 15 9.611v-.413q0-.148-.03-.294l-.335-1.68a.8.8 0 0 0-.43-.563 1.8 1.8 0 0 1-.853-.904l-.792-1.848A1.5 1.5 0 0 0 11.18 3z" />
+                                                        </svg>
+                                                        <p className="mb-0">Pickup Details</p>
+                                                        <h6 className="text-nowrap">{product.pickup_details || 'N/A'}</h6>
+                                                    </div>
                                                 </div>
-                                                <div>
 
+                                            </div>
+                                            
+                                        </Col>
+                                        <Col lg={4}>
+                                            <div className='wishlistAndShareBtn d-flex align-items-end flex-column  mt-3'>
+                                                <div className="shareButtons d-flex align-items-center  gap-3">
                                                     <div className="shareButtonsItem">
-                                                        {/* <p><strong>Meta Tags:</strong> {product.meta_tags}</p> */}
-                                                        <SocialShareIcons />
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" className="iconItem" height="20" viewBox="0 0 28 28" fill="none"><path d="M14.7233 24.2784C14.3266 24.4184 13.6733 24.4184 13.2766 24.2784C9.89325 23.1234 2.33325 18.305 2.33325 10.1384C2.33325 6.53337 5.23825 3.6167 8.81992 3.6167C10.9433 3.6167 12.8216 4.64337 13.9999 6.23003C15.1783 4.64337 17.0683 3.6167 19.1799 3.6167C22.7616 3.6167 25.6666 6.53337 25.6666 10.1384C25.6666 18.305 18.1066 23.1234 14.7233 24.2784Z" stroke="black" className="iconItem" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                                                    </div>
+                                                    <div>
+
+                                                        <div className="shareButtonsItem">
+                                                            {/* <p><strong>Meta Tags:</strong> {product.meta_tags}</p> */}
+                                                            <SocialShareIcons />
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </Col>
+
                                     </Row>
 
                                     {/* Lightbox Modal - Only render when needed and images are loaded */}
@@ -529,21 +641,21 @@ const TopPickDetails = ({ apiData }) => {
                                                             Check Availability
                                                         </button>
                                                         <div className="mt-3 mb-3">
-                                                        {showError && <p className="SelectDate">{showError}</p>}
-                                                        {callingApi && <div className="loading-spinner">
-                                                           <center>
-                                                           <span>Checking Availability...</span>
-                                                            <div className="spinner-border text-warning" role="status">
-                                                                <span className="sr-only"></span>
-                                                            </div>
-                                                           </center>
-                                                        </div>}
+                                                            {showError && <p className="SelectDate">{showError}</p>}
+                                                            {callingApi && <div className="loading-spinner">
+                                                                <center>
+                                                                    <span>Checking Availability...</span>
+                                                                    <div className="spinner-border text-warning" role="status">
+                                                                        <span className="sr-only"></span>
+                                                                    </div>
+                                                                </center>
+                                                            </div>}
                                                         </div>
                                                     </div>
                                                     {optionsData.length > 0 ?
                                                         optionsData?.map((option, index) => {
                                                             return (<div>
-                                                                <AvailabilityAccordion key={index} option={option} bookNow={bookNow} onTimeChange={onTimeChange}/>
+                                                                <AvailabilityAccordion key={index} option={option} bookNow={bookNow} onTimeChange={onTimeChange} />
                                                             </div>);
                                                         })
                                                         :

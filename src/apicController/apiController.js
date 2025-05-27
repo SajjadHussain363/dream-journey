@@ -11,19 +11,33 @@ const POST = async (route, formData, header={}) => {
   return result.data
 }
 
-const GET = async (route, formData, header={}) => {
-  // console.log("function Start")
+const GET = async (route, formData, header = {}) => {
+  const userData = localStorage.getItem("userData");
+  let accessToken = null;
+  
+  if (userData) {
+    try {
+      const parsedData = JSON.parse(userData);
+      accessToken = parsedData.access_token;
+    } catch (error) {
+      console.warn("Error parsing userData from localStorage:", error);
+    }
+  }
+  
+  const headers = { ...header };
+  if (accessToken) {
+    headers.Authorization = `Bearer ${accessToken}`;
+  }
+  
   var result = await Axios({
     method: 'GET',
-    headers: header,
-    url: process.env.REACT_APP_API_URL+route,
+    headers: headers,
+    url: process.env.REACT_APP_API_URL + route,
     data: formData
   });
-  // console.log(result.data);
-
-  return result.data
   
-}
+  return result.data;
+};
 
 const DELETE = async (route, id, formData, header) => {
   var result = await Axios({

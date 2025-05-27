@@ -11,6 +11,7 @@ const ProductsSearchByFilter = () => {
   const [themes, setThemes] = useState([]);
   const [loadingCategories, setLoadingCategories] = useState(true);
   const [loadingThemes, setLoadingThemes] = useState(true);
+  const [loadingProducts, setLoadingProducts] = useState(false);
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -47,8 +48,30 @@ const ProductsSearchByFilter = () => {
       }
     };
 
+
+    const fetchProducts = async () => {
+      try {
+        const result = await GET("products", {}, {
+          Authorization: "Bearer 4|kmudIKPRt4bXIg3B4Vw9d58yipL5gECSv2k1NujOf516758f",
+          Accept: "application/json",
+        });
+
+        if (result && Array.isArray(result.data)) {
+          setThemes(result.data.map((item) => item.name));
+        }
+      } catch (error) {
+        console.error("Error fetching Products:", error);
+      } finally {
+        setLoadingProducts(false);
+      }
+    };
+
+
+
+
     fetchCategories();
     fetchThemes();
+    fetchProducts();
   }, []);
 
   const toggleTag = (tag) => {
