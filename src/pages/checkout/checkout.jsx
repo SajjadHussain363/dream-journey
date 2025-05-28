@@ -7,6 +7,15 @@ import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
+import GetOffersDeals from "../../components/GetOffersDeals/GetOffersDeals";
+import ScrollToTop from "../../components/ScrollToTop/ScrollToTop";
+import { Link } from "react-router-dom";
+import { Container, Row, Col } from 'react-bootstrap';
+
+import CheckOutBookingCard from "../../components/CheckOutBookingCard/CheckOutBookingCard";
+
+
 
 const libraries = ["places"];
 
@@ -64,26 +73,38 @@ const Checkout = () => {
   };
 
   return (
+    <section className="checkout_wrapper">
+     <ScrollToTop />
+    
     <div>
+      {/* <React.Fragment> */}
+     
       <Header/>
-      <div className="booking-container">
+      <div className="booking-container mt-5">
         <nav className="breadcrumb">
-          <a href="#">Home</a> <span>&gt;</span>
-          <a href="#">Experience</a> <span>&gt;</span>
-          <a href="#">Sand & Desert</a> <span>&gt;</span>
+          <Link to="/">Home</Link> <span> - </span>
+          <Link to="/experience">Experience</Link> <span> - </span>
+          <Link to="/experience/sand-desert">Sand & Desert</Link> <span> - </span>
           <span>Cart</span>
         </nav>
 
-        <div className="booking-timer">
-          <span className="icon">⏱</span> We guarantee your booking for the next
-          30:00 min
+        <div className="CO_booking-timer text-center">
+        <span className="icon">⏱</span> We guarantee your booking for the next 30:00 min
         </div>
 
         {/* Stepper */}
         <div class="stepper-header">
-          <div class="stepper-grid">
-            <h1 class="step-title">Contact Details</h1>
-
+          <div class="stepper-grid d-flex justify-content-between align-items-center  ">
+           <Container>
+           <Row>
+              <Col md={5}>
+              <div>
+            <h1 class="step-title">Complete your booking</h1>
+            <small>Tour ID: <span>1234ABCD</span></small>
+            </div>
+              </Col>
+              <Col md={7}>
+              <div>
             <div class="stepper">
               <div class="step active">
                 <div class="circle checked">✔</div>
@@ -113,49 +134,24 @@ const Checkout = () => {
                 </div>
               </div>
             </div>
+            </div>
+              </Col>
+            </Row>
+           </Container>
+            
+            
+            
+            
           </div>
         </div>
       </div>
 
-      <div className="container-fluid">
+      <div className="container">
         <div className="row">
           {/* location Col */}
           <div className="col-md-6">
-            <div className="loginContainer">
-              <div className="loginHead">Contact Details</div>
-
-              <div className="d-flex align-items-start mt-2">
-                <input
-                  type="text"
-                  className="form-control me-3"
-                  aria-describedby="emailHelp"
-                  placeholder="Your Name"
-                />
-
-                <div style={{ width: "100%" }}>
-                  <PhoneInput
-                    country={"us"}
-                    value={phone}
-                    onChange={(value) => setPhone(value)}
-                  />
-                </div>
-              </div>
-
-              <div className="mt-3">
-                <input
-                  type="email"
-                  class="form-control mt-2"
-                  id="exampleInputEmail1"
-                  aria-describedby="emailHelp"
-                  placeholder="Your Email"
-                ></input>
-              </div>
-
-              <div className="loginDescrp mt-4">
-                We need your email to send the confirmation and phone to contact
-                you for this trip. Privacy Policy
-              </div>
-            </div>
+            
+            <CheckOutBookingCard />
 
             <div className="card-container mt-5">
               {myAppData?.map((item, index) => (
@@ -234,11 +230,11 @@ const Checkout = () => {
             <div className="dataContainer">
               <div className="topData">
                 <div className="orderHead">Order Summary</div>
-                <div className="row">
-                  <div className="col">
+                <div className=" d-flex justify-content-between">
+                  <div className="">
                     {myAppData?.length} Experiences Added
                   </div>
-                  <div className="col">Show Details</div>
+                  <div className="">View Details</div>
                 </div>
 
                 <div className="card-container">
@@ -308,6 +304,7 @@ const Checkout = () => {
                     </span>
                   </div>
                 </div>
+                <Link className="chckotsbtns" to = "/add-checkout">Quick Checkout </Link>
               </div>
             </div>
 
@@ -327,7 +324,10 @@ const Checkout = () => {
           </div>
         </div>
       </div>
+      <GetOffersDeals/>
+      <Footer/>
     </div>
+    </section>
   );
 };
 

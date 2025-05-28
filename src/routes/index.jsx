@@ -21,6 +21,7 @@ import Customers from '../pages/Customers/Customer';
 import Cart from '../pages/Cart/Cart';
 import CheckoutLogin from '../pages/checkout-login/checkoutLogin';
 import Checkout from '../pages/checkout/checkout';
+import AddCheckout from '../pages/AddCheckout/AddCheckout';
 
 const Index = () => {
   return (
@@ -48,7 +49,8 @@ const Index = () => {
       <Route path="/cart" Component={Cart} />
       <Route path="/checkout-login" Component={CheckoutLogin} />
       <Route path="/checkout" Component={Checkout} />
-
+      <Route path="/add-checkout" Component={AddCheckout} />
+      
       
     
      </Routes>

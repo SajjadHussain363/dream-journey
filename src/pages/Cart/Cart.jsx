@@ -130,10 +130,11 @@ const Cart = () => {
                         <p className="text-muted small mb-1">{item.description}</p>
                       </div>
                       <div className="col-12 col-md-3 mt-2 mt-md-0">
-                     <Link to="/edit-cart" className='text-decoration-none'>
-                     <i class="bi bi-pencil-square"></i>
-                     <span>  Edit</span>
-                     </Link>
+
+                        <Link to={`/top-pick-details/${item.slug}`} className="Products_card_title text-decoration-none">
+                        <i class="bi bi-pencil-square"></i>
+                        <span>  Edit</span>               
+                        </Link>
                       </div>
                       <div className="col-6 col-md-2  mt-md-0">
                         

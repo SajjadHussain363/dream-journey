@@ -295,7 +295,7 @@ const ThingsToDo = () => {
                   ))}
                 </div>
                 <div className="FiltrsRestBtns">
-                  <button className="FltRstBtns enhanced-reset-btn" onClick={resetAllFilters}>
+                  <button className="FltRstBtns" onClick={resetAllFilters}>
                     Reset Filters
                   </button>
                 </div>
@@ -316,7 +316,7 @@ const ThingsToDo = () => {
                   ))}
                 </Accordion>
                 <div className="FiltrsRestBtns2">
-                  <button className="FltRstBtns2 enhanced-clear-btn" onClick={resetAllFilters}>
+                  <button className="FltRstBtns2" onClick={resetAllFilters}>
                     Clear All
                   </button>
                 </div>
@@ -388,7 +388,10 @@ const ThingsToDo = () => {
                       </div>
                       <div>
                         <div className="d-flex justify-content-between align-items-center">
-                          <h3 className="TTD_headings">{product.name}</h3>
+                         <Link to={`/top-pick-details/${product.uid}`} className="Products_card_title text-decoration-none">
+                            <h3 className="TTD_headings">{product.name}</h3>
+                           </Link>
+
                           <button className="btn wishlist-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
                               <path d="M14.7233 24.2784C14.3266 24.4184 13.6733 24.4184 13.2766 24.2784C9.89325 23.1234 2.33325 18.305 2.33325 10.1384C2.33325 6.53337 5.23825 3.6167 8.81992 3.6167C10.9433 3.6167 12.8216 4.64337 13.9999 6.23003C15.1783 4.64337 17.0683 3.6167 19.1799 3.6167C22.7616 3.6167 25.6666 6.53337 25.6666 10.1384C25.6666 18.305 18.1066 23.1234 14.7233 24.2784Z" stroke="#1A141F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>

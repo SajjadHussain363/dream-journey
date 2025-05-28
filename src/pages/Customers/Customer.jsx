@@ -11,33 +11,25 @@ import './Customers.css';
 
 function Customers() {
 
-    const [fethingData, setFetchingData] =  useState();
+    const [fethingData, setFetchingData] = useState();
     const [isEditing, setIsEditing] = useState(true);
     const [formData, setFormData] = useState();
 
-
-    useEffect(()=>{
+    useEffect(() => {
         fetchProfileData();
-    },[]);
-    
+    }, []);
 
-
-    const fetchProfileData = async ()=>{
+    const fetchProfileData = async () => {
         try {
             setFetchingData(true);
-            var response = await GET("profile");   
+            var response = await GET("profile");
             setFormData(response);
             setFetchingData(false);
         } catch (error) {
             console.log(error);
             setFetchingData(false);
-        } finally {
-            setFetchingData(false);
         }
     };
-
-
-    
 
     const [originalData, setOriginalData] = useState(formData);
 
@@ -64,7 +56,7 @@ function Customers() {
         <div className='customers-wrappers'>
             <Header />
             <Container>
-            <Row>
+                <Row>
                     <Col md={12}>
                         <div className="cs_breadcrub mt-5">
                             <Link className="breadcrumb_parent" to="/">Home</Link> - <span className="breadcrumb_child">Account</span>
@@ -85,10 +77,11 @@ function Customers() {
                                     <div className="tab-contentInnerOne mt-3">
 
                                         <div className="editBtn mb-4" onClick={handleEdit}>
-                                            ✏️ Edit personal details
+                                            <span><i class="bi bi-pencil-square"></i></span> Edit personal details
                                         </div>
 
                                         {isEditing ? (
+
                                             <div className="edit-form">
                                                 <div className="row gy-2 pt-2">
                                                     <div className="col-md-6">
@@ -96,7 +89,7 @@ function Customers() {
                                                             type="text"
                                                             name="firstName"
                                                             className="form-control"
-                                                            value={formData.first_name}
+                                                            value={formData?.first_name}
                                                             onChange={handleChange}
                                                             placeholder="First Name"
                                                         />
@@ -106,30 +99,16 @@ function Customers() {
                                                             type="text"
                                                             name="lastName"
                                                             className="form-control"
-                                                            value={formData.last_name}
+                                                            value={formData?.last_name}
                                                             onChange={handleChange}
                                                             placeholder="Last Name"
                                                         />
                                                     </div>
                                                     <div className="col-md-6">
-                                                        <input
-                                                            type="text"
-                                                            name="phone"
-                                                            className="form-control"
-                                                            value={formData.phone}
-                                                            onChange={handleChange}
-                                                            placeholder="Phone"
-                                                        />
+                                                        {/* Phone input - currently commented out */}
                                                     </div>
                                                     <div className="col-md-6">
-                                                        <input
-                                                            type="email"
-                                                            name="email"
-                                                            className="form-control"
-                                                            value={formData.email}
-                                                            onChange={handleChange}
-                                                            placeholder="Email"
-                                                        />
+                                                        {/* Email input - currently commented out */}
                                                     </div>
                                                 </div>
                                                 <div className="mt-3 d-flex gap-3">
@@ -139,16 +118,19 @@ function Customers() {
                                             </div>
                                         ) : (
                                             <>
-                                            {fethingData ? <>Loader aithy laaao...</> : <>
-                                            <h4>{formData?.first_name} {formData?.last_name}</h4>
-                                                <div className="row gy-2 pt-2">
-                                                    <div className="col-md-6 medium-text-normal">Phone: {formData?.phone}</div>
-                                                    <div className="col-md-6 medium-text-normal">Email: {formData?.email}</div>
-                                                </div>
-                                            
-                                            </>}
-                                                
-                                            </>
+                                            {/* Loader added here */}
+                                            {fethingData ? (
+                                                <div className="loader">Loading...</div>
+                                            ) : (
+                                                <>
+                                                    <h4>{formData?.first_name} {formData?.last_name}</h4>
+                                                    <div className="row gy-2 pt-2">
+                                                        <div className="col-md-6 medium-text-normal">Phone: {formData?.phone}</div>
+                                                        <div className="col-md-6 medium-text-normal">Email: {formData?.email}</div>
+                                                    </div>
+                                                </>
+                                            )}
+                                        </>
                                         )}
                                     </div>
 
@@ -178,8 +160,8 @@ function Customers() {
 
                                 <Tab eventKey="upcomingbooking" title="Upcoming Booking">
                                     <div className="tab-contentInnerOne">
-                                    <h4>Active Trips</h4>
-                                    <p>Records Not Found</p>
+                                        <h4>Active Trips</h4>
+                                        <p>Records Not Found</p>
                                     </div>
                                 </Tab>
                                 <Tab eventKey="pastbooking" title="Past Booking">
@@ -190,15 +172,14 @@ function Customers() {
                                 </Tab>
                                 <Tab eventKey="refunds" title="Refunds">
                                     <div className="tab-contentInnerOne">
-                                    <h4>Refunds</h4>
-                                    <p>Records Not Found</p>
+                                        <h4>Refunds</h4>
+                                        <p>Records Not Found</p>
                                     </div>
                                 </Tab>
                             </Tabs>
                         </div>
                     </Col>
                 </Row>
-                
             </Container>
             <Footer />
         </div>

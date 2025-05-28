@@ -4,7 +4,7 @@ import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import { Link } from "react-router-dom";
 import GetOffersDeals from "../../components/GetOffersDeals/GetOffersDeals";
-import { POST } from "../../apicController/apiController";
+import {GET, POST } from "../../apicController/apiController";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -109,6 +109,15 @@ const Login = () => {
     }
   };
 
+
+
+  const getGoogleLoginUrl = async ()=>{
+    var respons = await GET("auth/google");
+
+
+    console.log(respons);
+  };
+
   return (
     <div className="Login_wrapperst">
       <Header />
@@ -193,12 +202,15 @@ const Login = () => {
                     alt=""
                   />
                 </div>
-                <button className="login-social-option text-center">
+                <div 
+                
+                onClick={()=>getGoogleLoginUrl()}
+                className="login-social-option text-center">
                   <img
                     src="data:image/png;base64,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"
                     alt=""
                   />
-                </button>
+                </div>
               </div>
             </div>
             <div class="commonTxt text-center my-4">

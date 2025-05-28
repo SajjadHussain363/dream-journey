@@ -49,15 +49,15 @@ const AvailabilityAccordion = ({ key, option, bookNow, onTimeChange }) => {
                       <div>
                         <p>Price Breakdown</p>
                         <p>
-                          Adult {adults} x AED {option.cost_per_adult} ={' '}
+                          Adult {adults} x AED {option.cost_per_person} ={' '}
                           {option.total_adult_cost}
                         </p>
                         <p>
-                          Child {children} x AED {option.cost_per_child} ={' '}
+                          Child {children} x AED {option.cost_per_person} ={' '}
                           {option.total_child_cost}
                         </p>
                         <p>
-                          Infant {infants} x AED {option.cost_per_infant} ={' '}
+                          Infant {infants} x AED {option.cost_per_person} ={' '}
                           {option.total_infant_cost}
                         </p>
                         <hr />

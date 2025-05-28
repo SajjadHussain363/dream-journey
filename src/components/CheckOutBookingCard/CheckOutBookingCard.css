@@ -1,0 +1,19 @@
+.textSize12{
+font-size: 12px;
+}
+.ReservrCancel{
+    background: #aba7af;
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+}
+.Checout_Card_wrapper
+ {
+    width: 100%;
+    max-width: 700px;
+    border: 1px solid #d9d1e0;
+    background: white;
+    border-radius: 8px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 15px 15px 15px 15px;
+}
