@@ -246,7 +246,7 @@ const Header = () => {
                 onClick={handleLoginClick}
                 className="d-flex align-items-center cursor-pointer"
               >
-                <div className="d-flex align-items-center">
+                <div className="d-flex align-items-center cursor-pointers">
                   <img
                     src={loginIcon}
                     alt="login"

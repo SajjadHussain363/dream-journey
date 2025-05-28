@@ -93,7 +93,8 @@ function Home() {
       </section>
 
       {/* Product Slider Section */}
-      <SimpleSlider />
+    <SimpleSlider />
+      
       <GatwaySection />
       <Activities />
       <AwardWinning />

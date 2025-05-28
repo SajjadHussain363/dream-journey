@@ -85,7 +85,7 @@ function SimpleSlider() {
 
   return (
     <section className="OurTopPics">
-      <Container fluid className="UAEDestinationsWrapper">
+      <Container className="UAEDestinationsWrapper">
         <Row className="PaddingAll">
           <Col>
             <div className="slider-top-arrows text-end">

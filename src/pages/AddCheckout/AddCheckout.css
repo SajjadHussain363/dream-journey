@@ -1,0 +1,40 @@
+.book_another_activity_wrapper{
+    background: #e5e0eb;
+    border-radius: 10px;
+}
+.Read_more{
+    border: none;
+    background: transparent;
+    color: orange;
+}
+.AddCheckout_Card_wrppr .card-title
+{
+    font-size: 18px;
+    font-weight: 400;
+    color: #1a1a1a;
+    line-height: 1.4;
+    flex: 1 1;
+    margin: 10px 0;
+    font-family: Playfair Display;
+    cursor: pointer;
+    text-align: start;
+}
+.Book_another_activity_title{
+    font-size: 24px;
+    font-weight: 500;
+    color: #1a1a1a;
+    line-height: 1.4;
+    padding: 20px;
+    
+    font-family: Playfair Display;
+    text-align: center;
+}
+.delSmllPrice{
+    color: #aba7af;
+    font-size: 12px;
+}
+.Book_now_arrow{
+    border: none;
+    background: transparent;
+    color: rgb(2, 2, 2);
+}

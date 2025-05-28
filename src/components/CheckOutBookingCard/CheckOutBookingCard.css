@@ -15,5 +15,33 @@ font-size: 12px;
     border-radius: 8px;
     margin: 0 auto;
     overflow: hidden;
-    padding: 15px 15px 15px 15px;
+    padding:25px 25px 0px 30px;
+}
+.freeCancelReserve{
+    background: #aba7af;
+    padding: 10px 40px 10px 20px;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.freeCancelReserve:hover{
+background-color: #18335D;
+transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.Cart_totalAmount{
+    border-top: solid 2px #b7bdbb;
+    border-bottom: solid 2px #b7bdbb;
+    padding: 30px 0px 30px 0px;
+}
+.CheckOutNow{
+    background: #f59602;
+    padding: 10px 30px 10px 30px;
+    border-radius: 20px;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
 }
