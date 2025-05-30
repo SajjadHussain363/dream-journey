@@ -17,6 +17,7 @@ import CheckOutBookingCard from "../../components/CheckOutBookingCard/CheckOutBo
 import facebookVector from "../../assets/images/facebookVector.png";
 import googleVector from "../../assets/images/googleVector.png";
 import instagramVector from "../../assets/images/instagramVector.png";
+import { useLocalStorageContext } from "../../hooks/LocalStorageContext";
 
 
 
@@ -33,40 +34,24 @@ const defaultCenter = {
 };
 
 const Checkout = () => {
-  const [myAppData, setMyAppData] = useState(null);
+
   const [phone, setPhone] = useState("");
+  const { storedValue, setValue, getCount, removeItem } = useLocalStorageContext();
+  const [subtotal, setSubtotal] = useState(0);
+  const [vat, setVat] = useState(0);
+  const [total, setTotal] = useState(0);
 
   useEffect(() => {
-    const appData = localStorage.getItem("myAppData");
-    if (appData) {
-      const parsedAppData = JSON.parse(appData);
-      setMyAppData(parsedAppData);
-
-      parsedAppData.forEach((item, index) => {
-        console.log(`Item ${index + 1} Title:`, item.title);
-        console.log(`Item ${index + 1} Image URL:`, item.img);
-        console.log(`Item ${index + 1} Total Amount:`, item.totalAmount);
-      });
-    }
-  }, []);
-
-  const totalAmount = myAppData?.reduce(
-    (sum, item) => sum + parseFloat(item.totalAmount || 0),
-    0
-  );
+    const subtotal = storedValue.reduce((sum, item) => sum + item.totalAmount, 0);
+    const vat = subtotal * 0.05;
+    const total = subtotal + vat;
+    setSubtotal(subtotal);
+    setVat(vat);
+    setTotal(total);
+  }, [getCount()]);
 
   const deleteItem = (indexToDelete) => {
-    const updatedData = myAppData.filter((_, index) => index !== indexToDelete);
-
-    // Update state
-    setMyAppData(updatedData);
-
-    // Update localStorage
-    if (updatedData.length > 0) {
-      localStorage.setItem("myAppData", JSON.stringify(updatedData));
-    } else {
-      localStorage.removeItem("myAppData");
-    }
+    removeItem(indexToDelete);
   };
 
   const [selectedLocation, setSelectedLocation] = useState(null);
@@ -250,7 +235,7 @@ const Checkout = () => {
                   <div className="orderHead">Order Summary</div>
                   <div className=" d-flex justify-content-between">
                     <div className="">
-                      {myAppData?.length} Experiences Added
+                      {storedValue?.length} Experiences Added
                     </div>
                     <div className="">View Details</div>
                   </div>
@@ -266,7 +251,7 @@ const Checkout = () => {
                     </div>
                     <div className="col-md-4 text-end">
                       <div style={{ fontWeight: "500", fontSize: "24px", color: "#112211", }}>
-                        AED{totalAmount?.toFixed(2)}
+                        AED : {total?.toFixed(2)}
                       </div>
                     </div>
                     {/* <div className="lineHori"></div> */}

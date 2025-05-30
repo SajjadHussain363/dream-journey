@@ -5,10 +5,27 @@ import EditIcon from "../../assets/images/icons/edit.png";
 import { Row } from 'react-bootstrap';
 import { FaEdit, FaTrash } from "react-icons/fa";
 import "./CheckOutBookingCard.css";
+import { Link } from "react-router-dom";
+import {useLocalStorageContext} from '../../hooks/LocalStorageContext';
 
-const CheckOutBookingCard = () => {
+const CheckOutBookingCard = ({grandTotal}) => {
     const [myAppData, setMyAppData] = useState([]);
     const [phone, setPhone] = useState("");
+    const {storedValue, setValue, getCount, removeItem} = useLocalStorageContext();
+
+    const [subtotal, setSubtotal] = useState(0);
+    const [vat, setVat] = useState(0);
+    const [total, setTotal] = useState(0);
+
+    useEffect(() => {
+        const subtotal = storedValue.reduce((sum, item) => sum + item.totalAmount, 0);
+        const vat = subtotal * 0.05;
+        const total = subtotal + vat;
+        setSubtotal(subtotal);
+        setVat(vat);
+        setTotal(total);
+        grandTotal(total);
+    }, [getCount()]);
 
     useEffect(() => {
         const appData = localStorage.getItem("myAppData");
@@ -19,20 +36,8 @@ const CheckOutBookingCard = () => {
     }, []);
 
     const deleteItem = (indexToDelete) => {
-        const updatedData = myAppData.filter((_, index) => index !== indexToDelete);
-        setMyAppData(updatedData);
-
-        if (updatedData.length > 0) {
-            localStorage.setItem("myAppData", JSON.stringify(updatedData));
-        } else {
-            localStorage.removeItem("myAppData");
-        }
+        removeItem(indexToDelete);
     };
-
-    const totalAmount = myAppData?.reduce(
-        (sum, item) => sum + parseFloat(item.totalAmount || 0),
-        0
-    );
 
 
     const formatDate = (isoDateString) => {
@@ -64,11 +69,12 @@ const CheckOutBookingCard = () => {
 
     return (
         <>
-        <div className="Checout_Card_wrapper">
-            <div className="row">
+        {storedValue?.map((item, index) => (
 
+        <div className="Checout_Card_wrapper mb-5">
+            <div className="row">
                 <div className="card-body">
-                    {myAppData?.map((item, index) => (
+                    
                         <div className="mb-4" key={index}>
                             <div className="d-flex justify-content-between">
                                 <div className="col-md-4 me-3">
@@ -122,7 +128,7 @@ const CheckOutBookingCard = () => {
                                 <p><strong>Booked for: {item.adults || "2"} Adult{item.adults > 1 ? "s" : ""}</strong></p>
                             </div>
                         </div>
-                    ))}
+            
                 </div>
 
 
@@ -149,12 +155,12 @@ const CheckOutBookingCard = () => {
                 <div className="PriceDetails">
                     <h4>Price Details</h4>
                     <div className="d-flex justify-content-between">
-                        <p>2 Adults X AED68.99</p>
-                        <p>AED 127.70</p>
+                        <p>Subtotal</p>
+                        <p>AED {item.totalAmount.toFixed(2)}</p>
                     </div>
                     <div className="d-flex justify-content-between">
                         <p>Vat 5%</p>
-                        <p>AED 6.38</p>
+                        <p>AED {(item.totalAmount * 0.05).toFixed(2)}</p>
                     </div>
                 </div>
             </Row>
@@ -164,25 +170,13 @@ const CheckOutBookingCard = () => {
             <Row className="mb-4">
                 <div className="d-flex justify-content-between">
                     <p><strong>Total</strong></p>
-                    <p><strong>AED {totalAmount?.toFixed(2) || "0.00"}</strong></p>
+                    <p><strong>AED {(item.totalAmount + (item.totalAmount * 0.05)).toFixed(2) || "0.00"}</strong></p>
                 </div>
             </Row>
 
            
         </div>
-        <Row className=" p-5">
-            <div className="Cart_totalAmount d-flex justify-content-between">
-                <div><strong>Cart Total</strong></div>
-                <div><strong>AED 1500</strong></div>
-              </div>
-        </Row>
-        <Row>
-            <div className="d-flex align-items-center text-center">
-            <div>Browes More Tours</div>
-            <div className="CheckOutNow">CheckOut Now</div>
-            </div>
-            
-        </Row>
+        ))}
         </>
     );
 };

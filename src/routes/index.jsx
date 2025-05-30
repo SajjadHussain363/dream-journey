@@ -22,6 +22,7 @@ import Cart from '../pages/Cart/Cart';
 import CheckoutLogin from '../pages/checkout-login/checkoutLogin';
 import Checkout from '../pages/checkout/checkout';
 import AddCheckout from '../pages/AddCheckout/AddCheckout';
+import PayNowOrLater from '../pages/PayNowOrLater/PayNowOrLater';
 
 const Index = () => {
   return (
@@ -50,6 +51,7 @@ const Index = () => {
       <Route path="/checkout-login" Component={CheckoutLogin} />
       <Route path="/checkout" Component={Checkout} />
       <Route path="/add-checkout" Component={AddCheckout} />
+      <Route path="/pay-now-or-later" Component={PayNowOrLater} />
       
       
     

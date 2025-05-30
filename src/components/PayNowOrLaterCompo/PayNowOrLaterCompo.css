@@ -1,0 +1,139 @@
+/* PaymentSelector.css */
+
+.payment-container {
+    margin: 0 auto;
+ 
+  }
+  
+  .payment-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .payment-option {
+    position: relative;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    background-color: white;
+    color: #1f2937;
+    border: 1px solid #e5e7eb;
+  }
+  
+  .payment-option:hover {
+    border-color: #d1d5db;
+  }
+  
+  .payment-option.selected {
+    background-color: #18335d;
+    color: white;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    border-color: #18335d;
+  }
+  
+  .option-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .option-text {
+    flex: 1;
+  }
+  
+  .option-title {
+    font-weight: 600;
+    font-size: 1.125rem;
+    margin: 0 0 0.25rem 0;
+  }
+  
+  .option-description {
+    font-size: 0.875rem;
+    margin: 0 0 0.5rem 0;
+    color: #6b7280;
+  }
+  
+  .payment-option.selected .option-description {
+    color: #d1d5db;
+  }
+  
+  .more-info-btn {
+    font-size: 0.875rem;
+    text-decoration: underline;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    color: #6b7280;
+    margin: 0;
+  }
+  
+  .payment-option.selected .more-info-btn {
+    color: #d1d5db;
+  }
+  
+  .more-info-btn:hover {
+    text-decoration: none;
+  }
+  
+  .radio-button {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    border: 2px solid #d1d5db;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 1rem;
+    flex-shrink: 0;
+  }
+  
+  .radio-button.checked {
+    background-color: white;
+    border-color: white;
+  }
+  
+  .check-icon {
+    width: 1rem;
+    height: 1rem;
+    color: #1e293b;
+  }
+  
+  .selected-display {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: #dbeafe;
+    border-radius: 0.5rem;
+  }
+  
+  .selected-title {
+    font-weight: 500;
+    color: #1e3a8a;
+    margin: 0 0 0.5rem 0;
+  }
+  
+  .selected-text {
+    color: #1e40af;
+    margin: 0;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 480px) {
+    .payment-container {
+      padding: 0.5rem;
+    }
+    
+    .payment-option {
+      padding: 0.75rem;
+    }
+    
+    .option-title {
+      font-size: 1rem;
+    }
+    
+    .radio-button {
+      margin-left: 0.5rem;
+    }
+  }

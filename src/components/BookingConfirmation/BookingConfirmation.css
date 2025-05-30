@@ -1,0 +1,153 @@
+.confirmation-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #f5f7fa;
+    border-radius: 10px;
+  }
+  
+  .confirmation-header h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+  
+  .confirmation-header p {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 20px;
+  }
+  
+  .confirmation-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .tour-details h3 {
+    font-size: 1.1em;
+    margin: 0 0 5px 0;
+    color: #666;
+  }
+  
+  .tour-details h4 {
+    font-size: 1.2em;
+    margin: 0 0 10px 0;
+  }
+  
+  .tour-details .price {
+    font-size: 1.5em;
+    color: #000;
+    margin-bottom: 15px;
+  }
+  
+  .actions {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .download-btn {
+    background: #f4a261;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 50px;
+    cursor: pointer;
+    flex: 1 1;
+    font-size: 12px;
+  }
+  
+  .download-btn:hover {
+    background: #e07a5f;
+  }
+  
+  .view-itinerary {
+    color: #f4a261;
+    text-decoration: none;
+    align-self: center;
+    font-size: 0.9em;
+  }
+  
+  .tour-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  
+  .info-item {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    min-width: 0;
+  }
+  
+  .info-item span.icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  
+  .info-item .calendar {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23666"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V8h14v12zM7 10h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2z"/></svg>');
+  }
+  
+  .info-item .clock {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23666"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-6h2v6zm0-8h-2V7h2v4z"/></svg>');
+  }
+  
+  .info-item .users {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23666"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>');
+  }
+  
+  .info-item .reference {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23666"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8 9H7V7h5v4zm0 4H7v-2h5v2zm6 0h-2v-2h2v2zm0-4h-2V7h2v4z"/></svg>');
+  }
+  
+  .info-item span {
+    font-size: 0.9em;
+    color: #666;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 480px) {
+    .confirmation-container {
+      margin: 10px;
+      padding: 10px;
+    }
+  
+    .tour-details h4 {
+      font-size: 1em;
+    }
+  
+    .tour-details .price {
+      font-size: 1.2em;
+    }
+  
+    .actions {
+      flex-direction: column;
+    }
+  
+    .download-btn {
+      width: 100%;
+    }
+  
+    .view-itinerary {
+      text-align: center;
+      margin-top: 10px;
+    }
+  
+    .tour-info {
+      flex-direction: column;
+    }
+  
+    .info-item {
+      width: 100%;
+    }
+  }

@@ -13,8 +13,8 @@
   /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
   padding-bottom: 15px;
   position: relative;
-  max-height: 570px;
-  height: 560px;
+  /* max-height: 570px;
+  height: 560px; */
 }
 .OurTopPics .Products_card_title{
   text-decoration: none;
@@ -89,6 +89,8 @@
 .OurTopPics .slider-container.ProductCarousel {
   margin-top: 60px;
   position: relative;
+  padding: 110px 80px 30px 20px;
+    overflow: hidden;
 }
 
 /* ---- Responsive ---- */

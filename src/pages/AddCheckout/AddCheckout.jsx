@@ -12,6 +12,7 @@ const AddCheckout = () => {
   const [fetchingData, setFetchingData] = useState(true);
   const [allProducts, setAllProducts] = useState([]);
   const [expandedIndex, setExpandedIndex] = useState(null);
+  const [grandTotal, setGrandTotal] = useState(0);
 
   useEffect(() => {
     getOtherProducts();
@@ -134,7 +135,22 @@ const AddCheckout = () => {
             </div>
           </Col>
           <Col md="6">
-            <CheckOutBookingCard />
+            <CheckOutBookingCard grandTotal={setGrandTotal} />
+            <Row className=" p-5">
+            <div className="Cart_totalAmount d-flex justify-content-between">
+                <div><strong>Cart Total</strong></div>
+                <div><strong>AED {grandTotal}</strong></div>
+              </div>
+        </Row>
+        <Row>
+            <div className="d-flex justify-content-center align-items-center text-center">
+           
+           <Link to="/things-to-do" className="me-3 text-decoration-none color-dark">Browes More Tours</Link>
+           <Link to="/pay-now-or-later" className="CheckOutNow">CheckOut Now</Link>
+          
+            </div>
+            
+        </Row>
           </Col>
         </Row>
       </Container>

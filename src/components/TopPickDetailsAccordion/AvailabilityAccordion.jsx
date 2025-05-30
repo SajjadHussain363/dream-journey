@@ -6,9 +6,9 @@ const AvailabilityAccordion = ({ key, option, bookNow, onTimeChange }) => {
   const [selectedTime, setSelectedTime] = useState(null); // NEW
 
   // Price Breakdown start
-  const adults = option.total_adult_cost / option.cost_per_adult;
-  const children = option.total_child_cost / option.cost_per_child;
-  const infants = option.total_infant_cost / option.cost_per_infant;
+  const adults = option.selected_adult_qty;
+  const children = option.selected_child_qty;
+  const infants = option.selected_infant_qty;
   // Price Breakdown end
 
   return (
@@ -49,16 +49,15 @@ const AvailabilityAccordion = ({ key, option, bookNow, onTimeChange }) => {
                       <div>
                         <p>Price Breakdown</p>
                         <p>
-                          Adult {adults} x AED {option.cost_per_person} ={' '}
-                          {option.total_adult_cost}
+                          Adult {option.selected_adult_qty} x AED {option.cost_per_person} ={' '}
+                          {`${option.selected_adult_qty * option.cost_per_person}`}
                         </p>
                         <p>
-                          Child {children} x AED {option.cost_per_person} ={' '}
-                          {option.total_child_cost}
+                          Child {option.selected_child_qty} x AED {option.cost_per_person} ={' '}
+                          {`${option.selected_child_qty * option.cost_per_person}`}
                         </p>
                         <p>
-                          Infant {infants} x AED {option.cost_per_person} ={' '}
-                          {option.total_infant_cost}
+                          Infant {option.selected_infant_qty} x AED {option.cost_per_person} ={`${option.selected_infant_qty * option.cost_per_person }` }
                         </p>
                         <hr />
                         <p>Price Breakdown Total: AED {option.total_cost}</p>

@@ -134,7 +134,7 @@ const CommanSlider = () => {
                                             </div>
 
                                             <div className="product-card-content-wrapper">
-                                                <div className="d-flex align-items-center justify-content-between">
+                                                <div className="d-flex align-items-flex-start justify-content-between">
                                                     <Link to={`/top-pick-details/${product.uid}`} className="Products_card_title text-decoration-none">
                                                         <h3 className="card-title mt-2">{product.name}</h3>
                                                     </Link>

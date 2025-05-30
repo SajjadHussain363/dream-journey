@@ -27,11 +27,10 @@ const Cart = () => {
 
 
 
-  const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
-  const shipping = 5.0;
-  const total = subtotal + shipping;
-  const totalItems = cartItems.reduce((count, item) => count + item.quantity, 0);
-
+  const subtotal = cartItems.reduce((sum, item) => sum + item.totalAmount, 0);
+  const vat = subtotal * 0.05;
+  const total = subtotal + vat;
+  
 
   useEffect(()=>{
     setCartItems(storedValue);
@@ -120,7 +119,6 @@ const Cart = () => {
               <div className="d-flex flex-column gap-3">
                 {cartItems.map((item, index) => (
                   <div key={index} className="product-card p-3 shadow-sm rounded bg-white">
-                    
                     <div className="row align-items-center">
                       <div className="col-4 col-md-2">
                         <img src={item.img} alt={item.name} className="img-fluid rounded" />
@@ -154,7 +152,7 @@ const Cart = () => {
                       <p><i class="bi bi-check-circle-fill text-success"></i> &nbsp; <strong>Free cancelation:</strong> With in 24 Hours</p><hr />
                      <div className="d-flex justify-content-between gap-2 text_16 font-rubik py-2 cart-product-subtotal">
                      <p>Sub Total: </p>
-                     <p className="text-end text-md-end mt-2"> <strong>${(item.price * item.quantity).toFixed(2)}</strong></p>
+                     <p className="text-end text-md-end mt-2"> <strong>AED : {item.totalAmount}</strong></p>
                      </div>
                     </div>
                   </div>
@@ -169,16 +167,16 @@ const Cart = () => {
 
                 <div className="d-flex justify-content-between mb-2">
                   <span className="text-muted">Subtotal</span>
-                  <span>${subtotal.toFixed(2)}</span>
+                  <span>AED : {subtotal.toFixed(2)}</span>
                 </div>
                 <div className="d-flex justify-content-between mb-2">
-                  <span className="text-muted">Shipping</span>
-                  <span>${shipping.toFixed(2)}</span>
+                  <span className="text-muted">VAT 5%</span>
+                  <span>AED : {vat.toFixed(2)}</span>
                 </div>
                 <hr />
                 <div className="d-flex justify-content-between mb-4">
                   <strong>Total</strong>
-                  <strong>${total.toFixed(2)}</strong>
+                  <strong>AED : {total.toFixed(2)}</strong>
                 </div>
 
                 <div className="input-group mb-3">
